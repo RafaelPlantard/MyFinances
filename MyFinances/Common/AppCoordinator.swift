@@ -25,13 +25,17 @@ final class AppCoordinator: Coordinator {
     // MARK: Coordinator conforms
 
     func start() {
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-
+        setupWindow()
         showIncome()
     }
 
     // MARK: Private functions
+
+    private func setupWindow() {
+        window.backgroundColor = .white
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+    }
 
     private func showIncome() {
         let incomeCoordinator = IncomeCoordinator(navigationController: navigationController)
