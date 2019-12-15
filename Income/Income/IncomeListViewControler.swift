@@ -8,5 +8,5 @@
 
 import UIKit
 
-final class IncomeViewControler: UIViewController {
+final class IncomeListViewControler: UIViewController {
 }

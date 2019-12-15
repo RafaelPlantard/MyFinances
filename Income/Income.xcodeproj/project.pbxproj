@@ -10,7 +10,7 @@
 		538EE8F923A5F45D00C8CF89 /* Income.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE8EF23A5F45D00C8CF89 /* Income.framework */; };
 		538EE8FE23A5F45D00C8CF89 /* IncomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE8FD23A5F45D00C8CF89 /* IncomeTests.swift */; };
 		538EE90023A5F45D00C8CF89 /* Income.h in Headers */ = {isa = PBXBuildFile; fileRef = 538EE8F223A5F45D00C8CF89 /* Income.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		538EE90F23A5F4D400C8CF89 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE90E23A5F4D400C8CF89 /* IncomeViewController.swift */; };
+		538EE90F23A5F4D400C8CF89 /* IncomeListViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */; };
 		538EE91123A5F4F400C8CF89 /* IncomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE91023A5F4F400C8CF89 /* IncomeCoordinator.swift */; };
 		538EE92023A5F69100C8CF89 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE91D23A5F68B00C8CF89 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -60,7 +60,7 @@
 		538EE8F823A5F45D00C8CF89 /* IncomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		538EE8FD23A5F45D00C8CF89 /* IncomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeTests.swift; sourceTree = "<group>"; };
 		538EE8FF23A5F45D00C8CF89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		538EE90E23A5F4D400C8CF89 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
+		538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListViewControler.swift; sourceTree = "<group>"; };
 		538EE91023A5F4F400C8CF89 /* IncomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCoordinator.swift; sourceTree = "<group>"; };
 		538EE91723A5F68B00C8CF89 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +102,7 @@
 			children = (
 				538EE8F223A5F45D00C8CF89 /* Income.h */,
 				538EE8F323A5F45D00C8CF89 /* Info.plist */,
-				538EE90E23A5F4D400C8CF89 /* IncomeViewController.swift */,
+				538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */,
 				538EE91023A5F4F400C8CF89 /* IncomeCoordinator.swift */,
 			);
 			path = Income;
@@ -266,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538EE90F23A5F4D400C8CF89 /* IncomeViewController.swift in Sources */,
+				538EE90F23A5F4D400C8CF89 /* IncomeListViewControler.swift in Sources */,
 				538EE91123A5F4F400C8CF89 /* IncomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

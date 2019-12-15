@@ -21,8 +21,8 @@ public final class IncomeCoordinator: Coordinator {
     // MARK: Coordinator conforms
 
     public func start() {
-        let incomeViewController = IncomeViewControler()
+        let incomeListViewController = IncomeListViewControler()
 
-        navigationController.setViewControllers([incomeViewController], animated: true)
+        navigationController.setViewControllers([incomeListViewController], animated: true)
     }
 }
