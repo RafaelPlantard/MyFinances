@@ -8,15 +8,15 @@
 
 import UIKit
 
-@UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+
     func applicationDidFinishLaunching(_ application: UIApplication) {
-    }
+        let newWindow = UIWindow()
+        newWindow.rootViewController = ViewController()
+        newWindow.backgroundColor = .white
+        newWindow.makeKeyAndVisible()
 
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession,
-                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        window = newWindow
     }
 }
