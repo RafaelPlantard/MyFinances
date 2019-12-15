@@ -79,13 +79,11 @@
 		53C3DB9A23A5E48E00EE9ECB /* MyFinances */ = {
 			isa = PBXGroup;
 			children = (
-				53C3DB9B23A5E48E00EE9ECB /* AppDelegate.swift */,
-				53C3DB9D23A5E48E00EE9ECB /* SceneDelegate.swift */,
+				53C3DBBD23A5E7BE00EE9ECB /* Common */,
+				53C3DBBE23A5E7D400EE9ECB /* Resources */,
 				53C3DB9F23A5E48E00EE9ECB /* ViewController.swift */,
 				53C3DBA123A5E48E00EE9ECB /* Main.storyboard */,
-				53C3DBA423A5E48F00EE9ECB /* Assets.xcassets */,
 				53C3DBA623A5E48F00EE9ECB /* LaunchScreen.storyboard */,
-				53C3DBA923A5E48F00EE9ECB /* Info.plist */,
 			);
 			path = MyFinances;
 			sourceTree = "<group>";
@@ -97,6 +95,24 @@
 				53C3DBB423A5E48F00EE9ECB /* Info.plist */,
 			);
 			path = MyFinancesTests;
+			sourceTree = "<group>";
+		};
+		53C3DBBD23A5E7BE00EE9ECB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DB9B23A5E48E00EE9ECB /* AppDelegate.swift */,
+				53C3DB9D23A5E48E00EE9ECB /* SceneDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		53C3DBBE23A5E7D400EE9ECB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				53C3DBA423A5E48F00EE9ECB /* Assets.xcassets */,
+				53C3DBA923A5E48F00EE9ECB /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,7 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MyFinances/Info.plist;
+				INFOPLIST_FILE = MyFinances/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,7 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MyFinances/Info.plist;
+				INFOPLIST_FILE = MyFinances/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
