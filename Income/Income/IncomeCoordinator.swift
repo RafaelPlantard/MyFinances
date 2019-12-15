@@ -9,16 +9,18 @@
 import Core
 import UIKit
 
-final class IncomeCoordinator: Coordinator {
+public final class IncomeCoordinator: Coordinator {
     private let navigationController: UINavigationController
 
-    init(navigationController: UINavigationController) {
+    // MARK: Initializer
+
+    public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     // MARK: Coordinator conforms
 
-    func start() {
+    public func start() {
         let incomeViewController = IncomeViewControler()
 
         navigationController.setViewControllers([incomeViewController], animated: true)

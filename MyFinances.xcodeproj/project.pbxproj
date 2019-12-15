@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5361788B23A5EECF0060A500 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5361788A23A5EECF0060A500 /* LaunchScreen.xib */; };
+		538EE93623A5FA2500C8CF89 /* Income.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE93223A5F9FC00C8CF89 /* Income.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		538EE93723A5FA3600C8CF89 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE92923A5F9FC00C8CF89 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		538EE93923A5FA6500C8CF89 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE93823A5FA6500C8CF89 /* AppCoordinator.swift */; };
 		53C3DB9C23A5E48E00EE9ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DB9B23A5E48E00EE9ECB /* AppDelegate.swift */; };
 		53C3DBA523A5E48F00EE9ECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C3DBA423A5E48F00EE9ECB /* Assets.xcassets */; };
 		53C3DBB323A5E48F00EE9ECB /* MyFinancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DBB223A5E48F00EE9ECB /* MyFinancesTests.swift */; };
@@ -15,6 +18,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		538EE92823A5F9FC00C8CF89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 538EE92323A5F9FC00C8CF89 /* Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 538EE8C923A5F2A600C8CF89;
+			remoteInfo = Core;
+		};
+		538EE92A23A5F9FC00C8CF89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 538EE92323A5F9FC00C8CF89 /* Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 538EE8D223A5F2A600C8CF89;
+			remoteInfo = CoreTests;
+		};
+		538EE93123A5F9FC00C8CF89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 538EE92C23A5F9FC00C8CF89 /* Income.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 538EE8EF23A5F45D00C8CF89;
+			remoteInfo = Income;
+		};
+		538EE93323A5F9FC00C8CF89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 538EE92C23A5F9FC00C8CF89 /* Income.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 538EE8F823A5F45D00C8CF89;
+			remoteInfo = IncomeTests;
+		};
 		53C3DBAF23A5E48F00EE9ECB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53C3DB9023A5E48E00EE9ECB /* Project object */;
@@ -24,8 +55,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		538EE93523A5FA1100C8CF89 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				538EE93723A5FA3600C8CF89 /* Core.framework in Copy Frameworks */,
+				538EE93623A5FA2500C8CF89 /* Income.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5361788A23A5EECF0060A500 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		538EE92323A5F9FC00C8CF89 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = Core/Core.xcodeproj; sourceTree = "<group>"; };
+		538EE92C23A5F9FC00C8CF89 /* Income.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Income.xcodeproj; path = Income/Income.xcodeproj; sourceTree = "<group>"; };
+		538EE93823A5FA6500C8CF89 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		53C3DB9823A5E48E00EE9ECB /* MyFinances.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFinances.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C3DB9B23A5E48E00EE9ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C3DBA423A5E48F00EE9ECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,9 +103,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		538EE92223A5F9D600C8CF89 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				538EE92C23A5F9FC00C8CF89 /* Income.xcodeproj */,
+				538EE92323A5F9FC00C8CF89 /* Core.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		538EE92423A5F9FC00C8CF89 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				538EE92923A5F9FC00C8CF89 /* Core.framework */,
+				538EE92B23A5F9FC00C8CF89 /* CoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		538EE92D23A5F9FC00C8CF89 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				538EE93223A5F9FC00C8CF89 /* Income.framework */,
+				538EE93423A5F9FC00C8CF89 /* IncomeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		53C3DB8F23A5E48E00EE9ECB = {
 			isa = PBXGroup;
 			children = (
+				538EE92223A5F9D600C8CF89 /* Dependencies */,
 				53C3DB9A23A5E48E00EE9ECB /* MyFinances */,
 				53C3DBB123A5E48F00EE9ECB /* MyFinancesTests */,
 				53C3DB9923A5E48E00EE9ECB /* Products */,
@@ -95,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				53C3DB9B23A5E48E00EE9ECB /* AppDelegate.swift */,
+				538EE93823A5FA6500C8CF89 /* AppCoordinator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -119,6 +197,7 @@
 				53C3DB9423A5E48E00EE9ECB /* Sources */,
 				53C3DB9523A5E48E00EE9ECB /* Frameworks */,
 				53C3DB9623A5E48E00EE9ECB /* Resources */,
+				538EE93523A5FA1100C8CF89 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +256,16 @@
 			mainGroup = 53C3DB8F23A5E48E00EE9ECB;
 			productRefGroup = 53C3DB9923A5E48E00EE9ECB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 538EE92423A5F9FC00C8CF89 /* Products */;
+					ProjectRef = 538EE92323A5F9FC00C8CF89 /* Core.xcodeproj */;
+				},
+				{
+					ProductGroup = 538EE92D23A5F9FC00C8CF89 /* Products */;
+					ProjectRef = 538EE92C23A5F9FC00C8CF89 /* Income.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				53C3DB9723A5E48E00EE9ECB /* MyFinances */,
@@ -184,6 +273,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		538EE92923A5F9FC00C8CF89 /* Core.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Core.framework;
+			remoteRef = 538EE92823A5F9FC00C8CF89 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		538EE92B23A5F9FC00C8CF89 /* CoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoreTests.xctest;
+			remoteRef = 538EE92A23A5F9FC00C8CF89 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		538EE93223A5F9FC00C8CF89 /* Income.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Income.framework;
+			remoteRef = 538EE93123A5F9FC00C8CF89 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		538EE93423A5F9FC00C8CF89 /* IncomeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = IncomeTests.xctest;
+			remoteRef = 538EE93323A5F9FC00C8CF89 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		53C3DB9623A5E48E00EE9ECB /* Resources */ = {
@@ -209,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538EE93923A5FA6500C8CF89 /* AppCoordinator.swift in Sources */,
 				53C3DB9C23A5E48E00EE9ECB /* AppDelegate.swift in Sources */,
 				53C3DBC223A5E90100EE9ECB /* main.swift in Sources */,
 			);

@@ -6,17 +6,23 @@
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
+import Core
 import UIKit
 
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var app: Coordinator?
+
+    // MARK: UIApplicationDelegate conforms
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
+        let navigationController = UINavigationController()
         let newWindow = UIWindow()
-        newWindow.rootViewController = ViewController()
-        newWindow.backgroundColor = .white
-        newWindow.makeKeyAndVisible()
+        let appCoordinator = AppCoordinator(navigationController: navigationController, window: newWindow)
+        appCoordinator.start()
 
+        app = appCoordinator
         window = newWindow
+        
     }
 }
