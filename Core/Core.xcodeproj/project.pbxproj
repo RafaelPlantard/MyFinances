@@ -75,9 +75,9 @@
 		5316B0A523A67AB700D26E76 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5316B0BC23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift */,
 				5316B0B223A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift */,
 				5316B0AF23A67BF300D26E76 /* UIApplication+SafeArea.swift */,
+				5316B0BC23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift */,
 				5316B0B323A67BF400D26E76 /* UIStackView+ArrangedSubview.swift */,
 				5316B0B023A67BF300D26E76 /* UIView+Constraints.swift */,
 				5316B0B123A67BF400D26E76 /* UIView+LayoutGuide.swift */,
@@ -106,9 +106,9 @@
 		538EE8CB23A5F2A600C8CF89 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				5316B0A523A67AB700D26E76 /* Extensions */,
 				5316B0A423A67AAE00D26E76 /* Common */,
 				538EE8CC23A5F2A600C8CF89 /* Core.h */,
+				5316B0A523A67AB700D26E76 /* Extensions */,
 				538EE8CD23A5F2A600C8CF89 /* Info.plist */,
 			);
 			path = Core;
