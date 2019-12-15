@@ -21,10 +21,8 @@ extension UIView {
         viewBuilder(view)
     }
 
-    func addSubview<T: UIView>(equalConstraintsFor view: T, affectedViews: [T] = []) {
-        addSubview(view, affectedViews: affectedViews)
-
-        NSLayoutConstraint.activate([
+    public func addSubview<T: UIView>(equalConstraintsFor view: T, affectedViews: [T] = []) {
+        addSubview(view, affectedViews: affectedViews, constraints: [
             view.topAnchor.constraint(equalTo: topAnchor),
             view.leadingAnchor.constraint(equalTo: leadingAnchor),
             view.trailingAnchor.constraint(equalTo: trailingAnchor),
