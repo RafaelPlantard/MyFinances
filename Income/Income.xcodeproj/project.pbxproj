@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		534C449623A6CAD300E72B65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 534C449323A6A1D800E72B65 /* Localizable.strings */; };
 		538EE8F923A5F45D00C8CF89 /* Income.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE8EF23A5F45D00C8CF89 /* Income.framework */; };
 		538EE8FE23A5F45D00C8CF89 /* IncomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE8FD23A5F45D00C8CF89 /* IncomeTests.swift */; };
 		538EE90023A5F45D00C8CF89 /* Income.h in Headers */ = {isa = PBXBuildFile; fileRef = 538EE8F223A5F45D00C8CF89 /* Income.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		538EE90F23A5F4D400C8CF89 /* IncomeListViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */; };
 		538EE91123A5F4F400C8CF89 /* IncomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE91023A5F4F400C8CF89 /* IncomeCoordinator.swift */; };
 		538EE92023A5F69100C8CF89 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE91D23A5F68B00C8CF89 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53ACFF7123A69406008D388A /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ACFF7023A69406008D388A /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		534C449423A6A1D800E72B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		538EE8EF23A5F45D00C8CF89 /* Income.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Income.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538EE8F223A5F45D00C8CF89 /* Income.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Income.h; sourceTree = "<group>"; };
 		538EE8F323A5F45D00C8CF89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListViewControler.swift; sourceTree = "<group>"; };
 		538EE91023A5F4F400C8CF89 /* IncomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCoordinator.swift; sourceTree = "<group>"; };
 		538EE91723A5F68B00C8CF89 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
+		53ACFF7023A69406008D388A /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 		5316B0C023A68C2800D26E76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				534C449323A6A1D800E72B65 /* Localizable.strings */,
+				53ACFF7023A69406008D388A /* Strings.swift */,
 				538EE8F223A5F45D00C8CF89 /* Income.h */,
 				538EE8F323A5F45D00C8CF89 /* Info.plist */,
 			);
@@ -184,7 +190,9 @@
 			buildConfigurationList = 538EE90323A5F45D00C8CF89 /* Build configuration list for PBXNativeTarget "Income" */;
 			buildPhases = (
 				538EE8EA23A5F45D00C8CF89 /* Headers */,
+				53ACFF6F23A69136008D388A /* SwiftGen */,
 				538EE8EB23A5F45D00C8CF89 /* Sources */,
+				534C449523A6CACC00E72B65 /* Resources */,
 				538EE91323A5F5EB00C8CF89 /* Copy Frameworks */,
 			);
 			buildRules = (
@@ -276,6 +284,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		534C449523A6CACC00E72B65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				534C449623A6CAD300E72B65 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		538EE8F623A5F45D00C8CF89 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,12 +301,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53ACFF6F23A69136008D388A /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Base.lproj/Localizable.strings",
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Strings.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen config run --config \"${SRCROOT}/${PROJECT_NAME}/Resources/swiftgen.yml\"\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		538EE8EB23A5F45D00C8CF89 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				538EE90F23A5F4D400C8CF89 /* IncomeListViewControler.swift in Sources */,
+				53ACFF7123A69406008D388A /* Strings.swift in Sources */,
 				538EE91123A5F4F400C8CF89 /* IncomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +352,17 @@
 			targetProxy = 538EE8FA23A5F45D00C8CF89 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		534C449323A6A1D800E72B65 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				534C449423A6A1D800E72B65 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		538EE90123A5F45D00C8CF89 /* Debug */ = {

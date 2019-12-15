@@ -20,9 +20,19 @@ final class IncomeListViewControler: UIViewController {
         setupLayout()
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupView()
+    }
+
     // MARK: Private functions
 
     private func setupLayout() {
         view.addSubview(equalConstraintsFor: tableView)
+    }
+
+    private func setupView() {
+        title = Localizable.title
     }
 }
