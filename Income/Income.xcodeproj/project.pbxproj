@@ -77,6 +77,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5316B0BE23A68BDC00D26E76 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				5316B0BF23A68C1700D26E76 /* ListIncome */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		5316B0BF23A68C1700D26E76 /* ListIncome */ = {
+			isa = PBXGroup;
+			children = (
+				538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */,
+			);
+			path = ListIncome;
+			sourceTree = "<group>";
+		};
+		5316B0C023A68C2800D26E76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				538EE8F223A5F45D00C8CF89 /* Income.h */,
+				538EE8F323A5F45D00C8CF89 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		538EE8E523A5F45D00C8CF89 = {
 			isa = PBXGroup;
 			children = (
@@ -100,10 +125,9 @@
 		538EE8F123A5F45D00C8CF89 /* Income */ = {
 			isa = PBXGroup;
 			children = (
-				538EE8F223A5F45D00C8CF89 /* Income.h */,
-				538EE8F323A5F45D00C8CF89 /* Info.plist */,
-				538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */,
 				538EE91023A5F4F400C8CF89 /* IncomeCoordinator.swift */,
+				5316B0C023A68C2800D26E76 /* Resources */,
+				5316B0BE23A68BDC00D26E76 /* Scenes */,
 			);
 			path = Income;
 			sourceTree = "<group>";
@@ -419,7 +443,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Income/Info.plist;
+				INFOPLIST_FILE = Income/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,7 +468,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Income/Info.plist;
+				INFOPLIST_FILE = Income/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
