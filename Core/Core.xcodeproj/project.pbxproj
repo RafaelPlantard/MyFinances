@@ -52,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5316B0A423A67AAE00D26E76 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				538EE8E323A5F31A00C8CF89 /* Coordinator.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		538EE8BF23A5F2A600C8CF89 = {
 			isa = PBXGroup;
 			children = (
@@ -73,9 +81,9 @@
 		538EE8CB23A5F2A600C8CF89 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5316B0A423A67AAE00D26E76 /* Common */,
 				538EE8CC23A5F2A600C8CF89 /* Core.h */,
 				538EE8CD23A5F2A600C8CF89 /* Info.plist */,
-				538EE8E323A5F31A00C8CF89 /* Coordinator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
