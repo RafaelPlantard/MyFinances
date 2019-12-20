@@ -26,6 +26,12 @@ final class IncomeListViewControler: UIViewController {
         setupView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupNavigationBar()
+    }
+
     // MARK: Private functions
 
     private func setupLayout() {
@@ -35,4 +41,20 @@ final class IncomeListViewControler: UIViewController {
     private func setupView() {
         title = Localizable.title
     }
+
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: .onAddTapped
+        )
+    }
+
+    // MARK: Fileprivate functions
+
+    @objc
+    fileprivate func onRightBarButtonTapped() {
+    }
+}
+
+private extension Selector {
+    static let onAddTapped = #selector(IncomeListViewControler.onRightBarButtonTapped)
 }
