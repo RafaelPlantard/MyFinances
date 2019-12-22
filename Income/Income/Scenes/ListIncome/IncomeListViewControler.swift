@@ -12,6 +12,10 @@ import UIKit
 final class IncomeListViewControler: UIViewController {
     private let tableView: UITableView = UITableView()
 
+    // MARK: Variables
+
+    weak var delegate: IncomeListViewControllerDelegate?
+
     // MARK: Override functions
 
     override func loadView() {
@@ -39,7 +43,7 @@ final class IncomeListViewControler: UIViewController {
     }
 
     private func setupView() {
-        title = Localizable.title
+        title = Localizable.List.title
     }
 
     private func setupNavigationBar() {
@@ -52,6 +56,7 @@ final class IncomeListViewControler: UIViewController {
 
     @objc
     fileprivate func onRightBarButtonTapped() {
+        delegate?.incomeListRightBarButtonItemTapped(self)
     }
 }
 

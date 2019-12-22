@@ -9,7 +9,7 @@
 import Core
 import UIKit
 
-public final class IncomeCoordinator: Coordinator {
+public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDelegate {
     private let navigationController: UINavigationController
 
     // MARK: Initializer
@@ -22,7 +22,16 @@ public final class IncomeCoordinator: Coordinator {
 
     public func start() {
         let incomeListViewController = IncomeListViewControler()
+        incomeListViewController.delegate = self
 
         navigationController.setViewControllers([incomeListViewController], animated: true)
+    }
+
+    // MARK: IncomeListViewControllerDelegate conforms
+
+    func incomeListRightBarButtonItemTapped(_ viewController: IncomeListViewControler) {
+        let addIncomeViewController = AddIncomeViewController()
+
+        navigationController.pushViewController(addIncomeViewController, animated: true)
     }
 }

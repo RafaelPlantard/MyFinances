@@ -6,4 +6,6 @@
   Copyright © 2019 Swift Yah. All rights reserved.
 */
 
-"title" = "Incomes";
+"list.title" = "Incomes";
+"new.title" = "New Income";
+

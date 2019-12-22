@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533F93E423AEFE23000CE15A /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E323AEFE23000CE15A /* AddIncomeViewController.swift */; };
+		533F93E823AF0039000CE15A /* IncomeListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E723AF0039000CE15A /* IncomeListViewControllerDelegate.swift */; };
 		534C449623A6CAD300E72B65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 534C449323A6A1D800E72B65 /* Localizable.strings */; };
 		538EE8F923A5F45D00C8CF89 /* Income.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE8EF23A5F45D00C8CF89 /* Income.framework */; };
 		538EE8FE23A5F45D00C8CF89 /* IncomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE8FD23A5F45D00C8CF89 /* IncomeTests.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		533F93E323AEFE23000CE15A /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
+		533F93E723AF0039000CE15A /* IncomeListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListViewControllerDelegate.swift; sourceTree = "<group>"; };
 		534C449423A6A1D800E72B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		538EE8EF23A5F45D00C8CF89 /* Income.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Income.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538EE8F223A5F45D00C8CF89 /* Income.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Income.h; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 		5316B0BE23A68BDC00D26E76 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5355088523AEFDD200583DBD /* AddIncome */,
 				5316B0BF23A68C1700D26E76 /* ListIncome */,
 			);
 			path = Scenes;
@@ -93,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */,
+				533F93E723AF0039000CE15A /* IncomeListViewControllerDelegate.swift */,
 			);
 			path = ListIncome;
 			sourceTree = "<group>";
@@ -106,6 +112,14 @@
 				538EE8F323A5F45D00C8CF89 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5355088523AEFDD200583DBD /* AddIncome */ = {
+			isa = PBXGroup;
+			children = (
+				533F93E323AEFE23000CE15A /* AddIncomeViewController.swift */,
+			);
+			path = AddIncome;
 			sourceTree = "<group>";
 		};
 		538EE8E523A5F45D00C8CF89 = {
@@ -329,9 +343,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				533F93E823AF0039000CE15A /* IncomeListViewControllerDelegate.swift in Sources */,
 				538EE90F23A5F4D400C8CF89 /* IncomeListViewControler.swift in Sources */,
 				53ACFF7123A69406008D388A /* Strings.swift in Sources */,
 				538EE91123A5F4F400C8CF89 /* IncomeCoordinator.swift in Sources */,
+				533F93E423AEFE23000CE15A /* AddIncomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
