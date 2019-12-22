@@ -6,6 +6,13 @@
   Copyright © 2019 Swift Yah. All rights reserved.
 */
 
+// MARK: ListIncomeViewController
+
 "list.title" = "Incomes";
+
+// MARK: AddIncomeViewController
+
 "new.title" = "New Income";
+"new.textField.name" = "Income";
+"new.textField.date" = "Date of the income";
 

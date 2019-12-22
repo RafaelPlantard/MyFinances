@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    func addSubview<T: UIView>(_ view: T, affectedViews: [T] = [], constraints: [NSLayoutConstraint]) {
+    public func addSubview<T: UIView>(_ view: T, affectedViews: [T] = [], constraints: [NSLayoutConstraint]) {
         addSubview(view, affectedViews: affectedViews)
 
         NSLayoutConstraint.activate(constraints)
