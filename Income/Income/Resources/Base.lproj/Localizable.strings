@@ -15,4 +15,5 @@
 "new.title" = "New Income";
 "new.textField.name" = "Income";
 "new.textField.date" = "Date of the income";
-
+"new.button.cancel" = "Cancel";
+"new.button.done" = "Done";

@@ -34,6 +34,10 @@ final class AddIncomeViewController: UIViewController {
         return stackView
     }()
 
+    // MARK: Variables
+
+    weak var delegate: AddIncomeViewControllerDelegate?
+
     // MARK: Override functions
 
     override func loadView() {
@@ -48,6 +52,12 @@ final class AddIncomeViewController: UIViewController {
         setupView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupNavigationBar()
+    }
+
     // MARK: Private functions
 
     private func setupLayout() {
@@ -60,8 +70,35 @@ final class AddIncomeViewController: UIViewController {
         separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 
+    private func setupNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: Localizable.New.Button.cancel, style: .plain, target: self, action: .onLeftBarButtonItemTapped
+        )
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: Localizable.New.Button.done, style: .done, target: self, action: .onRightBarButtonItemTapped
+        )
+    }
+
     private func setupView() {
         title = Localizable.New.title
         view.backgroundColor = .white
     }
+
+    // MARK: Fileprivate functions
+
+    @objc
+    fileprivate func onLeftBarButtonItem() {
+        delegate?.addIncomeLeftBarButtonItemTapped(self)
+    }
+
+    @objc
+    fileprivate func onRightBarButtonItem() {
+        delegate?.addIncomeRightBarButtonItemTapped(self)
+    }
+}
+
+private extension Selector {
+    static let onLeftBarButtonItemTapped = #selector(AddIncomeViewController.onLeftBarButtonItem)
+    static let onRightBarButtonItemTapped = #selector(AddIncomeViewController.onRightBarButtonItem)
 }
