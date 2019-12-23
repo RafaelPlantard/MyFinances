@@ -34,6 +34,7 @@ public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDeleg
         addIncomeViewController.delegate = self
 
         let newNavigationController = UINavigationController(rootViewController: addIncomeViewController)
+        newNavigationController.modalPresentationCapturesStatusBarAppearance = true
 
         navigationController.present(newNavigationController, animated: true, completion: nil)
     }
