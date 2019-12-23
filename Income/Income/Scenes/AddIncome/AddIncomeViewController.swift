@@ -9,30 +9,7 @@
 import UIKit
 
 final class AddIncomeViewController: UIViewController {
-    private let titleTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = Localizable.New.TextField.name
-
-        return textField
-    }()
-
-    private let separatorView: UIView = UIView(backgroundColor: .separator)
-
-    private let dateTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = Localizable.New.TextField.date
-        textField.keyboardType = .numberPad
-
-        return textField
-    }()
-
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleTextField, separatorView, dateTextField])
-        stackView.axis = .vertical
-        stackView.spacing = 16
-
-        return stackView
-    }()
+    private let contentView: UIView = AddIncomeView()
 
     // MARK: Variables
 
@@ -61,13 +38,11 @@ final class AddIncomeViewController: UIViewController {
     // MARK: Private functions
 
     private func setupLayout() {
-        view.addSubview(stackView, constraints: [
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        view.addSubview(contentView, constraints: [
+            contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
-
-        separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 
     private func setupNavigationBar() {
