@@ -15,12 +15,17 @@ final class AddIncomePresenter: AddIncomePresentationLogic {
 
     // MARK: Private constants
 
-    private let dateFormatter: DateFormatter = {
+    private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
+        formatter.dateStyle = .medium
         formatter.timeStyle = .none
+        formatter.setLocalizedDateFormatFromTemplate(dateFormat)
 
         return formatter
+    }()
+
+    private let dateFormat: String = {
+        return DateFormatter.dateFormat(fromTemplate: "ddMMyyyy", options: 0, locale: Locale.current).or(.empty)
     }()
 
     // MARK: AddIncomePresentationLogic conforms
