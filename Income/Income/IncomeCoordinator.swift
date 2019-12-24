@@ -30,7 +30,10 @@ public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDeleg
     // MARK: IncomeListViewControllerDelegate conforms
 
     func incomeListRightBarButtonItemTapped(_ viewController: IncomeListViewControler) {
-        let addIncomeViewController = AddIncomeViewController()
+        let presenter = AddIncomePresenter()
+        let interactor = AddIncomeInteractor(presenter: presenter)
+        let addIncomeViewController = AddIncomeViewController(interactor: interactor)
+        presenter.viewController = addIncomeViewController
         addIncomeViewController.delegate = self
 
         let newNavigationController = UINavigationController(rootViewController: addIncomeViewController)

@@ -43,25 +43,56 @@ final class AddIncomeView: UIView {
         return stackView
     }()
 
+    // MARK: Private variables
+
+    private var dateChanged: ((Date) -> ())?
+
     // MARK: Initializer
 
     init() {
         super.init(frame: .zero)
 
         setupLayout()
+        setupActions()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
 
         setupLayout()
+        setupActions()
+    }
+
+    // MARK: Functions
+
+    func bind(action: @escaping (Date) -> ()) {
+        dateChanged = action
+    }
+
+    func update(date: String) {
+        dateTextField.text = date
     }
 
     // MARK: Private functions
+
+    private func setupActions() {
+        datePicker.addTarget(self, action: .onDatePickerChanged, for: .valueChanged)
+    }
 
     private func setupLayout() {
         addSubview(equalConstraintsFor: stackView)
 
         separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
+
+    // MARK: Fileprivate functions
+
+    @objc
+    fileprivate func didDatePickerChanged() {
+        dateChanged?(datePicker.date)
+    }
+}
+
+private extension Selector {
+    static let onDatePickerChanged = #selector(AddIncomeView.didDatePickerChanged)
 }

@@ -8,12 +8,32 @@
 
 import UIKit
 
-final class AddIncomeViewController: UIViewController {
-    private let contentView: UIView = AddIncomeView()
+protocol AddIncomePresentationLogic: AnyObject {
+    func displayIncomeDate(viewModel: AddIncome.FormatDate.ViewModel)
+}
+
+final class AddIncomeViewController: UIViewController, AddIncomePresentationLogic {
+    private let contentView: AddIncomeView = AddIncomeView()
+
+    // MARK: Private constants
+
+    private let interactor: AddIncomeBusinessLogic
 
     // MARK: Variables
-
+    
     weak var delegate: AddIncomeViewControllerDelegate?
+
+    // MARK: Initializer
+
+    init(interactor: AddIncomeBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
     // MARK: Override functions
 
@@ -27,6 +47,7 @@ final class AddIncomeViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        setupActions()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +56,21 @@ final class AddIncomeViewController: UIViewController {
         setupNavigationBar()
     }
 
+    // MARK: AddIncomePresentationLogic conforms
+
+    func displayIncomeDate(viewModel: AddIncome.FormatDate.ViewModel) {
+        contentView.update(date: viewModel.date)
+    }
+
     // MARK: Private functions
+
+    private func setupActions() {
+        contentView.bind { [weak interactor] newDate in
+            let request = AddIncome.FormatDate.Request(date: newDate)
+
+            interactor?.formatIncomeDate(request: request)
+        }
+    }
 
     private func setupLayout() {
         view.addSubview(contentView, constraints: [
