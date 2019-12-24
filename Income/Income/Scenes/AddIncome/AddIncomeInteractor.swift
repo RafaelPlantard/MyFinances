@@ -11,9 +11,9 @@ protocol AddIncomeBusinessLogic: AnyObject {
 }
 
 final class AddIncomeInteractor: AddIncomeBusinessLogic {
-    private let presenter: AddIncomePresenterProtocol
+    private let presenter: AddIncomePresentationLogic
 
-    init(presenter: AddIncomePresenterProtocol) {
+    init(presenter: AddIncomePresentationLogic) {
         self.presenter = presenter
     }
 

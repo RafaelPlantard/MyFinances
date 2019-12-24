@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol AddIncomePresentationLogic: AnyObject {
+protocol AddIncomeDisplayLogic: AnyObject {
     func displayIncomeDate(viewModel: AddIncome.FormatDate.ViewModel)
 }
 
-final class AddIncomeViewController: UIViewController, AddIncomePresentationLogic {
+final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
     private let contentView: AddIncomeView = AddIncomeView()
 
     // MARK: Private constants

@@ -6,12 +6,12 @@
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
-protocol AddIncomePresenterProtocol: AnyObject {
+protocol AddIncomePresentationLogic: AnyObject {
     func presentIncomeDate(response: AddIncome.FormatDate.Response)
 }
 
-final class AddIncomePresenter: AddIncomePresenterProtocol {
-    weak var viewController: AddIncomePresentationLogic?
+final class AddIncomePresenter: AddIncomePresentationLogic {
+    weak var viewController: AddIncomeDisplayLogic?
 
     // MARK: Private constants
 
@@ -23,7 +23,7 @@ final class AddIncomePresenter: AddIncomePresenterProtocol {
         return formatter
     }()
 
-    // MARK: AddIncomePresenterProtocol conforms
+    // MARK: AddIncomePresentationLogic conforms
 
     func presentIncomeDate(response: AddIncome.FormatDate.Response) {
         let date = dateFormatter.string(from: response.date)
