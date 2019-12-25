@@ -54,6 +54,7 @@ final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
         super.viewWillAppear(animated)
 
         setupNavigationBar()
+        contentView.focus()
     }
 
     // MARK: AddIncomePresentationLogic conforms

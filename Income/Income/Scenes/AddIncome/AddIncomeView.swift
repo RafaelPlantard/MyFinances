@@ -8,10 +8,11 @@
 
 import UIKit
 
-final class AddIncomeView: UIView {
-    private let titleTextField: UITextField = {
+final class AddIncomeView: UIView, UITextFieldDelegate {
+    private lazy var titleTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = Localizable.New.TextField.name
+        textField.delegate = self
 
         return textField
     }()
@@ -72,6 +73,18 @@ final class AddIncomeView: UIView {
 
     func update(date: String) {
         dateTextField.text = date
+    }
+
+    func focus() {
+        titleTextField.becomeFirstResponder()
+    }
+
+    // MARK: UITextFieldDelegate conforms
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dateTextField.becomeFirstResponder()
+
+        return false
     }
 
     // MARK: Private functions
