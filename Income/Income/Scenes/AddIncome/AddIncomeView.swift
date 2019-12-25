@@ -17,7 +17,7 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
         return textField
     }()
 
-    private let separatorView: UIView = UIView(backgroundColor: .separator)
+    private let titleSeparatorView: UIView = UIView(backgroundColor: .separator)
 
     private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
@@ -26,6 +26,16 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
 
         return datePicker
     }()
+
+    private lazy var amountTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = Localizable.New.TextField.amount
+        textField.delegate = self
+
+        return textField
+    }()
+
+    private let amountSeparatorView: UIView = UIView(backgroundColor: .separator)
 
     private lazy var dateTextField: UITextField = {
         let textField = UITextField()
@@ -37,12 +47,16 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
     }()
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleTextField, separatorView, dateTextField])
+        let stackView = UIStackView(arrangedSubviews: [
+            titleTextField, titleSeparatorView, amountTextField, amountSeparatorView, dateTextField
+        ])
         stackView.axis = .vertical
         stackView.spacing = 16
 
         return stackView
     }()
+
+    private lazy var orderOfFocus: [UIView] = [titleTextField, amountTextField, dateTextField]
 
     // MARK: Private variables
 
@@ -82,7 +96,10 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
     // MARK: UITextFieldDelegate conforms
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        dateTextField.becomeFirstResponder()
+        let currentIndex = orderOfFocus.enumerated().first(where: { (index, element) in element == textField })
+            .map({ index, _ in index }).or(0)
+
+        orderOfFocus[currentIndex + 1].becomeFirstResponder()
 
         return false
     }
@@ -96,7 +113,8 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
     private func setupLayout() {
         addSubview(equalConstraintsFor: stackView)
 
-        separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        titleSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        amountSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 
     // MARK: Fileprivate functions
