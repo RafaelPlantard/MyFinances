@@ -67,6 +67,7 @@ final class AddIncomeView: UIView {
 
     func bind(action: @escaping (Date) -> ()) {
         dateChanged = action
+        didDatePickerChanged()
     }
 
     func update(date: String) {
