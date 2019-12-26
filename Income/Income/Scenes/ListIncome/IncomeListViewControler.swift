@@ -9,7 +9,11 @@
 import Core
 import UIKit
 
-final class IncomeListViewControler: UIViewController {
+protocol IncomeListDisplayLogic: AnyObject {
+    func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel)
+}
+
+final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
     private let tableView: UITableView = UITableView()
 
     // MARK: Variables
@@ -34,6 +38,11 @@ final class IncomeListViewControler: UIViewController {
         super.viewWillAppear(animated)
 
         setupNavigationBar()
+    }
+
+    // MARK: IncomeListDisplayLogic conforms
+
+    func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel) {
     }
 
     // MARK: Private functions

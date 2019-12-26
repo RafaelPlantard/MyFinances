@@ -17,6 +17,12 @@
 		533F93F223B176E5000CE15A /* AddIncomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93F123B176E5000CE15A /* AddIncomePresenter.swift */; };
 		533F93F423B1AE9F000CE15A /* AddIncomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93F323B1AE9F000CE15A /* AddIncomeModels.swift */; };
 		534C449623A6CAD300E72B65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 534C449323A6A1D800E72B65 /* Localizable.strings */; };
+		5371932523B44C3F0066CDE5 /* IncomeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371932423B44C3F0066CDE5 /* IncomeListInteractor.swift */; };
+		5371932A23B44E9F0066CDE5 /* IncomesStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371932923B44E9F0066CDE5 /* IncomesStoreProtocol.swift */; };
+		5371932C23B4518D0066CDE5 /* IncomeCoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371932B23B4518D0066CDE5 /* IncomeCoreDataStore.swift */; };
+		5371932E23B4575C0066CDE5 /* IncomeListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371932D23B4575C0066CDE5 /* IncomeListWorker.swift */; };
+		5371933023B45CA50066CDE5 /* IncomeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371932F23B45CA50066CDE5 /* IncomeListPresenter.swift */; };
+		5371933223B45D310066CDE5 /* IncomeListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371933123B45D310066CDE5 /* IncomeListModels.swift */; };
 		538EE8F923A5F45D00C8CF89 /* Income.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE8EF23A5F45D00C8CF89 /* Income.framework */; };
 		538EE8FE23A5F45D00C8CF89 /* IncomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE8FD23A5F45D00C8CF89 /* IncomeTests.swift */; };
 		538EE90023A5F45D00C8CF89 /* Income.h in Headers */ = {isa = PBXBuildFile; fileRef = 538EE8F223A5F45D00C8CF89 /* Income.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -75,6 +81,12 @@
 		533F93F123B176E5000CE15A /* AddIncomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomePresenter.swift; sourceTree = "<group>"; };
 		533F93F323B1AE9F000CE15A /* AddIncomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeModels.swift; sourceTree = "<group>"; };
 		534C449423A6A1D800E72B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5371932423B44C3F0066CDE5 /* IncomeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListInteractor.swift; sourceTree = "<group>"; };
+		5371932923B44E9F0066CDE5 /* IncomesStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomesStoreProtocol.swift; sourceTree = "<group>"; };
+		5371932B23B4518D0066CDE5 /* IncomeCoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCoreDataStore.swift; sourceTree = "<group>"; };
+		5371932D23B4575C0066CDE5 /* IncomeListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListWorker.swift; sourceTree = "<group>"; };
+		5371932F23B45CA50066CDE5 /* IncomeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListPresenter.swift; sourceTree = "<group>"; };
+		5371933123B45D310066CDE5 /* IncomeListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListModels.swift; sourceTree = "<group>"; };
 		538EE8EF23A5F45D00C8CF89 /* Income.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Income.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538EE8F223A5F45D00C8CF89 /* Income.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Income.h; sourceTree = "<group>"; };
 		538EE8F323A5F45D00C8CF89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +125,10 @@
 			children = (
 				538EE90E23A5F4D400C8CF89 /* IncomeListViewControler.swift */,
 				533F93E723AF0039000CE15A /* IncomeListViewControllerDelegate.swift */,
+				5371932423B44C3F0066CDE5 /* IncomeListInteractor.swift */,
+				5371932D23B4575C0066CDE5 /* IncomeListWorker.swift */,
+				5371932F23B45CA50066CDE5 /* IncomeListPresenter.swift */,
+				5371933123B45D310066CDE5 /* IncomeListModels.swift */,
 			);
 			path = ListIncome;
 			sourceTree = "<group>";
@@ -143,6 +159,15 @@
 			path = AddIncome;
 			sourceTree = "<group>";
 		};
+		5371932823B44E7A0066CDE5 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5371932923B44E9F0066CDE5 /* IncomesStoreProtocol.swift */,
+				5371932B23B4518D0066CDE5 /* IncomeCoreDataStore.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		538EE8E523A5F45D00C8CF89 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +191,7 @@
 		538EE8F123A5F45D00C8CF89 /* Income */ = {
 			isa = PBXGroup;
 			children = (
+				5371932823B44E7A0066CDE5 /* Storage */,
 				538EE91023A5F4F400C8CF89 /* IncomeCoordinator.swift */,
 				5316B0C023A68C2800D26E76 /* Resources */,
 				5316B0BE23A68BDC00D26E76 /* Scenes */,
@@ -368,14 +394,20 @@
 			files = (
 				533F93EC23AF14F9000CE15A /* AddIncomeViewControllerDelegate.swift in Sources */,
 				533F93E823AF0039000CE15A /* IncomeListViewControllerDelegate.swift in Sources */,
+				5371932E23B4575C0066CDE5 /* IncomeListWorker.swift in Sources */,
 				538EE90F23A5F4D400C8CF89 /* IncomeListViewControler.swift in Sources */,
+				5371932C23B4518D0066CDE5 /* IncomeCoreDataStore.swift in Sources */,
+				5371932523B44C3F0066CDE5 /* IncomeListInteractor.swift in Sources */,
 				533F93F023B17604000CE15A /* AddIncomeInteractor.swift in Sources */,
 				533D5FE923B445D600F70E8E /* CoreData.swift in Sources */,
 				533D5FE523B4438F00F70E8E /* Incomes.xcdatamodeld in Sources */,
 				533F93EE23B17466000CE15A /* AddIncomeView.swift in Sources */,
+				5371933223B45D310066CDE5 /* IncomeListModels.swift in Sources */,
+				5371932A23B44E9F0066CDE5 /* IncomesStoreProtocol.swift in Sources */,
 				53ACFF7123A69406008D388A /* Strings.swift in Sources */,
 				533F93F223B176E5000CE15A /* AddIncomePresenter.swift in Sources */,
 				538EE91123A5F4F400C8CF89 /* IncomeCoordinator.swift in Sources */,
+				5371933023B45CA50066CDE5 /* IncomeListPresenter.swift in Sources */,
 				533F93F423B1AE9F000CE15A /* AddIncomeModels.swift in Sources */,
 				533F93E423AEFE23000CE15A /* AddIncomeViewController.swift in Sources */,
 			);
