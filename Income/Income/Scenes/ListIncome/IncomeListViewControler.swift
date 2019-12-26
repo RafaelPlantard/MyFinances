@@ -14,11 +14,20 @@ protocol IncomeListDisplayLogic: AnyObject {
 }
 
 final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
-    private let tableView: UITableView = UITableView()
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.className)
+
+        return tableView
+    }()
 
     // MARK: Variables
 
     weak var delegate: IncomeListViewControllerDelegate?
+
+    // MARK: Private variables
+
+    private var dataSource: UITableViewDataSource?
 
     // MARK: Override functions
 
@@ -43,6 +52,9 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
     // MARK: IncomeListDisplayLogic conforms
 
     func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel) {
+        tableView.dataSource = TableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome>.make(
+            for: viewModel.displayedIncomes
+        )
     }
 
     // MARK: Private functions
@@ -66,6 +78,15 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
     @objc
     fileprivate func onRightBarButtonTapped() {
         delegate?.incomeListRightBarButtonItemTapped(self)
+    }
+}
+
+private extension TableViewDataSource where Model == IncomeList.FetchIncomes.ViewModel.DisplayedIncome {
+    static func make(for incomes: [Model]) -> TableViewDataSource {
+        return TableViewDataSource(models: incomes, reuseIdentifier: UITableViewCell.className) { (model, cell) in
+            cell.textLabel?.text = model.name
+            cell.detailTextLabel?.text = model.value
+        }
     }
 }
 
