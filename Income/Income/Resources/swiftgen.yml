@@ -1,3 +1,9 @@
+coredata:
+  inputs: Incomes.xcdatamodeld
+  outputs:
+    templateName: swift4
+    output: CoreData.swift
+
 strings:
   inputs: Base.lproj/Localizable.strings
   outputs:

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533D5FE523B4438F00F70E8E /* Incomes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 533D5FE323B4438F00F70E8E /* Incomes.xcdatamodeld */; };
+		533D5FE923B445D600F70E8E /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D5FE823B445D600F70E8E /* CoreData.swift */; };
 		533F93E423AEFE23000CE15A /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E323AEFE23000CE15A /* AddIncomeViewController.swift */; };
 		533F93E823AF0039000CE15A /* IncomeListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E723AF0039000CE15A /* IncomeListViewControllerDelegate.swift */; };
 		533F93EC23AF14F9000CE15A /* AddIncomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93EB23AF14F9000CE15A /* AddIncomeViewControllerDelegate.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		533D5FE423B4438F00F70E8E /* Income.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Income.xcdatamodel; sourceTree = "<group>"; };
+		533D5FE823B445D600F70E8E /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		533F93E323AEFE23000CE15A /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		533F93E723AF0039000CE15A /* IncomeListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListViewControllerDelegate.swift; sourceTree = "<group>"; };
 		533F93EB23AF14F9000CE15A /* AddIncomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -116,10 +120,12 @@
 		5316B0C023A68C2800D26E76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				533D5FE823B445D600F70E8E /* CoreData.swift */,
 				534C449323A6A1D800E72B65 /* Localizable.strings */,
 				53ACFF7023A69406008D388A /* Strings.swift */,
 				538EE8F223A5F45D00C8CF89 /* Income.h */,
 				538EE8F323A5F45D00C8CF89 /* Info.plist */,
+				533D5FE323B4438F00F70E8E /* Incomes.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -340,12 +346,14 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Base.lproj/Localizable.strings",
+				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Incomes.xcdatamodeld",
 			);
 			name = SwiftGen;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Strings.swift",
+				"$(SRCROOT)/$(PROJECT_NAME)/Resources/CoreData.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -362,6 +370,8 @@
 				533F93E823AF0039000CE15A /* IncomeListViewControllerDelegate.swift in Sources */,
 				538EE90F23A5F4D400C8CF89 /* IncomeListViewControler.swift in Sources */,
 				533F93F023B17604000CE15A /* AddIncomeInteractor.swift in Sources */,
+				533D5FE923B445D600F70E8E /* CoreData.swift in Sources */,
+				533D5FE523B4438F00F70E8E /* Incomes.xcdatamodeld in Sources */,
 				533F93EE23B17466000CE15A /* AddIncomeView.swift in Sources */,
 				53ACFF7123A69406008D388A /* Strings.swift in Sources */,
 				533F93F223B176E5000CE15A /* AddIncomePresenter.swift in Sources */,
@@ -637,6 +647,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		533D5FE323B4438F00F70E8E /* Incomes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				533D5FE423B4438F00F70E8E /* Income.xcdatamodel */,
+			);
+			currentVersion = 533D5FE423B4438F00F70E8E /* Income.xcdatamodel */;
+			path = Incomes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 538EE8E623A5F45D00C8CF89 /* Project object */;
 }

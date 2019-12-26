@@ -9,6 +9,7 @@
 ## Build generated
 build/
 DerivedData/
+**/Resources/CoreData.swift
 **/Resources/Strings.swift
 
 ## Various settings
