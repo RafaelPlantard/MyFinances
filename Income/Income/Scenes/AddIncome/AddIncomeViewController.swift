@@ -20,7 +20,7 @@ final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
     private let interactor: AddIncomeBusinessLogic
 
     // MARK: Variables
-    
+
     weak var delegate: AddIncomeViewControllerDelegate?
 
     // MARK: Initializer
