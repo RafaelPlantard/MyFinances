@@ -17,6 +17,7 @@
 		533F93EA23AF107E000CE15A /* UIView+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E923AF107E000CE15A /* UIView+UIColor.swift */; };
 		533F93F623B26110000CE15A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93F523B26110000CE15A /* String.swift */; };
 		533F93F823B26134000CE15A /* Optional+Or.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93F723B26134000CE15A /* Optional+Or.swift */; };
+		5371933423B468880066CDE5 /* NSObjectProtocol+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371933323B468880066CDE5 /* NSObjectProtocol+ClassName.swift */; };
 		538EE8D323A5F2A600C8CF89 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538EE8C923A5F2A600C8CF89 /* Core.framework */; };
 		538EE8D823A5F2A600C8CF89 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE8D723A5F2A600C8CF89 /* CoreTests.swift */; };
 		538EE8DA23A5F2A600C8CF89 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 538EE8CC23A5F2A600C8CF89 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +45,7 @@
 		533F93E923AF107E000CE15A /* UIView+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UIColor.swift"; sourceTree = "<group>"; };
 		533F93F523B26110000CE15A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		533F93F723B26134000CE15A /* Optional+Or.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Or.swift"; sourceTree = "<group>"; };
+		5371933323B468880066CDE5 /* NSObjectProtocol+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+ClassName.swift"; sourceTree = "<group>"; };
 		538EE8C923A5F2A600C8CF89 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538EE8CC23A5F2A600C8CF89 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		538EE8CD23A5F2A600C8CF89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				533F93E923AF107E000CE15A /* UIView+UIColor.swift */,
 				533F93F523B26110000CE15A /* String.swift */,
 				533F93F723B26134000CE15A /* Optional+Or.swift */,
+				5371933323B468880066CDE5 /* NSObjectProtocol+ClassName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				5316B0B523A67BF400D26E76 /* UIApplication+SafeArea.swift in Sources */,
 				533F93F623B26110000CE15A /* String.swift in Sources */,
 				533D5FB123B4345300F70E8E /* CurrencyTextField.swift in Sources */,
+				5371933423B468880066CDE5 /* NSObjectProtocol+ClassName.swift in Sources */,
 				538EE8E423A5F31A00C8CF89 /* Coordinator.swift in Sources */,
 				5316B0B723A67BF400D26E76 /* UIView+LayoutGuide.swift in Sources */,
 				5316B0B923A67BF400D26E76 /* UIStackView+ArrangedSubview.swift in Sources */,
