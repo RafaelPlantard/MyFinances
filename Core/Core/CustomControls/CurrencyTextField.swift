@@ -28,9 +28,8 @@ import UIKit
 
     // MARK: Computed variables
 
-    var value: Double {
-        get { return Double(getCleanNumberString()).or(0) / 100 }
-        set { setAmount(newValue) }
+    public var value: Double {
+        return Double(getCleanNumberString()).or(0) / 100
     }
 
     // MARK: Initializers
@@ -86,10 +85,10 @@ import UIKit
     }
 
     private func setCursorOriginalPosition(_ cursorOffset: Int, oldTextFieldLength : Int?) {
-        let newLength = text?.count
+        let newLength = text.or(.empty).count
         let startPosition = beginningOfDocument
 
-        if let oldTextFieldLength = oldTextFieldLength, let newLength = newLength, oldTextFieldLength > cursorOffset {
+        if let oldTextFieldLength = oldTextFieldLength, oldTextFieldLength > cursorOffset {
             let newOffset = newLength - oldTextFieldLength + cursorOffset
             let newCursorPosition = position(from: startPosition, offset: newOffset)
 
@@ -106,11 +105,11 @@ import UIKit
     @objc fileprivate func textDidChange(_ notification: Notification) {
         let cursorOffset = getOriginalCursorPosition()
         let cleanNumericString = getCleanNumberString()
-        let textFieldLength = text?.count
-        let textFieldNumber = Double(cleanNumericString)
+        let textFieldLength = text.or(.empty).count
+        let textFieldNumber = Double(cleanNumericString).or(0)
 
-        if cleanNumericString.count <= maxDigits && textFieldNumber != nil {
-            setAmount(textFieldNumber! / 100)
+        if cleanNumericString.count <= maxDigits {
+            setAmount(textFieldNumber / 100)
         } else {
             text = previousValue
         }
