@@ -6,6 +6,7 @@
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
+import Core
 import UIKit
 
 final class AddIncomeView: UIView, UITextFieldDelegate {
@@ -27,8 +28,8 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
         return datePicker
     }()
 
-    private lazy var amountTextField: UITextField = {
-        let textField = UITextField()
+    private lazy var amountTextField: CurrencyTextField = {
+        let textField = CurrencyTextField()
         textField.placeholder = Localizable.New.TextField.amount
         textField.delegate = self
 
