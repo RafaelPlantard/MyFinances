@@ -20,4 +20,12 @@ enum AddIncome{
             let date: String
         }
     }
+
+    enum SaveNewIncome {
+        struct Request {
+            let name: String
+            let amount: Double
+            let date: Date
+        }
+    }
 }

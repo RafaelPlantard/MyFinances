@@ -51,6 +51,7 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
         let stackView = UIStackView(arrangedSubviews: [
             titleTextField, titleSeparatorView, amountTextField, amountSeparatorView, dateTextField
         ])
+
         stackView.axis = .vertical
         stackView.spacing = 16
 
@@ -58,6 +59,20 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
     }()
 
     private lazy var orderOfFocus: [UIView] = [titleTextField, amountTextField, dateTextField]
+
+    // MARK: Computed variables
+
+    var title: String {
+        return titleTextField.text.or(.empty)
+    }
+
+    var amount: Double {
+        return amountTextField.value
+    }
+
+    var date: Date {
+        return datePicker.date
+    }
 
     // MARK: Private variables
 

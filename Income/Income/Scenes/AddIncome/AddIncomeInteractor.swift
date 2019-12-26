@@ -8,6 +8,7 @@
 
 protocol AddIncomeBusinessLogic: AnyObject {
     func formatIncomeDate(request: AddIncome.FormatDate.Request)
+    func saveNewIncome(request: AddIncome.SaveNewIncome.Request)
 }
 
 final class AddIncomeInteractor: AddIncomeBusinessLogic {
@@ -23,5 +24,9 @@ final class AddIncomeInteractor: AddIncomeBusinessLogic {
         let response = AddIncome.FormatDate.Response(date: request.date)
 
         presenter.presentIncomeDate(response: response)
+    }
+
+    func saveNewIncome(request: AddIncome.SaveNewIncome.Request) {
+
     }
 }

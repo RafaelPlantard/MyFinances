@@ -105,6 +105,12 @@ final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
 
     @objc
     fileprivate func onRightBarButtonItem() {
+        let request = AddIncome.SaveNewIncome.Request(
+            name: contentView.title, amount: contentView.amount, date: contentView.date
+        )
+
+        interactor.saveNewIncome(request: request)
+
         delegate?.addIncomeRightBarButtonItemTapped(self)
     }
 }
