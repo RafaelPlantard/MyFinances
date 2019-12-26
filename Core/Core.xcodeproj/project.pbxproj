@@ -13,6 +13,7 @@
 		5316B0B823A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0B223A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift */; };
 		5316B0B923A67BF400D26E76 /* UIStackView+ArrangedSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0B323A67BF400D26E76 /* UIStackView+ArrangedSubview.swift */; };
 		5316B0BD23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0BC23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift */; };
+		533D5FB123B4345300F70E8E /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D5FB023B4345300F70E8E /* CurrencyTextField.swift */; };
 		533F93EA23AF107E000CE15A /* UIView+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E923AF107E000CE15A /* UIView+UIColor.swift */; };
 		533F93F623B26110000CE15A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93F523B26110000CE15A /* String.swift */; };
 		533F93F823B26134000CE15A /* Optional+Or.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93F723B26134000CE15A /* Optional+Or.swift */; };
@@ -39,6 +40,7 @@
 		5316B0B223A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+SafeArea.swift"; sourceTree = "<group>"; };
 		5316B0B323A67BF400D26E76 /* UIStackView+ArrangedSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+ArrangedSubview.swift"; sourceTree = "<group>"; };
 		5316B0BC23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutGuide+LayoutGuide.swift"; sourceTree = "<group>"; };
+		533D5FB023B4345300F70E8E /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		533F93E923AF107E000CE15A /* UIView+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UIColor.swift"; sourceTree = "<group>"; };
 		533F93F523B26110000CE15A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		533F93F723B26134000CE15A /* Optional+Or.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Or.swift"; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		533D5FAF23B4343A00F70E8E /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				533D5FB023B4345300F70E8E /* CurrencyTextField.swift */,
+			);
+			path = CustomControls;
+			sourceTree = "<group>";
+		};
 		538EE8BF23A5F2A600C8CF89 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		538EE8CB23A5F2A600C8CF89 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				533D5FAF23B4343A00F70E8E /* CustomControls */,
 				5316B0A423A67AAE00D26E76 /* Common */,
 				538EE8CC23A5F2A600C8CF89 /* Core.h */,
 				5316B0A523A67AB700D26E76 /* Extensions */,
@@ -247,6 +258,7 @@
 				5316B0BD23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift in Sources */,
 				5316B0B523A67BF400D26E76 /* UIApplication+SafeArea.swift in Sources */,
 				533F93F623B26110000CE15A /* String.swift in Sources */,
+				533D5FB123B4345300F70E8E /* CurrencyTextField.swift in Sources */,
 				538EE8E423A5F31A00C8CF89 /* Coordinator.swift in Sources */,
 				5316B0B723A67BF400D26E76 /* UIView+LayoutGuide.swift in Sources */,
 				5316B0B923A67BF400D26E76 /* UIStackView+ArrangedSubview.swift in Sources */,
