@@ -11,7 +11,10 @@ import UIKit
 
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var app: Coordinator?
+
+    // MARK: Private variables
+
+    private var app: Coordinator?
 
     // MARK: UIApplicationDelegate conforms
 

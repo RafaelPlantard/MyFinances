@@ -13,6 +13,9 @@ import UIKit
 final class AppCoordinator: Coordinator {
     private let navigationController: UINavigationController
     private let window: UIWindow
+
+    // MARK: Private variables
+
     private var childCoordinators: [Coordinator] = []
 
     // MARK: Initializer
