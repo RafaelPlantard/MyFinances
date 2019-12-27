@@ -69,9 +69,11 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
     // MARK: IncomeListDisplayLogic conforms
 
     func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel) {
-        tableView.dataSource = TableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome>.make(
+        dataSource = TableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome>.make(
             for: viewModel.displayedIncomes
         )
+
+        tableView.dataSource = dataSource
     }
 
     // MARK: Private functions
