@@ -7,10 +7,32 @@
 //
 
 import Core
+import CoreData
 import UIKit
 
 public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDelegate, AddIncomeViewControllerDelegate {
     private let navigationController: UINavigationController
+
+    // MARK: Private lazy variables
+
+    private lazy var persistentContainer: NSPersistentContainer = {
+        let container: NSPersistentContainer
+
+        if let modelURL = Bundle(for: IncomeCoordinator.self).url(forResource: "Incomes", withExtension: "momd"),
+            let model = NSManagedObjectModel(contentsOf: modelURL) {
+            container = NSPersistentContainer(name: "Incomes", managedObjectModel: model)
+        } else {
+            container = NSPersistentContainer(name: "Incomes")
+        }
+
+        container.loadPersistentStores { (_, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+        }
+
+        return container
+    }()
 
     // MARK: Initializer
 
@@ -21,7 +43,11 @@ public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDeleg
     // MARK: Coordinator conforms
 
     public func start() {
-        let incomeListViewController = IncomeListViewControler()
+        let store = IncomeCoreDataStore(container: persistentContainer)
+        let presenter = IncomeListPresenter()
+        let interactor = IncomeListInteractor(store: store, presenter: presenter)
+        let incomeListViewController = IncomeListViewControler(interactor: interactor)
+        presenter.viewController = incomeListViewController
         incomeListViewController.delegate = self
 
         navigationController.setViewControllers([incomeListViewController], animated: true)

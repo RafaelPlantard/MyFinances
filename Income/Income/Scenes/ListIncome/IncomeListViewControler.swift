@@ -29,6 +29,22 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
 
     private var dataSource: UITableViewDataSource?
 
+    // MARK: Private constants
+
+    private let interactor: IncomeListBusinessLogic
+
+    // MARK: Initializer
+
+    init(interactor: IncomeListBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
     // MARK: Override functions
 
     override func loadView() {
@@ -41,6 +57,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
         super.viewDidLoad()
 
         setupView()
+        interactor.fetchIncomes()
     }
 
     override func viewWillAppear(_ animated: Bool) {
