@@ -20,15 +20,23 @@ final class IncomeCoreDataStore: IncomesStoreProtocol {
     // MARK: IncomesStoreProtocol conforms
 
     func fetchIncomes(then handler: (Result<[Income], Error>) -> Void) {
-        let request: NSFetchRequest<Income> = Income.fetchRequest()
+        let request: NSFetchRequest<IncomeEntity> = IncomeEntity.fetchRequest()
         let context = container.viewContext
 
         do {
-            let items = try context.fetch(request) as [Income]
+            let items = try context.fetch(request) as [IncomeEntity]
 
-            handler(.success(items))
+            handler(.success(items.map(Income.init)))
         } catch {
             handler(.failure(error))
         }
+    }
+
+private extension Income {
+    init(entity: IncomeEntity) {
+        self.init(
+            id: entity.id, name: entity.name, amount: entity.amount, date: entity.date, createdOn: entity.createdOn,
+            updatedOn: entity.updatedOn
+        )
     }
 }

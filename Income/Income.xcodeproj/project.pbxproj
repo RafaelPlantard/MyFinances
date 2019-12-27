@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		533D5FE523B4438F00F70E8E /* Incomes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 533D5FE323B4438F00F70E8E /* Incomes.xcdatamodeld */; };
+		5309F08723B699D7003426CF /* Incomes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5309F08523B699D7003426CF /* Incomes.xcdatamodeld */; };
+		5321829323B5A6A600D1183D /* AddIncomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5321829223B5A6A500D1183D /* AddIncomeWorker.swift */; };
+		5321829623B68D1D00D1183D /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5321829523B68D1D00D1183D /* Income.swift */; };
 		533D5FE923B445D600F70E8E /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D5FE823B445D600F70E8E /* CoreData.swift */; };
 		533F93E423AEFE23000CE15A /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E323AEFE23000CE15A /* AddIncomeViewController.swift */; };
 		533F93E823AF0039000CE15A /* IncomeListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E723AF0039000CE15A /* IncomeListViewControllerDelegate.swift */; };
@@ -71,7 +73,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		533D5FE423B4438F00F70E8E /* Income.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Income.xcdatamodel; sourceTree = "<group>"; };
+		5309F08623B699D7003426CF /* Incomes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Incomes.xcdatamodel; sourceTree = "<group>"; };
+		5321829223B5A6A500D1183D /* AddIncomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeWorker.swift; sourceTree = "<group>"; };
+		5321829523B68D1D00D1183D /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 		533D5FE823B445D600F70E8E /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		533F93E323AEFE23000CE15A /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		533F93E723AF0039000CE15A /* IncomeListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeListViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -141,9 +145,17 @@
 				53ACFF7023A69406008D388A /* Strings.swift */,
 				538EE8F223A5F45D00C8CF89 /* Income.h */,
 				538EE8F323A5F45D00C8CF89 /* Info.plist */,
-				533D5FE323B4438F00F70E8E /* Incomes.xcdatamodeld */,
+				5309F08523B699D7003426CF /* Incomes.xcdatamodeld */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5321829423B68D0F00D1183D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5321829523B68D1D00D1183D /* Income.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5355088523AEFDD200583DBD /* AddIncome */ = {
@@ -155,6 +167,7 @@
 				533F93EF23B17604000CE15A /* AddIncomeInteractor.swift */,
 				533F93F123B176E5000CE15A /* AddIncomePresenter.swift */,
 				533F93F323B1AE9F000CE15A /* AddIncomeModels.swift */,
+				5321829223B5A6A500D1183D /* AddIncomeWorker.swift */,
 			);
 			path = AddIncome;
 			sourceTree = "<group>";
@@ -191,6 +204,7 @@
 		538EE8F123A5F45D00C8CF89 /* Income */ = {
 			isa = PBXGroup;
 			children = (
+				5321829423B68D0F00D1183D /* Models */,
 				5371932823B44E7A0066CDE5 /* Storage */,
 				538EE91023A5F4F400C8CF89 /* IncomeCoordinator.swift */,
 				5316B0C023A68C2800D26E76 /* Resources */,
@@ -399,11 +413,13 @@
 				5371932C23B4518D0066CDE5 /* IncomeCoreDataStore.swift in Sources */,
 				5371932523B44C3F0066CDE5 /* IncomeListInteractor.swift in Sources */,
 				533F93F023B17604000CE15A /* AddIncomeInteractor.swift in Sources */,
+				5321829623B68D1D00D1183D /* Income.swift in Sources */,
 				533D5FE923B445D600F70E8E /* CoreData.swift in Sources */,
-				533D5FE523B4438F00F70E8E /* Incomes.xcdatamodeld in Sources */,
 				533F93EE23B17466000CE15A /* AddIncomeView.swift in Sources */,
 				5371933223B45D310066CDE5 /* IncomeListModels.swift in Sources */,
+				5321829323B5A6A600D1183D /* AddIncomeWorker.swift in Sources */,
 				5371932A23B44E9F0066CDE5 /* IncomesStoreProtocol.swift in Sources */,
+				5309F08723B699D7003426CF /* Incomes.xcdatamodeld in Sources */,
 				53ACFF7123A69406008D388A /* Strings.swift in Sources */,
 				533F93F223B176E5000CE15A /* AddIncomePresenter.swift in Sources */,
 				538EE91123A5F4F400C8CF89 /* IncomeCoordinator.swift in Sources */,
@@ -681,12 +697,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		533D5FE323B4438F00F70E8E /* Incomes.xcdatamodeld */ = {
+		5309F08523B699D7003426CF /* Incomes.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				533D5FE423B4438F00F70E8E /* Income.xcdatamodel */,
+				5309F08623B699D7003426CF /* Incomes.xcdatamodel */,
 			);
-			currentVersion = 533D5FE423B4438F00F70E8E /* Income.xcdatamodel */;
+			currentVersion = 5309F08623B699D7003426CF /* Incomes.xcdatamodel */;
 			path = Incomes.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
