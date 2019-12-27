@@ -12,9 +12,13 @@ protocol AddIncomeBusinessLogic: AnyObject {
 }
 
 final class AddIncomeInteractor: AddIncomeBusinessLogic {
+    private let worker: AddIncomeWorker
     private let presenter: AddIncomePresentationLogic
 
-    init(presenter: AddIncomePresentationLogic) {
+    // MARK: Initializer
+
+    init(store: IncomesStoreProtocol, presenter: AddIncomePresentationLogic) {
+        self.worker = AddIncomeWorker(store: store)
         self.presenter = presenter
     }
 
@@ -27,6 +31,20 @@ final class AddIncomeInteractor: AddIncomeBusinessLogic {
     }
 
     func saveNewIncome(request: AddIncome.SaveNewIncome.Request) {
+        let income = Income(
+            name: request.incomeFormFields.name,
+            amount: request.incomeFormFields.amount,
+            date: request.incomeFormFields.date
+        )
 
+        worker.createIncome(incomeToCreate: income) { result in
+            do {
+                try result.get()
+
+                presenter.presentCreatedIncome()
+            } catch {
+                presenter.presentFailure(error: error)
+            }
+        }
     }
 }

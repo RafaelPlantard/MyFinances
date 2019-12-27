@@ -8,4 +8,5 @@
 
 protocol IncomesStoreProtocol {
     func fetchIncomes(then handler: (Result<[Income], Error>) -> Void)
+    func save(income: Income, then handler: (Result<Void, Error>) -> Void)
 }

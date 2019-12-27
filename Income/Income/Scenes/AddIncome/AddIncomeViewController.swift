@@ -10,6 +10,8 @@ import UIKit
 
 protocol AddIncomeDisplayLogic: AnyObject {
     func displayIncomeDate(viewModel: AddIncome.FormatDate.ViewModel)
+    func displayCreatedIncome()
+    func displayError()
 }
 
 final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
@@ -63,6 +65,13 @@ final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
         contentView.update(date: viewModel.date)
     }
 
+    func displayCreatedIncome() {
+        delegate?.addIncomeRightBarButtonItemTapped(self)
+    }
+
+    func displayError() {
+    }
+
     // MARK: Private functions
 
     private func setupActions() {
@@ -106,12 +115,12 @@ final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
     @objc
     fileprivate func onRightBarButtonItem() {
         let request = AddIncome.SaveNewIncome.Request(
-            name: contentView.title, amount: contentView.amount, date: contentView.date
+            incomeFormFields: AddIncome.IncomeFormFields(
+                name: contentView.title, amount: contentView.amount, date: contentView.date
+            )
         )
 
         interactor.saveNewIncome(request: request)
-
-        delegate?.addIncomeRightBarButtonItemTapped(self)
     }
 }
 

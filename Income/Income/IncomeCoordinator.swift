@@ -57,7 +57,8 @@ public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDeleg
 
     func incomeListRightBarButtonItemTapped(_ viewController: IncomeListViewControler) {
         let presenter = AddIncomePresenter()
-        let interactor = AddIncomeInteractor(presenter: presenter)
+        let store = IncomeCoreDataStore(container: persistentContainer)
+        let interactor = AddIncomeInteractor(store: store, presenter: presenter)
         let addIncomeViewController = AddIncomeViewController(interactor: interactor)
         presenter.viewController = addIncomeViewController
         addIncomeViewController.delegate = self

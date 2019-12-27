@@ -7,6 +7,12 @@
 //
 
 enum AddIncome{
+    struct IncomeFormFields {
+        let name: String
+        let amount: Double
+        let date: Date
+    }
+
     enum FormatDate {
         struct Request {
             let date: Date
@@ -23,9 +29,7 @@ enum AddIncome{
 
     enum SaveNewIncome {
         struct Request {
-            let name: String
-            let amount: Double
-            let date: Date
+            let incomeFormFields: IncomeFormFields
         }
     }
 }
