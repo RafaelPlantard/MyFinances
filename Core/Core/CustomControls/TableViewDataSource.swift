@@ -8,8 +8,8 @@
 
 import UIKit
 
-public final class TableViewDataSource<Model>: NSObject, UITableViewDataSource {
-    public typealias CellConfigurator = (Model, UITableViewCell) -> Void
+public final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource where Cell: UITableViewCell {
+    public typealias CellConfigurator = (Model, Cell) -> Void
 
     // MARK: Read-only variables
 
@@ -17,14 +17,12 @@ public final class TableViewDataSource<Model>: NSObject, UITableViewDataSource {
 
     // MARK: Private constants
 
-    private let reuseIdentifier: String
     private let cellConfigurator: CellConfigurator
 
     // MARK: Initializers
 
-    public init(models: [Model], reuseIdentifier: String, cellConfigurator: @escaping CellConfigurator) {
+    public init(models: [Model], cellConfigurator: @escaping CellConfigurator) {
         self.models = models
-        self.reuseIdentifier = reuseIdentifier
         self.cellConfigurator = cellConfigurator
     }
 
@@ -36,10 +34,14 @@ public final class TableViewDataSource<Model>: NSObject, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let genericCell = tableView.dequeueReusableCell(withIdentifier: Cell.className, for: indexPath)
+
+        guard let cell = genericCell as? Cell else {
+            return genericCell
+        }
 
         cellConfigurator(model, cell)
 
-        return cell
+        return genericCell
     }
 }

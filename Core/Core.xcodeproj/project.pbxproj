@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5309F08B23B82AA3003426CF /* Value1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5309F08A23B82AA3003426CF /* Value1TableViewCell.swift */; };
 		5316B0B523A67BF400D26E76 /* UIApplication+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0AF23A67BF300D26E76 /* UIApplication+SafeArea.swift */; };
 		5316B0B623A67BF400D26E76 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0B023A67BF300D26E76 /* UIView+Constraints.swift */; };
 		5316B0B723A67BF400D26E76 /* UIView+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0B123A67BF400D26E76 /* UIView+LayoutGuide.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5309F08A23B82AA3003426CF /* Value1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value1TableViewCell.swift; sourceTree = "<group>"; };
 		5316B0AF23A67BF300D26E76 /* UIApplication+SafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeArea.swift"; sourceTree = "<group>"; };
 		5316B0B023A67BF300D26E76 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		5316B0B123A67BF400D26E76 /* UIView+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutGuide.swift"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				533D5FB023B4345300F70E8E /* CurrencyTextField.swift */,
 				5371933723B46F5F0066CDE5 /* TableViewDataSource.swift */,
+				5309F08A23B82AA3003426CF /* Value1TableViewCell.swift */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				533F93F823B26134000CE15A /* Optional+Or.swift in Sources */,
 				533F93EA23AF107E000CE15A /* UIView+UIColor.swift in Sources */,
 				5316B0BD23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift in Sources */,
+				5309F08B23B82AA3003426CF /* Value1TableViewCell.swift in Sources */,
 				5316B0B523A67BF400D26E76 /* UIApplication+SafeArea.swift in Sources */,
 				533F93F623B26110000CE15A /* String.swift in Sources */,
 				533D5FB123B4345300F70E8E /* CurrencyTextField.swift in Sources */,

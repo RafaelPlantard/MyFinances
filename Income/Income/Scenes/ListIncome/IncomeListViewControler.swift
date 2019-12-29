@@ -16,7 +16,7 @@ protocol IncomeListDisplayLogic: AnyObject {
 final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.className)
+        tableView.register(Value1TableViewCell.self, forCellReuseIdentifier: Value1TableViewCell.className)
 
         return tableView
     }()
@@ -69,7 +69,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
     // MARK: IncomeListDisplayLogic conforms
 
     func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel) {
-        dataSource = TableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome>.make(
+        dataSource = TableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome, Value1TableViewCell>.make(
             for: viewModel.displayedIncomes
         )
 
@@ -102,7 +102,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
 
 private extension TableViewDataSource where Model == IncomeList.FetchIncomes.ViewModel.DisplayedIncome {
     static func make(for incomes: [Model]) -> TableViewDataSource {
-        return TableViewDataSource(models: incomes, reuseIdentifier: UITableViewCell.className) { (model, cell) in
+        return TableViewDataSource(models: incomes) { (model, cell) in
             cell.textLabel?.text = model.name
             cell.detailTextLabel?.text = model.value
         }
