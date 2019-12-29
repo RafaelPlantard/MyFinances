@@ -13,7 +13,7 @@ public final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSo
 
     // MARK: Read-only variables
 
-    private(set) var models: [Model]
+    private var models: [Model]
 
     // MARK: Private constants
 
@@ -24,6 +24,16 @@ public final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSo
     public init(models: [Model], cellConfigurator: @escaping CellConfigurator) {
         self.models = models
         self.cellConfigurator = cellConfigurator
+    }
+
+    // MARK: Functions
+
+    public func set(models: [Model]) {
+        self.models = models
+    }
+
+    public func append(models modelsToAppend: Model...) {
+        models.append(contentsOf: modelsToAppend)
     }
 
     // MARK: UITableViewDataSource conforms
