@@ -14,8 +14,9 @@ protocol IncomeListDisplayLogic: AnyObject {
 }
 
 final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, UITableViewDelegate {
-    private let tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.dataSource = dataSource
         tableView.register(Value1TableViewCell.self, forCellReuseIdentifier: Value1TableViewCell.className)
 
         return tableView
@@ -27,7 +28,13 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
 
     // MARK: Private variables
 
-    private var dataSource: UITableViewDataSource?
+    private lazy var dataSource: EditingTableViewDataSource? = {
+        EditingTableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome, Value1TableViewCell>.make(
+            for: [], then: { [weak self] (commit, indexPath) in
+                self?.on(commit: commit, forRowAt: indexPath)
+            }
+        )
+    }()
 
     // MARK: Private constants
 
@@ -75,13 +82,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
     // MARK: IncomeListDisplayLogic conforms
 
     func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel) {
-        dataSource = EditingTableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome, Value1TableViewCell>.make(
-            for: viewModel.displayedIncomes, then: { [weak self] (commit, indexPath) in
-                self?.on(commit: commit, forRowAt: indexPath)
-            }
-        )
-
-        tableView.dataSource = dataSource
+        dataSource?.set(models: viewModel.displayedIncomes)
         tableView.reloadData()
     }
 
