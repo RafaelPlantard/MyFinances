@@ -13,6 +13,10 @@ import UIKit
 public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDelegate, AddIncomeViewControllerDelegate {
     private let navigationController: UINavigationController
 
+    // MARK: Private variables
+
+    private var rootViewControler: IncomeListViewControler?
+
     // MARK: Private lazy variables
 
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -50,6 +54,7 @@ public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDeleg
         presenter.viewController = incomeListViewController
         incomeListViewController.delegate = self
 
+        rootViewControler = incomeListViewController
         navigationController.setViewControllers([incomeListViewController], animated: true)
     }
 
@@ -76,6 +81,8 @@ public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDeleg
     }
 
     func addIncomeRightBarButtonItemTapped(_ viewController: AddIncomeViewController) {
-        viewController.dismiss(animated: true, completion: nil)
+        viewController.dismiss(animated: true) { [weak self] in
+            self?.rootViewControler?.fetch()
+        }
     }
 }

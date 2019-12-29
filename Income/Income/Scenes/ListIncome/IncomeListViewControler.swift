@@ -57,13 +57,19 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
         super.viewDidLoad()
 
         setupView()
-        interactor.fetchIncomes()
+        fetch()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         setupNavigationBar()
+    }
+
+    // MARK: Functions
+
+    func fetch() {
+        interactor.fetchIncomes()
     }
 
     // MARK: IncomeListDisplayLogic conforms
@@ -74,6 +80,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
         )
 
         tableView.dataSource = dataSource
+        tableView.reloadData()
     }
 
     // MARK: Private functions
