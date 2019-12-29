@@ -13,7 +13,7 @@ protocol IncomeListDisplayLogic: AnyObject {
     func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel)
 }
 
-final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
+final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, UITableViewDelegate {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(Value1TableViewCell.self, forCellReuseIdentifier: Value1TableViewCell.className)
@@ -75,8 +75,10 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
     // MARK: IncomeListDisplayLogic conforms
 
     func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel) {
-        dataSource = TableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome, Value1TableViewCell>.make(
-            for: viewModel.displayedIncomes
+        dataSource = EditingTableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome, Value1TableViewCell>.make(
+            for: viewModel.displayedIncomes, then: { [weak self] (commit, indexPath) in
+                self?.on(commit: commit, forRowAt: indexPath)
+            }
         )
 
         tableView.dataSource = dataSource
@@ -99,6 +101,10 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
         )
     }
 
+    private func on(commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        interactor.editIncome(style: editingStyle, indexPath: indexPath)
+    }
+
     // MARK: Fileprivate functions
 
     @objc
@@ -107,12 +113,12 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic {
     }
 }
 
-private extension TableViewDataSource where Model == IncomeList.FetchIncomes.ViewModel.DisplayedIncome {
-    static func make(for incomes: [Model]) -> TableViewDataSource {
-        return TableViewDataSource(models: incomes) { (model, cell) in
+private extension EditingTableViewDataSource where Model == IncomeList.FetchIncomes.ViewModel.DisplayedIncome {
+    static func make(for incomes: [Model], then handler: @escaping EditingConfigurator) -> EditingTableViewDataSource {
+        return EditingTableViewDataSource(models: incomes, cellConfigurator: { (model, cell) in
             cell.textLabel?.text = model.name
             cell.detailTextLabel?.text = model.value
-        }
+        }, editingConfigurator: handler)
     }
 }
 

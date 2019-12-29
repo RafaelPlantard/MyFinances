@@ -6,8 +6,11 @@
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
+import class UIKit.UITableViewCell
+
 protocol IncomeListBusinessLogic {
     func fetchIncomes()
+    func editIncome(style: UITableViewCell.EditingStyle, indexPath: IndexPath)
 }
 
 final class IncomeListInteractor: IncomeListBusinessLogic {
@@ -29,5 +32,8 @@ final class IncomeListInteractor: IncomeListBusinessLogic {
 
             presenter?.presentOrders(response: incomes)
         }
+    }
+
+    func editIncome(style: UITableViewCell.EditingStyle, indexPath: IndexPath) {
     }
 }
