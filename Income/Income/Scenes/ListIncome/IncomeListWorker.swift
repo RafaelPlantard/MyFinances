@@ -17,7 +17,7 @@ final class IncomeListWorker {
 
     // MARK: Functions
 
-    func fetchOrders(then handler: (([Income]) -> Void)) {
+    func fetchIncomes(then handler: (([Income]) -> Void)) {
         store.fetchIncomes { result in
             do {
                 handler(try result.get())

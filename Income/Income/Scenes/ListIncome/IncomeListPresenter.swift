@@ -7,7 +7,7 @@
 //
 
 protocol IncomeListPresentationLogic: AnyObject {
-    func presentOrders(response: IncomeList.FetchIncomes.Response)
+    func presentIncomes(response: IncomeList.FetchIncomes.Response)
 }
 
 final class IncomeListPresenter: IncomeListPresentationLogic {
@@ -26,7 +26,7 @@ final class IncomeListPresenter: IncomeListPresentationLogic {
 
     // MARK: IncomeListPresentationLogic conforms
 
-    func presentOrders(response: IncomeList.FetchIncomes.Response) {
+    func presentIncomes(response: IncomeList.FetchIncomes.Response) {
         let displayedIncomes = response.incomes.map({ [currencyFormatter] (income: Income) -> IncomeList.FetchIncomes.ViewModel.DisplayedIncome in
             let amount = NSNumber(value: income.amount)
             let value = currencyFormatter.string(from: amount)

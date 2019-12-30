@@ -27,10 +27,15 @@ final class IncomeListInteractor: IncomeListBusinessLogic {
     // MARK: IncomeListBusinessLogic conforms
 
     func fetchIncomes() {
-        worker.fetchOrders { [weak presenter] incomes in
-            let incomes = IncomeList.FetchIncomes.Response(incomes: incomes)
+        worker.fetchIncomes { [weak self] incomes in
+            if let self = self {
+                self.incomes = incomes
 
-            presenter?.presentOrders(response: incomes)
+                let incomes = IncomeList.FetchIncomes.Response(incomes: incomes)
+
+                self.presenter.presentIncomes(response: incomes)
+            }
+
         }
     }
 
