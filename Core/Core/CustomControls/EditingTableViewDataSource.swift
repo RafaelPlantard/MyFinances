@@ -41,7 +41,7 @@ public final class EditingTableViewDataSource<Model, Cell>: DataSource<Model>, U
 
         cellConfigurator(model, cell)
 
-        return genericCell
+        return cell
     }
 
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

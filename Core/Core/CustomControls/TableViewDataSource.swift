@@ -38,6 +38,6 @@ public final class TableViewDataSource<Model, Cell>: DataSource<Model>, UITableV
 
         cellConfigurator(model, cell)
 
-        return genericCell
+        return cell
     }
 }
