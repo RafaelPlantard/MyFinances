@@ -1,5 +1,5 @@
 //
-//  IncomeListInteractor.swift
+//  ListIncomeInteractor.swift
 //  Income
 //
 //  Created by Rafael Ferreira on 12/25/19.
@@ -8,14 +8,14 @@
 
 import class UIKit.UITableViewCell
 
-protocol IncomeListBusinessLogic {
+protocol ListIncomeBusinessLogic {
     func fetchIncomes()
-    func editIncome(request: IncomeList.DeleteIncome.Request)
+    func editIncome(request: ListIncome.DeleteIncome.Request)
 }
 
-final class IncomeListInteractor: IncomeListBusinessLogic {
-    private let worker: IncomeListWorker
-    private let presenter: IncomeListPresentationLogic
+final class ListIncomeInteractor: ListIncomeBusinessLogic {
+    private let worker: ListIncomeWorker
+    private let presenter: ListIncomePresentationLogic
 
     // MARK: Private variables
 
@@ -23,8 +23,8 @@ final class IncomeListInteractor: IncomeListBusinessLogic {
 
     // MARK: Initializer
 
-    init(store: IncomesStoreProtocol, presenter: IncomeListPresentationLogic) {
-        self.worker = IncomeListWorker(store: store)
+    init(store: IncomesStoreProtocol, presenter: ListIncomePresentationLogic) {
+        self.worker = ListIncomeWorker(store: store)
         self.presenter = presenter
     }
 
@@ -35,14 +35,14 @@ final class IncomeListInteractor: IncomeListBusinessLogic {
             if let self = self {
                 self.incomes = incomes
 
-                let incomes = IncomeList.FetchIncomes.Response(incomes: incomes)
+                let incomes = ListIncome.FetchIncomes.Response(incomes: incomes)
 
                 self.presenter.presentIncomes(response: incomes)
             }
         }
     }
 
-    func editIncome(request: IncomeList.DeleteIncome.Request) {
+    func editIncome(request: ListIncome.DeleteIncome.Request) {
         if request.style == .delete {
             let indexPath = request.indexPath
             let incomeId = incomes[indexPath.row].id.uuidString
@@ -61,7 +61,7 @@ final class IncomeListInteractor: IncomeListBusinessLogic {
 
             incomes.remove(at: deletedIndexPath.row)
 
-            let response = IncomeList.DeleteIncome.Response(incomes: incomes, deletedIndexPath: deletedIndexPath)
+            let response = ListIncome.DeleteIncome.Response(incomes: incomes, deletedIndexPath: deletedIndexPath)
 
             presenter.presentEditIncome(response: response)
         } catch {

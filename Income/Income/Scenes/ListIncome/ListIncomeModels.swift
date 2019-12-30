@@ -1,5 +1,5 @@
 //
-//  IncomeListModels.swift
+//  ListIncomeModels.swift
 //  Income
 //
 //  Created by Rafael Ferreira on 12/26/19.
@@ -13,7 +13,7 @@ protocol DisplayIncomeList {
     var value: String? { get }
 }
 
-enum IncomeList {
+enum ListIncome {
     enum FetchIncomes {
         struct Response {
             let incomes: [Income]

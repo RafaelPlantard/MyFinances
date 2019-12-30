@@ -10,12 +10,12 @@ import Core
 import CoreData
 import UIKit
 
-public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDelegate, AddIncomeViewControllerDelegate {
+public final class IncomeCoordinator: Coordinator, ListIncomeViewControllerDelegate, AddIncomeViewControllerDelegate {
     private let navigationController: UINavigationController
 
     // MARK: Private variables
 
-    private var rootViewControler: IncomeListViewControler?
+    private var rootViewControler: ListIncomeViewControler?
 
     // MARK: Private lazy variables
 
@@ -48,19 +48,19 @@ public final class IncomeCoordinator: Coordinator, IncomeListViewControllerDeleg
 
     public func start() {
         let store = IncomeCoreDataStore(container: persistentContainer)
-        let presenter = IncomeListPresenter()
-        let interactor = IncomeListInteractor(store: store, presenter: presenter)
-        let incomeListViewController = IncomeListViewControler(interactor: interactor)
-        presenter.viewController = incomeListViewController
-        incomeListViewController.delegate = self
+        let presenter = ListIncomePresenter()
+        let interactor = ListIncomeInteractor(store: store, presenter: presenter)
+        let listIncomeViewController = ListIncomeViewControler(interactor: interactor)
+        presenter.viewController = listIncomeViewController
+        listIncomeViewController.delegate = self
 
-        rootViewControler = incomeListViewController
-        navigationController.setViewControllers([incomeListViewController], animated: true)
+        rootViewControler = listIncomeViewController
+        navigationController.setViewControllers([listIncomeViewController], animated: true)
     }
 
-    // MARK: IncomeListViewControllerDelegate conforms
+    // MARK: ListIncomeViewControllerDelegate conforms
 
-    func incomeListRightBarButtonItemTapped(_ viewController: IncomeListViewControler) {
+    func listIncomeRightBarButtonItemTapped(_ viewController: ListIncomeViewControler) {
         let presenter = AddIncomePresenter()
         let store = IncomeCoreDataStore(container: persistentContainer)
         let interactor = AddIncomeInteractor(store: store, presenter: presenter)

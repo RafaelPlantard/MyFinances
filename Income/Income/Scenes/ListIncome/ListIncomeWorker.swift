@@ -1,12 +1,12 @@
 //
-//  IncomeListWorker.swift
+//  ListIncomeWorker.swift
 //  Income
 //
 //  Created by Rafael Ferreira on 12/25/19.
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
-final class IncomeListWorker {
+final class ListIncomeWorker {
     private let store: IncomesStoreProtocol
 
     // MARK: Initializer

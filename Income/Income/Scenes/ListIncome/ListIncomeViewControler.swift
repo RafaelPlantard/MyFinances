@@ -1,5 +1,5 @@
 //
-//  IncomeViewController.swift
+//  ListIncomeViewControler.swift
 //  Income
 //
 //  Created by Rafael Ferreira on 12/15/19.
@@ -9,13 +9,13 @@
 import Core
 import UIKit
 
-protocol IncomeListDisplayLogic: AnyObject {
-    func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel)
-    func displayDeletedIncome(viewModel: IncomeList.DeleteIncome.ViewModel)
+protocol ListIncomeDisplayLogic: AnyObject {
+    func displayFetchedIncomes(viewModel: ListIncome.FetchIncomes.ViewModel)
+    func displayDeletedIncome(viewModel: ListIncome.DeleteIncome.ViewModel)
     func displayDeletedIncomeError()
 }
 
-final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, UITableViewDelegate {
+final class ListIncomeViewControler: UIViewController, ListIncomeDisplayLogic, UITableViewDelegate {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = dataSource
@@ -27,7 +27,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
 
     // MARK: Variables
 
-    weak var delegate: IncomeListViewControllerDelegate?
+    weak var delegate: ListIncomeViewControllerDelegate?
 
     // MARK: Private variables
 
@@ -41,11 +41,11 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
 
     // MARK: Private constants
 
-    private let interactor: IncomeListBusinessLogic
+    private let interactor: ListIncomeBusinessLogic
 
     // MARK: Initializer
 
-    init(interactor: IncomeListBusinessLogic) {
+    init(interactor: ListIncomeBusinessLogic) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
@@ -82,14 +82,14 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
         interactor.fetchIncomes()
     }
 
-    // MARK: IncomeListDisplayLogic conforms
+    // MARK: ListIncomeDisplayLogic conforms
 
-    func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel) {
+    func displayFetchedIncomes(viewModel: ListIncome.FetchIncomes.ViewModel) {
         dataSource?.set(models: viewModel.displayedIncomes)
         tableView.reloadData()
     }
 
-    func displayDeletedIncome(viewModel: IncomeList.DeleteIncome.ViewModel) {
+    func displayDeletedIncome(viewModel: ListIncome.DeleteIncome.ViewModel) {
         dataSource?.set(models: viewModel.displayedIncomes)
         tableView.deleteRows(at: [viewModel.deletedIndexPath], with: .automatic)
     }
@@ -114,7 +114,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
     }
 
     private func on(commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let request = IncomeList.DeleteIncome.Request(style: editingStyle, indexPath: indexPath)
+        let request = ListIncome.DeleteIncome.Request(style: editingStyle, indexPath: indexPath)
 
         interactor.editIncome(request: request)
     }
@@ -123,7 +123,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
 
     @objc
     fileprivate func onRightBarButtonTapped() {
-        delegate?.incomeListRightBarButtonItemTapped(self)
+        delegate?.listIncomeRightBarButtonItemTapped(self)
     }
 }
 
@@ -137,5 +137,5 @@ private extension EditingTableViewDataSource where Model == DisplayIncomeList {
 }
 
 private extension Selector {
-    static let onAddTapped = #selector(IncomeListViewControler.onRightBarButtonTapped)
+    static let onAddTapped = #selector(ListIncomeViewControler.onRightBarButtonTapped)
 }
