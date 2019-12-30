@@ -17,6 +17,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = dataSource
+        tableView.allowsSelection = false
         tableView.register(Value1TableViewCell.self, forCellReuseIdentifier: Value1TableViewCell.className)
 
         return tableView
@@ -98,7 +99,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
 
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: .onAddTapped
+            barButtonSystemItem: .add, target: self, action: .onAddTapped
         )
     }
 
