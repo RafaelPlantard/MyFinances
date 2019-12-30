@@ -8,12 +8,8 @@
 
 import UIKit
 
-public final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource where Cell: UITableViewCell {
+public final class TableViewDataSource<Model, Cell>: DataSource<Model>, UITableViewDataSource where Cell: UITableViewCell {
     public typealias CellConfigurator = (Model, Cell) -> Void
-
-    // MARK: Read-only variables
-
-    private var models: [Model]
 
     // MARK: Private constants
 
@@ -22,28 +18,18 @@ public final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSo
     // MARK: Initializers
 
     public init(models: [Model], cellConfigurator: @escaping CellConfigurator) {
-        self.models = models
         self.cellConfigurator = cellConfigurator
-    }
-
-    // MARK: Functions
-
-    public func set(models: [Model]) {
-        self.models = models
-    }
-
-    public func append(models modelsToAppend: Model...) {
-        models.append(contentsOf: modelsToAppend)
+        super.init(models: models)
     }
 
     // MARK: UITableViewDataSource conforms
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.row]
+        let model = get(at: indexPath.row)
         let genericCell = tableView.dequeueReusableCell(withIdentifier: Cell.className, for: indexPath)
 
         guard let cell = genericCell as? Cell else {

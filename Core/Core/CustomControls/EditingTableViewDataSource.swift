@@ -8,13 +8,9 @@
 
 import UIKit
 
-public final class EditingTableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource where Cell: UITableViewCell {
+public final class EditingTableViewDataSource<Model, Cell>: DataSource<Model>, UITableViewDataSource where Cell: UITableViewCell {
     public typealias CellConfigurator = (Model, Cell) -> Void
     public typealias EditingConfigurator = (UITableViewCell.EditingStyle, IndexPath) -> Void
-
-    // MARK: Read-only variables
-
-    private(set) var models: [Model]
 
     // MARK: Private constants
 
@@ -24,19 +20,19 @@ public final class EditingTableViewDataSource<Model, Cell>: NSObject, UITableVie
     // MARK: Initializers
 
     public init(models: [Model], cellConfigurator: @escaping CellConfigurator, editingConfigurator: @escaping EditingConfigurator) {
-        self.models = models
         self.cellConfigurator = cellConfigurator
         self.editingConfigurator = editingConfigurator
+        super.init(models: models)
     }
 
     // MARK: UITableViewDataSource conforms
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.row]
+        let model = get(at: indexPath.row)
         let genericCell = tableView.dequeueReusableCell(withIdentifier: Cell.className, for: indexPath)
 
         guard let cell = genericCell as? Cell else {

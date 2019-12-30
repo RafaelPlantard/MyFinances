@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5303CF1423B9B1FB0029E0AB /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5303CF1323B9B1FB0029E0AB /* DataSource.swift */; };
 		5309F08B23B82AA3003426CF /* Value1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5309F08A23B82AA3003426CF /* Value1TableViewCell.swift */; };
 		5309F08D23B91DEC003426CF /* EditingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5309F08C23B91DEC003426CF /* EditingTableViewDataSource.swift */; };
 		5316B0B523A67BF400D26E76 /* UIApplication+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0AF23A67BF300D26E76 /* UIApplication+SafeArea.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5303CF1323B9B1FB0029E0AB /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		5309F08A23B82AA3003426CF /* Value1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value1TableViewCell.swift; sourceTree = "<group>"; };
 		5309F08C23B91DEC003426CF /* EditingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewDataSource.swift; sourceTree = "<group>"; };
 		5316B0AF23A67BF300D26E76 /* UIApplication+SafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeArea.swift"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				5371933723B46F5F0066CDE5 /* TableViewDataSource.swift */,
 				5309F08A23B82AA3003426CF /* Value1TableViewCell.swift */,
 				5309F08C23B91DEC003426CF /* EditingTableViewDataSource.swift */,
+				5303CF1323B9B1FB0029E0AB /* DataSource.swift */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				5309F08B23B82AA3003426CF /* Value1TableViewCell.swift in Sources */,
 				5316B0B523A67BF400D26E76 /* UIApplication+SafeArea.swift in Sources */,
 				533F93F623B26110000CE15A /* String.swift in Sources */,
+				5303CF1423B9B1FB0029E0AB /* DataSource.swift in Sources */,
 				533D5FB123B4345300F70E8E /* CurrencyTextField.swift in Sources */,
 				5371933423B468880066CDE5 /* NSObjectProtocol+ClassName.swift in Sources */,
 				538EE8E423A5F31A00C8CF89 /* Coordinator.swift in Sources */,
