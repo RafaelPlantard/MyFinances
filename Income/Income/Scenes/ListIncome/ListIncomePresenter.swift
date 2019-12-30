@@ -36,7 +36,9 @@ final class ListIncomePresenter: ListIncomePresentationLogic {
             return ListIncome.FetchIncomes.ViewModel.DisplayedIncome(name: income.name, value: value)
         })
 
-        let viewModel = ListIncome.FetchIncomes.ViewModel(displayedIncomes: displayedIncomes)
+        let total = response.incomes.total(formatter: currencyFormatter)
+
+        let viewModel = ListIncome.FetchIncomes.ViewModel(displayedIncomes: displayedIncomes, total: total)
 
         viewController?.displayFetchedIncomes(viewModel: viewModel)
     }
@@ -49,8 +51,10 @@ final class ListIncomePresenter: ListIncomePresentationLogic {
             return ListIncome.DeleteIncome.ViewModel.DisplayedIncome(name: income.name, value: value)
         })
 
+        let total = response.incomes.total(formatter: currencyFormatter)
+
         let viewModel = ListIncome.DeleteIncome.ViewModel(
-            displayedIncomes: displayedIncomes, deletedIndexPath: response.deletedIndexPath
+            displayedIncomes: displayedIncomes, total: total, deletedIndexPath: response.deletedIndexPath
         )
 
         viewController?.displayDeletedIncome(viewModel: viewModel)
@@ -58,5 +62,14 @@ final class ListIncomePresenter: ListIncomePresentationLogic {
 
     func presentEditIncome(error: Error) {
         viewController?.displayDeletedIncomeError()
+    }
+}
+
+extension Array where Element == Income {
+    func total(formatter: NumberFormatter) -> String? {
+        let totalAmount = map({ income in income.amount }).reduce(0, +)
+        let totalAsNumber = NSNumber(value: totalAmount)
+
+        return formatter.string(from: totalAsNumber)
     }
 }

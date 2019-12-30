@@ -26,6 +26,7 @@ enum ListIncome {
             }
 
             let displayedIncomes: [DisplayedIncome]
+            let total: String?
         }
     }
 
@@ -47,6 +48,7 @@ enum ListIncome {
             }
 
             let displayedIncomes: [DisplayedIncome]
+            let total: String?
             let deletedIndexPath: IndexPath
         }
     }

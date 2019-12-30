@@ -105,11 +105,13 @@ final class ListIncomeViewControler: UIViewController, ListIncomeDisplayLogic, U
 
     func displayFetchedIncomes(viewModel: ListIncome.FetchIncomes.ViewModel) {
         dataSource?.set(models: viewModel.displayedIncomes)
+        tableFooterViewCell.detailTextLabel?.text = viewModel.total
         tableView.reloadData()
     }
 
     func displayDeletedIncome(viewModel: ListIncome.DeleteIncome.ViewModel) {
         dataSource?.set(models: viewModel.displayedIncomes)
+        tableFooterViewCell.detailTextLabel?.text = viewModel.total
         tableView.deleteRows(at: [viewModel.deletedIndexPath], with: .automatic)
     }
 
