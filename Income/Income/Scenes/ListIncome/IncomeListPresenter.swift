@@ -8,6 +8,8 @@
 
 protocol IncomeListPresentationLogic: AnyObject {
     func presentIncomes(response: IncomeList.FetchIncomes.Response)
+    func presentEditIncome(response: IncomeList.DeleteIncome.Response)
+    func presentEditIncome(error: Error)
 }
 
 final class IncomeListPresenter: IncomeListPresentationLogic {
@@ -37,5 +39,24 @@ final class IncomeListPresenter: IncomeListPresentationLogic {
         let viewModel = IncomeList.FetchIncomes.ViewModel(displayedIncomes: displayedIncomes)
 
         viewController?.displayFetchedIncomes(viewModel: viewModel)
+    }
+
+    func presentEditIncome(response: IncomeList.DeleteIncome.Response) {
+        let displayedIncomes = response.incomes.map({ [currencyFormatter] (income: Income) -> IncomeList.DeleteIncome.ViewModel.DisplayedIncome in
+            let amount = NSNumber(value: income.amount)
+            let value = currencyFormatter.string(from: amount)
+
+            return IncomeList.DeleteIncome.ViewModel.DisplayedIncome(name: income.name, value: value)
+        })
+
+        let viewModel = IncomeList.DeleteIncome.ViewModel(
+            displayedIncomes: displayedIncomes, deletedIndexPath: response.deletedIndexPath
+        )
+
+        viewController?.displayDeletedIncome(viewModel: viewModel)
+    }
+
+    func presentEditIncome(error: Error) {
+        viewController?.displayDeletedIncomeError()
     }
 }

@@ -26,4 +26,8 @@ final class IncomeListWorker {
             }
         }
     }
+
+    func deleteIncome(id: String, then handler: (Result<Void, Error>) -> Void) {
+        store.deleteIncome(id: id, then: handler)
+    }
 }

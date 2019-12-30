@@ -51,6 +51,29 @@ final class IncomeCoreDataStore: IncomesStoreProtocol {
             handler(.failure(error))
         }
     }
+
+    func deleteIncome(id: String, then handler: (Result<Void, Error>) -> Void) {
+        let fetchRequest: NSFetchRequest<IncomeEntity> = IncomeEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        let context = container.viewContext
+
+        do {
+            let results = try context.fetch(fetchRequest) as [IncomeEntity]
+
+            guard let entity = results.first else {
+                return handler(.failure(IncomesStoreError.cannotDelete))
+            }
+
+            context.delete(entity)
+
+            try context.save()
+
+            handler(.success(()))
+        } catch {
+            handler(.failure(error))
+        }
+
+    }
 }
 
 private extension Income {

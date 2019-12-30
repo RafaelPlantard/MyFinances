@@ -11,6 +11,8 @@ import UIKit
 
 protocol IncomeListDisplayLogic: AnyObject {
     func displayFetchedIncomes(viewModel: IncomeList.FetchIncomes.ViewModel)
+    func displayDeletedIncome(viewModel: IncomeList.DeleteIncome.ViewModel)
+    func displayDeletedIncomeError()
 }
 
 final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, UITableViewDelegate {
@@ -29,8 +31,8 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
 
     // MARK: Private variables
 
-    private lazy var dataSource: EditingTableViewDataSource? = {
-        EditingTableViewDataSource<IncomeList.FetchIncomes.ViewModel.DisplayedIncome, Value1TableViewCell>.make(
+    private lazy var dataSource: EditingTableViewDataSource<DisplayIncomeList, Value1TableViewCell>? = {
+        EditingTableViewDataSource<DisplayIncomeList, Value1TableViewCell>.make(
             for: [], then: { [weak self] (commit, indexPath) in
                 self?.on(commit: commit, forRowAt: indexPath)
             }
@@ -87,6 +89,14 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
         tableView.reloadData()
     }
 
+    func displayDeletedIncome(viewModel: IncomeList.DeleteIncome.ViewModel) {
+        dataSource?.set(models: viewModel.displayedIncomes)
+        tableView.deleteRows(at: [viewModel.deletedIndexPath], with: .automatic)
+    }
+
+    func displayDeletedIncomeError() {
+    }
+
     // MARK: Private functions
 
     private func setupLayout() {
@@ -104,7 +114,9 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
     }
 
     private func on(commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        interactor.editIncome(style: editingStyle, indexPath: indexPath)
+        let request = IncomeList.DeleteIncome.Request(style: editingStyle, indexPath: indexPath)
+
+        interactor.editIncome(request: request)
     }
 
     // MARK: Fileprivate functions
@@ -115,7 +127,7 @@ final class IncomeListViewControler: UIViewController, IncomeListDisplayLogic, U
     }
 }
 
-private extension EditingTableViewDataSource where Model == IncomeList.FetchIncomes.ViewModel.DisplayedIncome {
+private extension EditingTableViewDataSource where Model == DisplayIncomeList {
     static func make(for incomes: [Model], then handler: @escaping EditingConfigurator) -> EditingTableViewDataSource {
         return EditingTableViewDataSource(models: incomes, cellConfigurator: { (model, cell) in
             cell.textLabel?.text = model.name

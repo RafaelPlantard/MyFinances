@@ -10,12 +10,16 @@ import class UIKit.UITableViewCell
 
 protocol IncomeListBusinessLogic {
     func fetchIncomes()
-    func editIncome(style: UITableViewCell.EditingStyle, indexPath: IndexPath)
+    func editIncome(request: IncomeList.DeleteIncome.Request)
 }
 
 final class IncomeListInteractor: IncomeListBusinessLogic {
     private let worker: IncomeListWorker
     private let presenter: IncomeListPresentationLogic
+
+    // MARK: Private variables
+
+    private var incomes: [Income] = []
 
     // MARK: Initializer
 
@@ -35,10 +39,33 @@ final class IncomeListInteractor: IncomeListBusinessLogic {
 
                 self.presenter.presentIncomes(response: incomes)
             }
-
         }
     }
 
-    func editIncome(style: UITableViewCell.EditingStyle, indexPath: IndexPath) {
+    func editIncome(request: IncomeList.DeleteIncome.Request) {
+        if request.style == .delete {
+            let indexPath = request.indexPath
+            let incomeId = incomes[indexPath.row].id.uuidString
+
+            worker.deleteIncome(id: incomeId) { [weak self] result in
+                self?.onDeleteIncome(deletedIndexPath: indexPath, result: result)
+            }
+        }
+    }
+
+    // MARK: Private functions
+
+    private func onDeleteIncome(deletedIndexPath: IndexPath, result: Result<Void, Error>) {
+        do {
+            try result.get()
+
+            incomes.remove(at: deletedIndexPath.row)
+
+            let response = IncomeList.DeleteIncome.Response(incomes: incomes, deletedIndexPath: deletedIndexPath)
+
+            presenter.presentEditIncome(response: response)
+        } catch {
+            presenter.presentEditIncome(error: error)
+        }
     }
 }
