@@ -36,13 +36,20 @@ extension UIView {
         view.autoresizingMask = autoresizingMask
     }
 
+    @discardableResult
+    public func anchored() -> Self {
+        translatesAutoresizingMaskIntoConstraints = false
+
+        return self
+    }
+
     // MARK: Private functions
 
     private func addSubview<T: UIView>(_ view: T, affectedViews: [T]) {
         addSubview(view)
 
         [affectedViews + [view]].flatMap(Set.init).forEach { view in
-            view.translatesAutoresizingMaskIntoConstraints = false
+            view.anchored()
         }
     }
 }

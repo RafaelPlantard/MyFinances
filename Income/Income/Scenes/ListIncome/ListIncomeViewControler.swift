@@ -25,6 +25,25 @@ final class ListIncomeViewControler: UIViewController, ListIncomeDisplayLogic, U
         return tableView
     }()
 
+    private let tableFooterSeparatorView: UIView = UIView(backgroundColor: .separator)
+
+    private let tableFooterViewCell: UITableViewCell = {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: UITableViewCell.className)
+        cell.textLabel?.text = Localizable.List.Label.total
+        cell.detailTextLabel?.text = "$0.00"
+
+        return cell
+    }()
+
+    private let tableFooterView: UITableViewHeaderFooterView = UITableViewHeaderFooterView()
+
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [tableView, tableFooterSeparatorView, tableFooterView])
+        stackView.axis = .vertical
+
+        return stackView
+    }()
+
     // MARK: Variables
 
     weak var delegate: ListIncomeViewControllerDelegate?
@@ -100,7 +119,10 @@ final class ListIncomeViewControler: UIViewController, ListIncomeDisplayLogic, U
     // MARK: Private functions
 
     private func setupLayout() {
-        view.addSubview(equalConstraintsFor: tableView)
+        view.addSubview(equalConstraintsFor: stackView)
+        tableFooterSeparatorView.anchored().heightAnchor.constraint(equalToConstant: 1).isActive = true
+        tableFooterView.anchored().heightAnchor.constraint(equalToConstant: 44).isActive = true
+        tableFooterView.addSubview(equalConstraintsFor: tableFooterViewCell)
     }
 
     private func setupView() {

@@ -9,6 +9,7 @@
 // MARK: ListIncomeViewController
 
 "list.title" = "Incomes";
+"list.label.total" = "Total";
 
 // MARK: AddIncomeViewController
 
