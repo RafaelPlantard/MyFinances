@@ -32,4 +32,18 @@ enum AddIncome{
             let incomeFormFields: IncomeFormFields
         }
     }
+
+    enum ValidateNewIncome {
+        struct Request {
+            let incomeFormFields: IncomeFormFields
+        }
+
+        struct Response {
+            let isValid: Bool
+        }
+
+        struct ViewModel {
+            let isEnabled: Bool
+        }
+    }
 }

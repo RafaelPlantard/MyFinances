@@ -8,6 +8,7 @@
 
 protocol AddIncomeBusinessLogic: AnyObject {
     func formatIncomeDate(request: AddIncome.FormatDate.Request)
+    func validateIncomeFields(request: AddIncome.ValidateNewIncome.Request)
     func saveNewIncome(request: AddIncome.SaveNewIncome.Request)
 }
 
@@ -28,6 +29,16 @@ final class AddIncomeInteractor: AddIncomeBusinessLogic {
         let response = AddIncome.FormatDate.Response(date: request.date)
 
         presenter.presentIncomeDate(response: response)
+    }
+
+    func validateIncomeFields(request: AddIncome.ValidateNewIncome.Request) {
+        let validName = !request.incomeFormFields.name.trimmingCharacters(in: .whitespaces).isEmpty
+        let validAmount = request.incomeFormFields.amount > 0
+        let validDate = request.incomeFormFields.date <= Date()
+        let isValid = validName && validAmount && validDate
+        let response = AddIncome.ValidateNewIncome.Response(isValid: isValid)
+
+        presenter.presentFieldValidation(response: response)
     }
 
     func saveNewIncome(request: AddIncome.SaveNewIncome.Request) {

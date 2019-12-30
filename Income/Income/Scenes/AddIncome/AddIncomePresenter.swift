@@ -8,6 +8,7 @@
 
 protocol AddIncomePresentationLogic: AnyObject {
     func presentIncomeDate(response: AddIncome.FormatDate.Response)
+    func presentFieldValidation(response: AddIncome.ValidateNewIncome.Response)
     func presentCreatedIncome()
     func presentFailure(error: Error)
 }
@@ -37,6 +38,12 @@ final class AddIncomePresenter: AddIncomePresentationLogic {
         let viewModel = AddIncome.FormatDate.ViewModel(date: date)
 
         viewController?.displayIncomeDate(viewModel: viewModel)
+    }
+
+    func presentFieldValidation(response: AddIncome.ValidateNewIncome.Response) {
+        let viewModel = AddIncome.ValidateNewIncome.ViewModel(isEnabled: response.isValid)
+
+        viewController?.displaySaveIncome(viewModel: viewModel)
     }
 
     func presentCreatedIncome() {

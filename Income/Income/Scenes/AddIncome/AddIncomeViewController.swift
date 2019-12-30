@@ -10,6 +10,7 @@ import UIKit
 
 protocol AddIncomeDisplayLogic: AnyObject {
     func displayIncomeDate(viewModel: AddIncome.FormatDate.ViewModel)
+    func displaySaveIncome(viewModel: AddIncome.ValidateNewIncome.ViewModel)
     func displayCreatedIncome()
     func displayError()
 }
@@ -49,13 +50,13 @@ final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
         super.viewDidLoad()
 
         setupView()
+        setupNavigationBar()
         setupActions()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        setupNavigationBar()
         contentView.focus()
     }
 
@@ -63,6 +64,10 @@ final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
 
     func displayIncomeDate(viewModel: AddIncome.FormatDate.ViewModel) {
         contentView.update(date: viewModel.date)
+    }
+
+    func displaySaveIncome(viewModel: AddIncome.ValidateNewIncome.ViewModel) {
+        navigationItem.rightBarButtonItem?.isEnabled = viewModel.isEnabled
     }
 
     func displayCreatedIncome() {
@@ -75,10 +80,18 @@ final class AddIncomeViewController: UIViewController, AddIncomeDisplayLogic {
     // MARK: Private functions
 
     private func setupActions() {
-        contentView.bind { [weak interactor] newDate in
+        contentView.bind { [weak interactor] (newDate: Date) in
             let request = AddIncome.FormatDate.Request(date: newDate)
 
             interactor?.formatIncomeDate(request: request)
+        }
+
+        contentView.bind { [weak interactor] (input: AddIncomeView.InputChanged) in
+            let request = AddIncome.ValidateNewIncome.Request(
+                incomeFormFields: AddIncome.IncomeFormFields(name: input.title, amount: input.amount, date: input.date)
+            )
+
+            interactor?.validateIncomeFields(request: request)
         }
     }
 

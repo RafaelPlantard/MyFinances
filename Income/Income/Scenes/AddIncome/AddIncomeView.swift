@@ -60,6 +60,10 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
 
     private lazy var orderOfFocus: [UIView] = [titleTextField, amountTextField, dateTextField]
 
+    // MARK: Typealias
+
+    typealias InputChanged = (title: String, amount: Double, date: Date)
+
     // MARK: Computed variables
 
     var title: String {
@@ -77,6 +81,7 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
     // MARK: Private variables
 
     private var dateChanged: ((Date) -> ())?
+    private var inputChanged: ((InputChanged) -> ())?
 
     // MARK: Initializer
 
@@ -99,6 +104,11 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
     func bind(action: @escaping (Date) -> ()) {
         dateChanged = action
         didDatePickerChanged()
+    }
+
+    func bind(action: @escaping (InputChanged) -> ()) {
+        inputChanged = action
+        didInputFieldChanged()
     }
 
     func update(date: String) {
@@ -124,6 +134,9 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
 
     private func setupActions() {
         datePicker.addTarget(self, action: .onDatePickerChanged, for: .valueChanged)
+        titleTextField.addTarget(self, action: .onInputFieldChanged, for: .editingChanged)
+        amountTextField.addTarget(self, action: .onInputFieldChanged, for: .editingChanged)
+        dateTextField.addTarget(self, action: .onInputFieldChanged, for: .editingChanged)
     }
 
     private func setupLayout() {
@@ -136,6 +149,11 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
     // MARK: Fileprivate functions
 
     @objc
+    fileprivate func didInputFieldChanged() {
+        inputChanged?((title: title, amount: amount, date: date))
+    }
+
+    @objc
     fileprivate func didDatePickerChanged() {
         dateChanged?(datePicker.date)
     }
@@ -143,4 +161,5 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
 
 private extension Selector {
     static let onDatePickerChanged = #selector(AddIncomeView.didDatePickerChanged)
+    static let onInputFieldChanged = #selector(AddIncomeView.didInputFieldChanged)
 }
