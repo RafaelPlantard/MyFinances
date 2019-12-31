@@ -13,6 +13,8 @@
 		53535DB023BB7652007AD000 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 53535DAC23BB760A007AD000 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53535DB523BB77C8007AD000 /* ListYearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53535DB423BB77C8007AD000 /* ListYearViewController.swift */; };
 		53535DB723BB780B007AD000 /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53535DB623BB780B007AD000 /* CalendarCoordinator.swift */; };
+		53BA574323BBB1C6002EFDDA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53BA574123BBB1C5002EFDDA /* Localizable.strings */; };
+		53BA574623BBB255002EFDDA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA574523BBB255002EFDDA /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		53535DA623BB760A007AD000 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
 		53535DB423BB77C8007AD000 /* ListYearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListYearViewController.swift; sourceTree = "<group>"; };
 		53535DB623BB780B007AD000 /* CalendarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
+		53BA574223BBB1C5002EFDDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		53BA574523BBB255002EFDDA /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 		53535DB123BB7686007AD000 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				53BA574523BBB255002EFDDA /* Strings.swift */,
+				53BA574123BBB1C5002EFDDA /* Localizable.strings */,
 				53535D8E23BB75B6007AD000 /* Calendar.h */,
 				53535D8F23BB75B6007AD000 /* Info.plist */,
 			);
@@ -183,6 +189,7 @@
 			buildConfigurationList = 53535D9F23BB75B6007AD000 /* Build configuration list for PBXNativeTarget "Calendar" */;
 			buildPhases = (
 				53535D8623BB75B6007AD000 /* Headers */,
+				53BA574423BBB21F002EFDDA /* SwiftGen */,
 				53535D8723BB75B6007AD000 /* Sources */,
 				53535D8823BB75B6007AD000 /* Frameworks */,
 				53535D8923BB75B6007AD000 /* Resources */,
@@ -281,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53BA574323BBB1C6002EFDDA /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,12 +301,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53BA574423BBB21F002EFDDA /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Base.lproj/Localizable.strings",
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Strings.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen config run --config \"${SRCROOT}/${PROJECT_NAME}/Resources/swiftgen.yml\"\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		53535D8723BB75B6007AD000 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				53535DB723BB780B007AD000 /* CalendarCoordinator.swift in Sources */,
+				53BA574623BBB255002EFDDA /* Strings.swift in Sources */,
 				53535DB523BB77C8007AD000 /* ListYearViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +352,17 @@
 			targetProxy = 53535D9623BB75B6007AD000 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		53BA574123BBB1C5002EFDDA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53BA574223BBB1C5002EFDDA /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		53535D9D23BB75B6007AD000 /* Debug */ = {

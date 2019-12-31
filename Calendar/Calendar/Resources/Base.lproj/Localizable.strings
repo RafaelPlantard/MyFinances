@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Calendar
+
+  Created by Rafael Ferreira on 12/31/19.
+  Copyright © 2019 Swift Yah. All rights reserved.
+*/
+
+"calendar.segment.years" = "Years";
+"calendar.segment.months" = "Months";
+"calendar.segment.all" = "All";
