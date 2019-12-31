@@ -26,6 +26,7 @@
 		538EE8D823A5F2A600C8CF89 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE8D723A5F2A600C8CF89 /* CoreTests.swift */; };
 		538EE8DA23A5F2A600C8CF89 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 538EE8CC23A5F2A600C8CF89 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		538EE8E423A5F31A00C8CF89 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE8E323A5F31A00C8CF89 /* Coordinator.swift */; };
+		53BA574823BBBDBC002EFDDA /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA574723BBBDBC002EFDDA /* CollectionViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		538EE8D723A5F2A600C8CF89 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		538EE8D923A5F2A600C8CF89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		538EE8E323A5F31A00C8CF89 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		53BA574723BBBDBC002EFDDA /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				533D5FB023B4345300F70E8E /* CurrencyTextField.swift */,
 				5371933723B46F5F0066CDE5 /* TableViewDataSource.swift */,
+				53BA574723BBBDBC002EFDDA /* CollectionViewDataSource.swift */,
 				5309F08A23B82AA3003426CF /* Value1TableViewCell.swift */,
 				5309F08C23B91DEC003426CF /* EditingTableViewDataSource.swift */,
 				5303CF1323B9B1FB0029E0AB /* DataSource.swift */,
@@ -273,6 +276,7 @@
 				5316B0BD23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift in Sources */,
 				5309F08B23B82AA3003426CF /* Value1TableViewCell.swift in Sources */,
 				5316B0B523A67BF400D26E76 /* UIApplication+SafeArea.swift in Sources */,
+				53BA574823BBBDBC002EFDDA /* CollectionViewDataSource.swift in Sources */,
 				533F93F623B26110000CE15A /* String.swift in Sources */,
 				5303CF1423B9B1FB0029E0AB /* DataSource.swift in Sources */,
 				533D5FB123B4345300F70E8E /* CurrencyTextField.swift in Sources */,
