@@ -6,7 +6,29 @@
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
+import Core
 import UIKit
 
 final class ListYearViewController: UIViewController {
+    private let segmentControl: UISegmentedControl = {
+        let control = UISegmentedControl(items: ["Years", "Months", "All"])
+
+        return control
+    }()
+
+    override func loadView() {
+        super.loadView()
+
+        setupLayout()
+    }
+
+    // MARK: Private functions
+
+    private func setupLayout() {
+        view.addSubview(segmentControl, constraints: [
+            segmentControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            segmentControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            segmentControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ])
+    }
 }
