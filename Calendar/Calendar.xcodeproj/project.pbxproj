@@ -17,6 +17,12 @@
 		53BA574623BBB255002EFDDA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA574523BBB255002EFDDA /* Strings.swift */; };
 		53BA575223BBC07D002EFDDA /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575123BBC07D002EFDDA /* TitleCollectionViewCell.swift */; };
 		53BA575423BBCE43002EFDDA /* YearCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575323BBCE43002EFDDA /* YearCollectionViewDelegate.swift */; };
+		53BA575623BBD0EC002EFDDA /* ListYearInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575523BBD0EC002EFDDA /* ListYearInteractor.swift */; };
+		53BA575823BBD13A002EFDDA /* ListYearModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575723BBD13A002EFDDA /* ListYearModels.swift */; };
+		53BA575A23BBD20A002EFDDA /* ListYearWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575923BBD20A002EFDDA /* ListYearWorker.swift */; };
+		53BA575D23BBD276002EFDDA /* YearsStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575C23BBD276002EFDDA /* YearsStoreProtocol.swift */; };
+		53BA575F23BBD396002EFDDA /* YearsMemoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575E23BBD396002EFDDA /* YearsMemoryStore.swift */; };
+		53BA576123BBD7E4002EFDDA /* ListYearPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA576023BBD7E4002EFDDA /* ListYearPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +77,12 @@
 		53BA574523BBB255002EFDDA /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		53BA575123BBC07D002EFDDA /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		53BA575323BBCE43002EFDDA /* YearCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		53BA575523BBD0EC002EFDDA /* ListYearInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListYearInteractor.swift; sourceTree = "<group>"; };
+		53BA575723BBD13A002EFDDA /* ListYearModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListYearModels.swift; sourceTree = "<group>"; };
+		53BA575923BBD20A002EFDDA /* ListYearWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListYearWorker.swift; sourceTree = "<group>"; };
+		53BA575C23BBD276002EFDDA /* YearsStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsStoreProtocol.swift; sourceTree = "<group>"; };
+		53BA575E23BBD396002EFDDA /* YearsMemoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsMemoryStore.swift; sourceTree = "<group>"; };
+		53BA576023BBD7E4002EFDDA /* ListYearPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListYearPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +126,7 @@
 		53535D8D23BB75B6007AD000 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				53BA575B23BBD25E002EFDDA /* Storage */,
 				53535DB623BB780B007AD000 /* CalendarCoordinator.swift */,
 				53535DB123BB7686007AD000 /* Resources */,
 				53535DB223BB777B007AD000 /* Scenes */,
@@ -171,6 +184,10 @@
 			children = (
 				53BA574E23BBBF4C002EFDDA /* Views */,
 				53535DB423BB77C8007AD000 /* ListYearViewController.swift */,
+				53BA575523BBD0EC002EFDDA /* ListYearInteractor.swift */,
+				53BA575723BBD13A002EFDDA /* ListYearModels.swift */,
+				53BA575923BBD20A002EFDDA /* ListYearWorker.swift */,
+				53BA576023BBD7E4002EFDDA /* ListYearPresenter.swift */,
 			);
 			path = ListYear;
 			sourceTree = "<group>";
@@ -182,6 +199,15 @@
 				53BA575323BBCE43002EFDDA /* YearCollectionViewDelegate.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		53BA575B23BBD25E002EFDDA /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				53BA575C23BBD276002EFDDA /* YearsStoreProtocol.swift */,
+				53BA575E23BBD396002EFDDA /* YearsMemoryStore.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,10 +369,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53BA576123BBD7E4002EFDDA /* ListYearPresenter.swift in Sources */,
 				53535DB723BB780B007AD000 /* CalendarCoordinator.swift in Sources */,
 				53BA575423BBCE43002EFDDA /* YearCollectionViewDelegate.swift in Sources */,
+				53BA575D23BBD276002EFDDA /* YearsStoreProtocol.swift in Sources */,
 				53BA575223BBC07D002EFDDA /* TitleCollectionViewCell.swift in Sources */,
+				53BA575623BBD0EC002EFDDA /* ListYearInteractor.swift in Sources */,
+				53BA575F23BBD396002EFDDA /* YearsMemoryStore.swift in Sources */,
+				53BA575823BBD13A002EFDDA /* ListYearModels.swift in Sources */,
 				53BA574623BBB255002EFDDA /* Strings.swift in Sources */,
+				53BA575A23BBD20A002EFDDA /* ListYearWorker.swift in Sources */,
 				53535DB523BB77C8007AD000 /* ListYearViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

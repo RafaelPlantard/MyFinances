@@ -21,7 +21,10 @@ public final class CalendarCoordinator: Coordinator {
     // MARK: Coordinator conforms
 
     public func start() {
-        let listYearViewController = ListYearViewController()
+        let presenter = ListYearPresenter()
+        let interactor = ListYearInteractor(store: YearsMemoryStore(), presenter: presenter)
+        let listYearViewController = ListYearViewController(interactor: interactor)
+        presenter.viewController = listYearViewController
 
         navigationController.setViewControllers([listYearViewController], animated: true)
     }

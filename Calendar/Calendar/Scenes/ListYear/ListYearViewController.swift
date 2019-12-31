@@ -9,7 +9,11 @@
 import Core
 import UIKit
 
-final class ListYearViewController: UIViewController {
+protocol ListYearDisplayLogic: AnyObject {
+    func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel)
+}
+
+final class ListYearViewController: UIViewController, ListYearDisplayLogic {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = UIColor.systemGray6
@@ -30,8 +34,21 @@ final class ListYearViewController: UIViewController {
 
     // MARK: Private constants
 
-    private let dataSource: UICollectionViewDataSource = CollectionViewDataSource.make(for: ["2018", "2019", "2020"])
+    private let dataSource: UICollectionViewDataSource & DataSource = CollectionViewDataSource.make(for: [])
     private let delegate: UICollectionViewDelegateFlowLayout = YearCollectionViewDelegate()
+    private let interactor: ListYearBusinessLogic
+
+    // MARK: Initializers
+
+    init(interactor: ListYearBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
     // MARK: Override functions
 
@@ -45,9 +62,20 @@ final class ListYearViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        fetch()
+    }
+
+    // MARK: ListYearDisplayLogic conforms
+
+    func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel) {
+        dataSource.set(models: viewModel.years)
     }
 
     // MARK: Private functions
+
+    private func fetch() {
+        interactor.fetchYears()
+    }
 
     private func setupLayout() {
         view.addSubview(equalConstraintsFor: collectionView)
