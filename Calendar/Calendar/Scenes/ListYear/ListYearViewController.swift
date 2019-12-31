@@ -23,6 +23,12 @@ final class ListYearViewController: UIViewController {
         setupLayout()
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupView()
+    }
+
     // MARK: Private functions
 
     private func setupLayout() {
@@ -31,5 +37,9 @@ final class ListYearViewController: UIViewController {
             segmentControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             segmentControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
+    }
+
+    private func setupView() {
+        title = Localizable.Calendar.title
     }
 }

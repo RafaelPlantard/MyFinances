@@ -6,6 +6,7 @@
   Copyright © 2019 Swift Yah. All rights reserved.
 */
 
+"calendar.title" = "My Finances";
 "calendar.segment.years" = "Years";
 "calendar.segment.months" = "Months";
 "calendar.segment.all" = "All";
