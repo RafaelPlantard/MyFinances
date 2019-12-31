@@ -13,6 +13,7 @@ final class ListYearViewController: UIViewController {
     private let segmentControl: UISegmentedControl = {
         let localizable = Localizable.Calendar.Segment.self
         let control = UISegmentedControl(items: [localizable.years, localizable.months, localizable.all])
+        control.selectedSegmentIndex = 0
 
         return control
     }()
