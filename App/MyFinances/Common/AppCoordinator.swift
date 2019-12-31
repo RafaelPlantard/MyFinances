@@ -6,6 +6,7 @@
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
+import Calendar
 import Core
 import Income
 import UIKit
@@ -29,7 +30,7 @@ final class AppCoordinator: Coordinator {
 
     func start() {
         setupWindow()
-        showIncome()
+        showCalendar()
     }
 
     // MARK: Private functions
@@ -44,5 +45,11 @@ final class AppCoordinator: Coordinator {
         let incomeCoordinator = IncomeCoordinator(navigationController: navigationController)
         childCoordinators.append(incomeCoordinator)
         incomeCoordinator.start()
+    }
+
+    private func showCalendar() {
+        let calendarCoordinator = CalendarCoordinator(navigationController: navigationController)
+        childCoordinators.append(calendarCoordinator)
+        calendarCoordinator.start()
     }
 }

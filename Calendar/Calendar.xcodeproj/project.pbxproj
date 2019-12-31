@@ -11,6 +11,8 @@
 		53535D9A23BB75B6007AD000 /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53535D9923BB75B6007AD000 /* CalendarTests.swift */; };
 		53535D9C23BB75B6007AD000 /* Calendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 53535D8E23BB75B6007AD000 /* Calendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53535DB023BB7652007AD000 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 53535DAC23BB760A007AD000 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53535DB523BB77C8007AD000 /* ListYearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53535DB423BB77C8007AD000 /* ListYearViewController.swift */; };
+		53535DB723BB780B007AD000 /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53535DB623BB780B007AD000 /* CalendarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		53535D9923BB75B6007AD000 /* CalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTests.swift; sourceTree = "<group>"; };
 		53535D9B23BB75B6007AD000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53535DA623BB760A007AD000 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
+		53535DB423BB77C8007AD000 /* ListYearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListYearViewController.swift; sourceTree = "<group>"; };
+		53535DB623BB780B007AD000 /* CalendarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,9 @@
 		53535D8D23BB75B6007AD000 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				53535DB623BB780B007AD000 /* CalendarCoordinator.swift */,
 				53535DB123BB7686007AD000 /* Resources */,
+				53535DB223BB777B007AD000 /* Scenes */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -140,6 +146,22 @@
 				53535D8F23BB75B6007AD000 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		53535DB223BB777B007AD000 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				53535DB323BB7793007AD000 /* ListYear */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		53535DB323BB7793007AD000 /* ListYear */ = {
+			isa = PBXGroup;
+			children = (
+				53535DB423BB77C8007AD000 /* ListYearViewController.swift */,
+			);
+			path = ListYear;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +227,7 @@
 				TargetAttributes = {
 					53535D8A23BB75B6007AD000 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 					53535D9323BB75B6007AD000 = {
 						CreatedOnToolsVersion = 11.3;
@@ -275,6 +298,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53535DB723BB780B007AD000 /* CalendarCoordinator.swift in Sources */,
+				53535DB523BB77C8007AD000 /* ListYearViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +445,7 @@
 		53535DA023BB75B6007AD000 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -435,6 +461,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.swift-yah.MyFinances.Calendar";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -443,6 +470,7 @@
 		53535DA123BB75B6007AD000 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -466,6 +494,7 @@
 		53535DA323BB75B6007AD000 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CalendarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -483,6 +512,7 @@
 		53535DA423BB75B6007AD000 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CalendarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

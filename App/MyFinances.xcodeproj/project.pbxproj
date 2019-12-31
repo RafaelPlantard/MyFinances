@@ -11,6 +11,7 @@
 		5302794723A5FF5C00DF7F8D /* Income.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5302793923A5FF2000DF7F8D /* Income.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5361788B23A5EECF0060A500 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5361788A23A5EECF0060A500 /* LaunchScreen.xib */; };
 		538EE93923A5FA6500C8CF89 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE93823A5FA6500C8CF89 /* AppCoordinator.swift */; };
+		53BA573723BB791F002EFDDA /* Calendar.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 53BA573023BB7916002EFDDA /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53C3DB9C23A5E48E00EE9ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DB9B23A5E48E00EE9ECB /* AppDelegate.swift */; };
 		53C3DBA523A5E48F00EE9ECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C3DBA423A5E48F00EE9ECB /* Assets.xcassets */; };
 		53C3DBB323A5E48F00EE9ECB /* MyFinancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C3DBB223A5E48F00EE9ECB /* MyFinancesTests.swift */; };
@@ -46,6 +47,20 @@
 			remoteGlobalIDString = 538EE8D223A5F2A600C8CF89;
 			remoteInfo = CoreTests;
 		};
+		53BA572F23BB7916002EFDDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53BA572A23BB7916002EFDDA /* Calendar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53535D8B23BB75B6007AD000;
+			remoteInfo = Calendar;
+		};
+		53BA573123BB7916002EFDDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53BA572A23BB7916002EFDDA /* Calendar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53535D9423BB75B6007AD000;
+			remoteInfo = CalendarTests;
+		};
 		53C3DBAF23A5E48F00EE9ECB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53C3DB9023A5E48E00EE9ECB /* Project object */;
@@ -62,6 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				53BA573723BB791F002EFDDA /* Calendar.framework in Copy Frameworks */,
 				5302794623A5FF5100DF7F8D /* Core.framework in Copy Frameworks */,
 				5302794723A5FF5C00DF7F8D /* Income.framework in Copy Frameworks */,
 			);
@@ -75,6 +91,7 @@
 		5302793C23A5FF2000DF7F8D /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
 		5361788A23A5EECF0060A500 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		538EE93823A5FA6500C8CF89 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		53BA572A23BB7916002EFDDA /* Calendar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Calendar.xcodeproj; path = ../Calendar/Calendar.xcodeproj; sourceTree = "<group>"; };
 		53C3DB9823A5E48E00EE9ECB /* MyFinances.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFinances.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C3DB9B23A5E48E00EE9ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C3DBA423A5E48F00EE9ECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,10 +141,20 @@
 		538EE92223A5F9D600C8CF89 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				53BA572A23BB7916002EFDDA /* Calendar.xcodeproj */,
 				5302793C23A5FF2000DF7F8D /* Core.xcodeproj */,
 				5302793323A5FF2000DF7F8D /* Income.xcodeproj */,
 			);
 			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		53BA572B23BB7916002EFDDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53BA573023BB7916002EFDDA /* Calendar.framework */,
+				53BA573223BB7916002EFDDA /* CalendarTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		53C3DB8F23A5E48E00EE9ECB = {
@@ -258,6 +285,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 53BA572B23BB7916002EFDDA /* Products */;
+					ProjectRef = 53BA572A23BB7916002EFDDA /* Calendar.xcodeproj */;
+				},
+				{
 					ProductGroup = 5302793D23A5FF2000DF7F8D /* Products */;
 					ProjectRef = 5302793C23A5FF2000DF7F8D /* Core.xcodeproj */;
 				},
@@ -301,6 +332,20 @@
 			fileType = wrapper.cfbundle;
 			path = CoreTests.xctest;
 			remoteRef = 5302794323A5FF2000DF7F8D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53BA573023BB7916002EFDDA /* Calendar.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Calendar.framework;
+			remoteRef = 53BA572F23BB7916002EFDDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53BA573223BB7916002EFDDA /* CalendarTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CalendarTests.xctest;
+			remoteRef = 53BA573123BB7916002EFDDA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
