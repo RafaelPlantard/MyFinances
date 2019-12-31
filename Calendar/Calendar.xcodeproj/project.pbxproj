@@ -15,6 +15,8 @@
 		53535DB723BB780B007AD000 /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53535DB623BB780B007AD000 /* CalendarCoordinator.swift */; };
 		53BA574323BBB1C6002EFDDA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53BA574123BBB1C5002EFDDA /* Localizable.strings */; };
 		53BA574623BBB255002EFDDA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA574523BBB255002EFDDA /* Strings.swift */; };
+		53BA575223BBC07D002EFDDA /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575123BBC07D002EFDDA /* TitleCollectionViewCell.swift */; };
+		53BA575423BBCE43002EFDDA /* YearCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA575323BBCE43002EFDDA /* YearCollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		53535DB623BB780B007AD000 /* CalendarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
 		53BA574223BBB1C5002EFDDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		53BA574523BBB255002EFDDA /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		53BA575123BBC07D002EFDDA /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		53BA575323BBCE43002EFDDA /* YearCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCollectionViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,9 +169,19 @@
 		53535DB323BB7793007AD000 /* ListYear */ = {
 			isa = PBXGroup;
 			children = (
+				53BA574E23BBBF4C002EFDDA /* Views */,
 				53535DB423BB77C8007AD000 /* ListYearViewController.swift */,
 			);
 			path = ListYear;
+			sourceTree = "<group>";
+		};
+		53BA574E23BBBF4C002EFDDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53BA575123BBC07D002EFDDA /* TitleCollectionViewCell.swift */,
+				53BA575323BBCE43002EFDDA /* YearCollectionViewDelegate.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				53535DB723BB780B007AD000 /* CalendarCoordinator.swift in Sources */,
+				53BA575423BBCE43002EFDDA /* YearCollectionViewDelegate.swift in Sources */,
+				53BA575223BBC07D002EFDDA /* TitleCollectionViewCell.swift in Sources */,
 				53BA574623BBB255002EFDDA /* Strings.swift in Sources */,
 				53535DB523BB77C8007AD000 /* ListYearViewController.swift in Sources */,
 			);
