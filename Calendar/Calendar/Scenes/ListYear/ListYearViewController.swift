@@ -33,6 +33,16 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         return control
     }()
 
+    // MARK: Private lazy variables
+
+    private lazy var delegate: UICollectionViewDelegateFlowLayout = {
+        YearCollectionViewDelegate { [weak self] indexPath in
+            let request = ListYear.FetchMonths.Request(indexPath: indexPath)
+
+            self?.interactor.fetchMonths(request: request)
+        }
+    }()
+
     // MARK: Private constants
 
     private let dataSource: UICollectionViewDataSource & DataSource = CollectionViewDataSource.make(for: [])

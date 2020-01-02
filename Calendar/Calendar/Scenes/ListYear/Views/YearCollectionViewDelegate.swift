@@ -9,6 +9,15 @@
 import UIKit
 
 final class YearCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
+    private let action: (IndexPath) -> ()
+
+    // MARK: Initializer
+
+    init(action: @escaping (IndexPath) -> ()) {
+        self.action = action
+        super.init()
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width - 32, height: collectionView.frame.width / 3)
     }
@@ -19,5 +28,9 @@ final class YearCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLa
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        action(indexPath)
     }
 }
