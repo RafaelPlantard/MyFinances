@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53430E5723BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E5423BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift */; };
 		53535D9523BB75B6007AD000 /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53535D8B23BB75B6007AD000 /* Calendar.framework */; };
 		53535D9A23BB75B6007AD000 /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53535D9923BB75B6007AD000 /* CalendarTests.swift */; };
 		53535D9C23BB75B6007AD000 /* Calendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 53535D8E23BB75B6007AD000 /* Calendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		53430E5423BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		53535D8B23BB75B6007AD000 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53535D8E23BB75B6007AD000 /* Calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
 		53535D8F23BB75B6007AD000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				53BA575123BBC07D002EFDDA /* TitleCollectionViewCell.swift */,
+				53430E5423BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift */,
 				53BA575323BBCE43002EFDDA /* YearCollectionViewDelegate.swift */,
 			);
 			path = Views;
@@ -375,6 +378,7 @@
 				53BA575D23BBD276002EFDDA /* YearsStoreProtocol.swift in Sources */,
 				53BA575223BBC07D002EFDDA /* TitleCollectionViewCell.swift in Sources */,
 				53BA575623BBD0EC002EFDDA /* ListYearInteractor.swift in Sources */,
+				53430E5723BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift in Sources */,
 				53BA575F23BBD396002EFDDA /* YearsMemoryStore.swift in Sources */,
 				53BA575823BBD13A002EFDDA /* ListYearModels.swift in Sources */,
 				53BA574623BBB255002EFDDA /* Strings.swift in Sources */,
