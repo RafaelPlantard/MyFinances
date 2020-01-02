@@ -20,4 +20,8 @@ final class ListYearWorker {
     func fetchYears(then handler: (Result<[Date], Error>) -> ()) {
         store.fetchYears(then: handler)
     }
+
+    func fetchMonths(of year: Date, then handler: (Result<[Date], Error>) -> ()) {
+        store.fetchMonths(for: year, then: handler)
+    }
 }

@@ -16,4 +16,20 @@ enum ListYear {
             let years: [String]
         }
     }
+
+    enum FetchMonths {
+        struct Request {
+            let indexPath: IndexPath
+        }
+
+        struct Response {
+            let year: Date
+            let months: [Date]
+        }
+
+        struct ViewModel {
+            let year: String
+            let months: [String]
+        }
+    }
 }

@@ -8,11 +8,16 @@
 
 protocol ListYearBusinessLogic {
     func fetchYears()
+    func fetchMonths(request: ListYear.FetchMonths.Request)
 }
 
 final class ListYearInteractor: ListYearBusinessLogic {
     private let worker: ListYearWorker
     private let presenter: ListYearPresentationLogic
+
+    // MARK: Private variables
+
+    private var years: [Date] = []
 
     // MARK: Initializer
 
@@ -35,7 +40,28 @@ final class ListYearInteractor: ListYearBusinessLogic {
 
             let response = ListYear.FetchYears.Response(dates: years)
 
-            self?.presenter.presentFetchedYears(response: response)
+            if let self = self {
+                self.years = years
+                self.presenter.presentFetchedYears(response: response)
+            }
+        }
+    }
+
+    func fetchMonths(request: ListYear.FetchMonths.Request) {
+    let year = years[request.indexPath.row]
+
+        worker.fetchMonths(of: year) { [weak self] result in
+            let months: [Date]
+
+            do {
+                months = try result.get()
+            } catch {
+                months = []
+            }
+
+            let response = ListYear.FetchMonths.Response(year: year, months: months)
+
+            self?.presenter.presentFetchedMonths(response: response)
         }
     }
 }

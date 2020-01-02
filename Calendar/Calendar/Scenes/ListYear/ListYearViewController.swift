@@ -11,6 +11,7 @@ import UIKit
 
 protocol ListYearDisplayLogic: AnyObject {
     func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel)
+    func displayFetchedMonths(viewModel: ListYear.FetchMonths.ViewModel)
 }
 
 final class ListYearViewController: UIViewController, ListYearDisplayLogic {
@@ -69,6 +70,9 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
 
     func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel) {
         dataSource.set(models: viewModel.years)
+    }
+
+    func displayFetchedMonths(viewModel: ListYear.FetchMonths.ViewModel) {
     }
 
     // MARK: Private functions
