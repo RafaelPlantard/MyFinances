@@ -26,7 +26,7 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
 
     private let segmentControl: UISegmentedControl = {
         let localizable = Localizable.Calendar.Segment.self
-        let control = UISegmentedControl(items: [localizable.years, localizable.months, localizable.all])
+        let control = UISegmentedControl(items: [localizable.years, localizable.months])
         control.selectedSegmentIndex = 0
 
         return control
