@@ -8,4 +8,5 @@
 
 protocol YearsStoreProtocol {
     func fetchYears(then handler: (Result<[Date], Error>) -> ())
+    func fetchMonths(for year: Date, then handler: (Result<[Date], Error>) -> ())
 }
