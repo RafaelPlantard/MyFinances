@@ -29,12 +29,13 @@ final class ListIncomePresenter: ListIncomePresentationLogic {
     // MARK: ListIncomePresentationLogic conforms
 
     func presentIncomes(response: ListIncome.FetchIncomes.Response) {
-        let displayedIncomes = response.incomes.map({ [currencyFormatter] (income: Income) -> ListIncome.FetchIncomes.ViewModel.DisplayedIncome in
-            let amount = NSNumber(value: income.amount)
-            let value = currencyFormatter.string(from: amount)
+        let displayedIncomes = response.incomes
+            .map({ [currencyFormatter] (income: Income) -> ListIncome.FetchIncomes.ViewModel.DisplayedIncome in
+                let amount = NSNumber(value: income.amount)
+                let value = currencyFormatter.string(from: amount)
 
-            return ListIncome.FetchIncomes.ViewModel.DisplayedIncome(name: income.name, value: value)
-        })
+                return ListIncome.FetchIncomes.ViewModel.DisplayedIncome(name: income.name, value: value)
+            })
 
         let total = response.incomes.total(formatter: currencyFormatter)
 
@@ -44,12 +45,13 @@ final class ListIncomePresenter: ListIncomePresentationLogic {
     }
 
     func presentEditIncome(response: ListIncome.DeleteIncome.Response) {
-        let displayedIncomes = response.incomes.map({ [currencyFormatter] (income: Income) -> ListIncome.DeleteIncome.ViewModel.DisplayedIncome in
-            let amount = NSNumber(value: income.amount)
-            let value = currencyFormatter.string(from: amount)
+        let displayedIncomes = response.incomes
+            .map({ [currencyFormatter] (income: Income) -> ListIncome.DeleteIncome.ViewModel.DisplayedIncome in
+                let amount = NSNumber(value: income.amount)
+                let value = currencyFormatter.string(from: amount)
 
-            return ListIncome.DeleteIncome.ViewModel.DisplayedIncome(name: income.name, value: value)
-        })
+                return ListIncome.DeleteIncome.ViewModel.DisplayedIncome(name: income.name, value: value)
+            })
 
         let total = response.incomes.total(formatter: currencyFormatter)
 

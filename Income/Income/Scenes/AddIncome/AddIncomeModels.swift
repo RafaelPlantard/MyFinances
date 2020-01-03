@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
-enum AddIncome{
+enum AddIncome {
     struct IncomeFormFields {
         let name: String
         let amount: Double

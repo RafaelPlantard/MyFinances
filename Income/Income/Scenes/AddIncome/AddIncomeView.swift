@@ -80,8 +80,8 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
 
     // MARK: Private variables
 
-    private var dateChanged: ((Date) -> ())?
-    private var inputChanged: ((InputChanged) -> ())?
+    private var dateChanged: ((Date) -> Void)?
+    private var inputChanged: ((InputChanged) -> Void)?
 
     // MARK: Initializer
 
@@ -101,12 +101,12 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
 
     // MARK: Functions
 
-    func bind(action: @escaping (Date) -> ()) {
+    func bind(action: @escaping (Date) -> Void) {
         dateChanged = action
         didDatePickerChanged()
     }
 
-    func bind(action: @escaping (InputChanged) -> ()) {
+    func bind(action: @escaping (InputChanged) -> Void) {
         inputChanged = action
         didInputFieldChanged()
     }
@@ -122,7 +122,7 @@ final class AddIncomeView: UIView, UITextFieldDelegate {
     // MARK: UITextFieldDelegate conforms
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let currentIndex = orderOfFocus.enumerated().first(where: { (index, element) in element == textField })
+        let currentIndex = orderOfFocus.enumerated().first(where: { (_, element) in element == textField })
             .map({ index, _ in index }).or(0)
 
         orderOfFocus[currentIndex + 1].becomeFirstResponder()
