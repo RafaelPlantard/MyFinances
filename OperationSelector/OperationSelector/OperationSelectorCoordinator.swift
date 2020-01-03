@@ -14,7 +14,7 @@ public final class OperationSelectorCoordinator: Coordinator {
 
     // MARK: Initializers
 
-    init(navigationController: UINavigationController) {
+    public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 

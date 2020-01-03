@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5302794623A5FF5100DF7F8D /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5302794223A5FF2000DF7F8D /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5302794723A5FF5C00DF7F8D /* Income.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5302793923A5FF2000DF7F8D /* Income.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53430EAD23BFECC100B88CC4 /* OperationSelector.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 53430EAA23BFECB300B88CC4 /* OperationSelector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5361788B23A5EECF0060A500 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5361788A23A5EECF0060A500 /* LaunchScreen.xib */; };
 		538EE93923A5FA6500C8CF89 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538EE93823A5FA6500C8CF89 /* AppCoordinator.swift */; };
 		53BA573723BB791F002EFDDA /* Calendar.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 53BA573023BB7916002EFDDA /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -47,6 +48,20 @@
 			remoteGlobalIDString = 538EE8D223A5F2A600C8CF89;
 			remoteInfo = CoreTests;
 		};
+		53430EA923BFECB300B88CC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53430EA423BFECB200B88CC4 /* OperationSelector.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53430E7223BFD50F00B88CC4;
+			remoteInfo = OperationSelector;
+		};
+		53430EAB23BFECB300B88CC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53430EA423BFECB200B88CC4 /* OperationSelector.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53430E7B23BFD51000B88CC4;
+			remoteInfo = OperationSelectorTests;
+		};
 		53BA572F23BB7916002EFDDA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53BA572A23BB7916002EFDDA /* Calendar.xcodeproj */;
@@ -77,6 +92,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				53430EAD23BFECC100B88CC4 /* OperationSelector.framework in Copy Frameworks */,
 				53BA573723BB791F002EFDDA /* Calendar.framework in Copy Frameworks */,
 				5302794623A5FF5100DF7F8D /* Core.framework in Copy Frameworks */,
 				5302794723A5FF5C00DF7F8D /* Income.framework in Copy Frameworks */,
@@ -89,6 +105,7 @@
 /* Begin PBXFileReference section */
 		5302793323A5FF2000DF7F8D /* Income.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Income.xcodeproj; path = ../Income/Income.xcodeproj; sourceTree = "<group>"; };
 		5302793C23A5FF2000DF7F8D /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
+		53430EA423BFECB200B88CC4 /* OperationSelector.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OperationSelector.xcodeproj; path = ../OperationSelector/OperationSelector.xcodeproj; sourceTree = "<group>"; };
 		5361788A23A5EECF0060A500 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		538EE93823A5FA6500C8CF89 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		53BA572A23BB7916002EFDDA /* Calendar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Calendar.xcodeproj; path = ../Calendar/Calendar.xcodeproj; sourceTree = "<group>"; };
@@ -138,11 +155,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		53430EA523BFECB200B88CC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53430EAA23BFECB300B88CC4 /* OperationSelector.framework */,
+				53430EAC23BFECB300B88CC4 /* OperationSelectorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		538EE92223A5F9D600C8CF89 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
 				53BA572A23BB7916002EFDDA /* Calendar.xcodeproj */,
 				5302793C23A5FF2000DF7F8D /* Core.xcodeproj */,
+				53430EA423BFECB200B88CC4 /* OperationSelector.xcodeproj */,
 				5302793323A5FF2000DF7F8D /* Income.xcodeproj */,
 			);
 			name = Dependencies;
@@ -296,6 +323,10 @@
 					ProductGroup = 5302793423A5FF2000DF7F8D /* Products */;
 					ProjectRef = 5302793323A5FF2000DF7F8D /* Income.xcodeproj */;
 				},
+				{
+					ProductGroup = 53430EA523BFECB200B88CC4 /* Products */;
+					ProjectRef = 53430EA423BFECB200B88CC4 /* OperationSelector.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -332,6 +363,20 @@
 			fileType = wrapper.cfbundle;
 			path = CoreTests.xctest;
 			remoteRef = 5302794323A5FF2000DF7F8D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53430EAA23BFECB300B88CC4 /* OperationSelector.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OperationSelector.framework;
+			remoteRef = 53430EA923BFECB300B88CC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53430EAC23BFECB300B88CC4 /* OperationSelectorTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OperationSelectorTests.xctest;
+			remoteRef = 53430EAB23BFECB300B88CC4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		53BA573023BB7916002EFDDA /* Calendar.framework */ = {

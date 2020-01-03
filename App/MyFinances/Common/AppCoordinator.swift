@@ -9,9 +9,10 @@
 import Calendar
 import Core
 import Income
+import OperationSelector
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator, CalendarCoordinatorDelegate {
     private let navigationController: UINavigationController
     private let window: UIWindow
 
@@ -33,6 +34,12 @@ final class AppCoordinator: Coordinator {
         showCalendar()
     }
 
+    // MARK: CalendarCoordinatorDelegate conforms
+
+    func calendarCoordinatorDidFinish(with date: Date, _ coordinator: CalendarCoordinator) {
+        showOperationSelector()
+    }
+
     // MARK: Private functions
 
     private func setupWindow() {
@@ -49,7 +56,14 @@ final class AppCoordinator: Coordinator {
 
     private func showCalendar() {
         let calendarCoordinator = CalendarCoordinator(navigationController: navigationController)
+        calendarCoordinator.delegate = self
         childCoordinators.append(calendarCoordinator)
         calendarCoordinator.start()
+    }
+
+    private func showOperationSelector() {
+        let operationSelectorCoordinator = OperationSelectorCoordinator(navigationController: navigationController)
+        childCoordinators.append(operationSelectorCoordinator)
+        operationSelectorCoordinator.start()
     }
 }
