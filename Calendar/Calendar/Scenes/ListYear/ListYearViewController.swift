@@ -18,8 +18,6 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = UIColor.systemGray6
-        collectionView.dataSource = yearDataSource
-        collectionView.delegate = yearDelegate
         collectionView.register(
             TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.className
         )
@@ -87,6 +85,7 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         super.viewDidLoad()
 
         setupView()
+        setupActions()
         fetch()
     }
 
@@ -94,6 +93,8 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
 
     func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel) {
         yearDataSource.set(models: viewModel.years)
+        collectionView.dataSource = yearDataSource
+        collectionView.delegate = yearDelegate
     }
 
     func displayFetchedMonths(viewModel: ListYear.FetchMonths.ViewModel) {
@@ -123,6 +124,23 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
     private func setupView() {
         title = Localizable.Calendar.title
     }
+
+    private func setupActions() {
+        segmentControl.addTarget(self, action: .didSegmentChanged, for: .valueChanged)
+    }
+
+    // MARK: Fileprivate functions
+
+    @objc
+    fileprivate func onDidSegmentControlChanged() {
+        let request = ListYear.ChangeRange.Request(index: segmentControl.selectedSegmentIndex)
+
+        interactor.changeRange(request: request)
+    }
+}
+
+private extension Selector {
+    static let didSegmentChanged = #selector(ListYearViewController.onDidSegmentControlChanged)
 }
 
 private extension CollectionViewDataSource where Model == String {

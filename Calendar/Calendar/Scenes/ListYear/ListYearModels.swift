@@ -32,4 +32,10 @@ enum ListYear {
             let months: [String]
         }
     }
+
+    enum ChangeRange {
+        struct Request {
+            let index: Int
+        }
+    }
 }
