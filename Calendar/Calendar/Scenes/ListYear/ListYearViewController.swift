@@ -18,9 +18,15 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = UIColor.systemGray6
-        collectionView.dataSource = dataSource
-        collectionView.delegate = delegate
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.className)
+        collectionView.dataSource = yearDataSource
+        collectionView.delegate = yearDelegate
+        collectionView.register(
+            TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.className
+        )
+        collectionView.register(
+            TitleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: TitleCollectionReusableView.className
+        )
 
         return collectionView
     }()
@@ -35,7 +41,7 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
 
     // MARK: Private lazy variables
 
-    private lazy var delegate: UICollectionViewDelegateFlowLayout = {
+    private lazy var yearDelegate: UICollectionViewDelegateFlowLayout = {
         YearCollectionViewDelegate { [weak self] indexPath in
             let request = ListYear.FetchMonths.Request(indexPath: indexPath)
 
@@ -43,10 +49,18 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         }
     }()
 
+    private lazy var monthDelegate: UICollectionViewDelegateFlowLayout = MonthCollectionViewDelegate()
+
     // MARK: Private constants
 
-    private let dataSource: UICollectionViewDataSource & DataSource = CollectionViewDataSource.make(for: [])
-    private let delegate: UICollectionViewDelegateFlowLayout = YearCollectionViewDelegate()
+    private let yearDataSource: UICollectionViewDataSource & DataSource = CollectionViewDataSource.make(for: [])
+
+    private let monthDataSource: UICollectionViewDataSource & DataSource = CollectionViewDataSource.make(for: [])
+
+    private lazy var sectionDataSource: UICollectionViewDataSource & DataSource = {
+        SectionedCollectionViewDataSource.make(dataSources: [monthDataSource])
+    }()
+
     private let interactor: ListYearBusinessLogic
 
     // MARK: Initializers
@@ -79,10 +93,15 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
     // MARK: ListYearDisplayLogic conforms
 
     func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel) {
-        dataSource.set(models: viewModel.years)
+        yearDataSource.set(models: viewModel.years)
     }
 
     func displayFetchedMonths(viewModel: ListYear.FetchMonths.ViewModel) {
+        sectionDataSource.set(models: [viewModel.year])
+        monthDataSource.set(models: viewModel.months)
+        collectionView.dataSource = sectionDataSource
+        collectionView.delegate = monthDelegate
+        segmentControl.selectedSegmentIndex = 1
     }
 
     // MARK: Private functions
@@ -109,6 +128,14 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
 private extension CollectionViewDataSource where Model == String {
     static func make(for years: [Model]) -> CollectionViewDataSource<String,TitleCollectionViewCell> {
         CollectionViewDataSource<String, TitleCollectionViewCell>(models: years) { (model, cell) in
+            cell.set(title: model)
+        }
+    }
+}
+
+private extension SectionedCollectionViewDataSource where Section == String {
+    static func make(dataSources: [UICollectionViewDataSource]) -> SectionedCollectionViewDataSource<String, TitleCollectionReusableView> {
+        SectionedCollectionViewDataSource<String, TitleCollectionReusableView>(sections: dataSources, sectionTitles: []) { (model, cell) in
             cell.set(title: model)
         }
     }
