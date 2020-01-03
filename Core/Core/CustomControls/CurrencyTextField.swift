@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable open class CurrencyTextField : UITextField {
+@IBDesignable open class CurrencyTextField: UITextField {
     private let maxDigits = 12
 
     private let currencyFormatter: NumberFormatter = {
@@ -46,27 +46,29 @@ import UIKit
         setupTextField()
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     // MARK: Override functions
 
     override open func willMove(toSuperview newSuperview: UIView?) {
-        guard newSuperview != nil else {
-            return NotificationCenter.default.removeObserver(self)
+        if newSuperview != nil {
+            NotificationCenter.default.addObserver(
+                self, selector: .textDidChange, name: UITextField.textDidChangeNotification, object: self
+            )
         }
-
-        NotificationCenter.default.addObserver(
-            self, selector: .textDidChange, name: UITextField.textDidChangeNotification, object: self
-        )
     }
 
     // MARK: Private functions
 
-    private func setupTextField(){
+    private func setupTextField() {
         keyboardType = .decimalPad
 
         setAmount(defaultValue)
     }
 
-    private func setAmount (_ amount : Double){
+    private func setAmount (_ amount: Double) {
         let textFieldStringValue = currencyFormatter.string(from: NSNumber(value: amount))
 
         text = textFieldStringValue
@@ -78,13 +80,13 @@ import UIKit
         return text.or(.empty).components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
     }
 
-    private func getOriginalCursorPosition() -> Int{
+    private func getOriginalCursorPosition() -> Int {
         guard let selectedTextRange = selectedTextRange else { return 0 }
 
         return offset(from: beginningOfDocument, to: selectedTextRange.start)
     }
 
-    private func setCursorOriginalPosition(_ cursorOffset: Int, oldTextFieldLength : Int?) {
+    private func setCursorOriginalPosition(_ cursorOffset: Int, oldTextFieldLength: Int?) {
         let newLength = text.or(.empty).count
         let startPosition = beginningOfDocument
 

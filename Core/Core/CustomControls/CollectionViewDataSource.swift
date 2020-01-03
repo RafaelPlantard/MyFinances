@@ -8,7 +8,8 @@
 
 import UIKit
 
-public final class CollectionViewDataSource<Model, Cell>: DataSource<Model>, UICollectionViewDataSource where Cell: UICollectionViewCell {
+public final class CollectionViewDataSource<Model, Cell>: DataSource<Model>, UICollectionViewDataSource
+    where Cell: UICollectionViewCell {
     public typealias CellConfigurator = (Model, Cell) -> Void
 
     // MARK: Private constants
@@ -28,7 +29,8 @@ public final class CollectionViewDataSource<Model, Cell>: DataSource<Model>, UIC
         return count
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let model = get(at: indexPath.row)
         let genericCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.className, for: indexPath)
 

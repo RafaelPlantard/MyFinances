@@ -8,7 +8,8 @@
 
 import UIKit
 
-public final class SectionedCollectionViewDataSource<Section, SectionCell>: DataSource<Section>, UICollectionViewDataSource where SectionCell : UICollectionReusableView {
+public final class SectionedCollectionViewDataSource<Section, SectionCell>: DataSource<Section>,
+    UICollectionViewDataSource where SectionCell: UICollectionReusableView {
     public typealias SectionTitleConfigurator = (Section, SectionCell) -> Void
 
     // MARK: Private constants
@@ -18,7 +19,8 @@ public final class SectionedCollectionViewDataSource<Section, SectionCell>: Data
 
     // MARK: Initializers
 
-    public init(sections: [UICollectionViewDataSource], sectionTitles: [Section], sectionConfigurator: @escaping SectionTitleConfigurator) {
+    public init(sections: [UICollectionViewDataSource], sectionTitles: [Section],
+                sectionConfigurator: @escaping SectionTitleConfigurator) {
         self.sectionTitleConfigurator = sectionConfigurator
         self.dataSources = DataSource(models: sections)
         super.init(models: sectionTitles)
@@ -34,15 +36,19 @@ public final class SectionedCollectionViewDataSource<Section, SectionCell>: Data
         return dataSources.get(at: section).collectionView(collectionView, numberOfItemsInSection: section)
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let dataSource = dataSources.get(at: indexPath.section)
         let indexPath = IndexPath(row: indexPath.row, section: 0)
 
         return dataSource.collectionView(collectionView, cellForItemAt: indexPath)
     }
 
-    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let genericView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionCell.className, for: indexPath)
+    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
+                               at indexPath: IndexPath) -> UICollectionReusableView {
+        let genericView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind, withReuseIdentifier: SectionCell.className, for: indexPath
+        )
 
         guard let supplementaryView = genericView as? SectionCell else {
             return genericView

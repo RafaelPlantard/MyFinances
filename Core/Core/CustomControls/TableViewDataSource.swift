@@ -8,7 +8,8 @@
 
 import UIKit
 
-public final class TableViewDataSource<Model, Cell>: DataSource<Model>, UITableViewDataSource where Cell: UITableViewCell {
+public final class TableViewDataSource<Model, Cell>: DataSource<Model>, UITableViewDataSource
+    where Cell: UITableViewCell {
     public typealias CellConfigurator = (Model, Cell) -> Void
 
     // MARK: Private constants

@@ -8,7 +8,8 @@
 
 import UIKit
 
-public final class EditingTableViewDataSource<Model, Cell>: DataSource<Model>, UITableViewDataSource where Cell: UITableViewCell {
+public final class EditingTableViewDataSource<Model, Cell>: DataSource<Model>, UITableViewDataSource
+    where Cell: UITableViewCell {
     public typealias CellConfigurator = (Model, Cell) -> Void
     public typealias EditingConfigurator = (UITableViewCell.EditingStyle, IndexPath) -> Void
 
@@ -19,7 +20,8 @@ public final class EditingTableViewDataSource<Model, Cell>: DataSource<Model>, U
 
     // MARK: Initializers
 
-    public init(models: [Model], cellConfigurator: @escaping CellConfigurator, editingConfigurator: @escaping EditingConfigurator) {
+    public init(models: [Model], cellConfigurator: @escaping CellConfigurator,
+                editingConfigurator: @escaping EditingConfigurator) {
         self.cellConfigurator = cellConfigurator
         self.editingConfigurator = editingConfigurator
         super.init(models: models)
@@ -44,7 +46,8 @@ public final class EditingTableViewDataSource<Model, Cell>: DataSource<Model>, U
         return cell
     }
 
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
+                          forRowAt indexPath: IndexPath) {
         editingConfigurator(editingStyle, indexPath)
     }
 }
