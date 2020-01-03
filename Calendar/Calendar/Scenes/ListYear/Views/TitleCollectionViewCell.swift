@@ -34,6 +34,12 @@ public final class TitleCollectionViewCell: UICollectionViewCell {
         setupView()
     }
 
+    // MARK: Override variables
+
+    override public var isHighlighted: Bool {
+        didSet { transition(isHighlighted: isHighlighted) }
+    }
+
     // MARK: Functions
 
     func set(title: String) {
@@ -48,6 +54,21 @@ public final class TitleCollectionViewCell: UICollectionViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
+    }
+
+    private func transition(isHighlighted: Bool) {
+        let duration = isHighlighted ? 0.45 : 0.4
+        let transform = isHighlighted ? CGAffineTransform(scaleX: 0.96, y: 0.96) : CGAffineTransform.identity
+        let bgColor = isHighlighted ? UIColor(white: 1, alpha: 0.45) : UIColor.white
+        let animations = {
+            self.transform = transform
+            self.backgroundColor = bgColor
+        }
+
+        UIView.animate(
+            withDuration: duration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
+            options: [.allowUserInteraction, .beginFromCurrentState], animations: animations, completion: nil
+        )
     }
 
     private func setupView() {
