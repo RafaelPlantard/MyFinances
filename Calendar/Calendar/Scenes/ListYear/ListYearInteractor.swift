@@ -10,6 +10,7 @@ protocol ListYearBusinessLogic {
     func fetchYears()
     func fetchMonths(request: ListYear.FetchMonths.Request)
     func changeRange(request: ListYear.ChangeRange.Request)
+    func selectMonth(request: ListYear.SelectMonth.Request)
 }
 
 final class ListYearInteractor: ListYearBusinessLogic {
@@ -19,6 +20,7 @@ final class ListYearInteractor: ListYearBusinessLogic {
     // MARK: Private variables
 
     private var years: [Date] = []
+    private var months: [Date] = []
 
     // MARK: Initializer
 
@@ -60,6 +62,13 @@ final class ListYearInteractor: ListYearBusinessLogic {
         return fetchMonths(at: request.index)
     }
 
+    func selectMonth(request: ListYear.SelectMonth.Request) {
+        let month = months[request.indexPath.row]
+        let response = ListYear.SelectMonth.Response(date: month)
+
+        presenter.presentSelectedMonth(response: response)
+    }
+
     // MARK: Private functions
 
     private func fetchMonths(at index: Int) {
@@ -76,7 +85,10 @@ final class ListYearInteractor: ListYearBusinessLogic {
 
             let response = ListYear.FetchMonths.Response(year: year, months: months)
 
-            self?.presenter.presentFetchedMonths(response: response)
+            if let self = self {
+                self.months = months
+                self.presenter.presentFetchedMonths(response: response)
+            }
         }
     }
 }

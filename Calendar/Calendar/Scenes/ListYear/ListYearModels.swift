@@ -38,4 +38,18 @@ enum ListYear {
             let index: Int
         }
     }
+
+    enum SelectMonth {
+        struct Request {
+            let indexPath: IndexPath
+        }
+
+        struct Response {
+            let date: Date
+        }
+
+        struct ViewModel {
+            let month: Date
+        }
+    }
 }

@@ -9,6 +9,7 @@
 protocol ListYearPresentationLogic {
     func presentFetchedYears(response: ListYear.FetchYears.Response)
     func presentFetchedMonths(response: ListYear.FetchMonths.Response)
+    func presentSelectedMonth(response: ListYear.SelectMonth.Response)
 }
 
 final class ListYearPresenter: ListYearPresentationLogic {
@@ -48,6 +49,12 @@ final class ListYearPresenter: ListYearPresentationLogic {
         let viewModel = ListYear.FetchMonths.ViewModel(year: year, months: months)
 
         viewController?.displayFetchedMonths(viewModel: viewModel)
+    }
+
+    func presentSelectedMonth(response: ListYear.SelectMonth.Response) {
+        let viewModel = ListYear.SelectMonth.ViewModel(month: response.date)
+
+        viewController?.displaySelectedMonth(viewModel: viewModel)
     }
 
     // MARK: Private functions

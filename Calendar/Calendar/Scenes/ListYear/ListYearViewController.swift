@@ -12,6 +12,7 @@ import UIKit
 protocol ListYearDisplayLogic: AnyObject {
     func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel)
     func displayFetchedMonths(viewModel: ListYear.FetchMonths.ViewModel)
+    func displaySelectedMonth(viewModel: ListYear.SelectMonth.ViewModel)
 }
 
 final class ListYearViewController: UIViewController, ListYearDisplayLogic {
@@ -47,7 +48,17 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         }
     }()
 
-    private lazy var monthLayout: UICollectionViewDelegateFlowLayout = MonthCollectionViewDelegate()
+    private lazy var monthLayout: UICollectionViewDelegateFlowLayout = {
+        MonthCollectionViewDelegate { [weak self] indexPath in
+            let request = ListYear.SelectMonth.Request(indexPath: indexPath)
+
+            self?.interactor.selectMonth(request: request)
+        }
+    }()
+
+    // MARK: Variables
+
+    weak var delegate: ListYearViewControllerDelegate?
 
     // MARK: Private constants
 
@@ -103,6 +114,9 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         collectionView.dataSource = sectionDataSource
         collectionView.delegate = monthLayout
         segmentControl.selectedSegmentIndex = 1
+    }
+
+    func displaySelectedMonth(viewModel: ListYear.SelectMonth.ViewModel) {
     }
 
     // MARK: Private functions

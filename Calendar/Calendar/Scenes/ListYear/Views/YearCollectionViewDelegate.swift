@@ -18,6 +18,8 @@ final class YearCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLa
         super.init()
     }
 
+    // MARK: UICollectionViewDelegateFlowLayout conforms
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width - 32, height: collectionView.frame.width / 3)
@@ -32,6 +34,8 @@ final class YearCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLa
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
+
+    // MARK: UICollectionViewDelegate conforms
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         action(indexPath)

@@ -9,6 +9,17 @@
 import UIKit
 
 final class MonthCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
+    private let action: (IndexPath) -> Void
+
+    // MARK: Initializer
+
+    init(action: @escaping (IndexPath) -> Void) {
+        self.action = action
+        super.init()
+    }
+
+    // MARK: UICollectionViewDelegateFlowLayout conforms
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = collectionView.frame.width / 3.6
@@ -32,5 +43,11 @@ final class MonthCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowL
         return CGSize(
             width: collectionView.frame.width, height: UIFont.preferredFont(forTextStyle: .largeTitle).lineHeight + 16
         )
+    }
+
+    // MARK: UICollectionViewDelegate conforms
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        action(indexPath)
     }
 }
