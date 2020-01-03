@@ -8,9 +8,9 @@
 
 import UIKit
 
-public final class SectionedCollectionViewDataSource<Section, SectionCell>: DataSource<Section>,
-    UICollectionViewDataSource where SectionCell: UICollectionReusableView {
-    public typealias SectionTitleConfigurator = (Section, SectionCell) -> Void
+public final class SectionedCollectionViewDataSource<Model, Cell>: DataSource<Model>, UICollectionViewDataSource
+    where Cell: UICollectionReusableView {
+    public typealias SectionTitleConfigurator = (Model, Cell) -> Void
 
     // MARK: Private constants
 
@@ -19,7 +19,7 @@ public final class SectionedCollectionViewDataSource<Section, SectionCell>: Data
 
     // MARK: Initializers
 
-    public init(sections: [UICollectionViewDataSource], sectionTitles: [Section],
+    public init(sections: [UICollectionViewDataSource], sectionTitles: [Model],
                 sectionConfigurator: @escaping SectionTitleConfigurator) {
         self.sectionTitleConfigurator = sectionConfigurator
         self.dataSources = DataSource(models: sections)
@@ -47,10 +47,10 @@ public final class SectionedCollectionViewDataSource<Section, SectionCell>: Data
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
                                at indexPath: IndexPath) -> UICollectionReusableView {
         let genericView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind, withReuseIdentifier: SectionCell.className, for: indexPath
+            ofKind: kind, withReuseIdentifier: Cell.className, for: indexPath
         )
 
-        guard let supplementaryView = genericView as? SectionCell else {
+        guard let supplementaryView = genericView as? Cell else {
             return genericView
         }
 

@@ -232,6 +232,7 @@
 			buildConfigurationList = 53535D9F23BB75B6007AD000 /* Build configuration list for PBXNativeTarget "Calendar" */;
 			buildPhases = (
 				53535D8623BB75B6007AD000 /* Headers */,
+				53430E6723BFCA1700B88CC4 /* SwiftLint */,
 				53BA574423BBB21F002EFDDA /* SwiftGen */,
 				53535D8723BB75B6007AD000 /* Sources */,
 				53535D8823BB75B6007AD000 /* Frameworks */,
@@ -345,6 +346,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		53430E6723BFCA1700B88CC4 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		53BA574423BBB21F002EFDDA /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

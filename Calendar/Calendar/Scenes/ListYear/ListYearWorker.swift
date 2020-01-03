@@ -17,11 +17,11 @@ final class ListYearWorker {
 
     // MARK: Functions
 
-    func fetchYears(then handler: (Result<[Date], Error>) -> ()) {
+    func fetchYears(then handler: (Result<[Date], Error>) -> Void) {
         store.fetchYears(then: handler)
     }
 
-    func fetchMonths(of year: Date, then handler: (Result<[Date], Error>) -> ()) {
+    func fetchMonths(of year: Date, then handler: (Result<[Date], Error>) -> Void) {
         store.fetchMonths(for: year, then: handler)
     }
 }

@@ -11,7 +11,7 @@ final class YearsMemoryStore: YearsStoreProtocol {
 
     // MARK: YearsStoreProtocol conforms
 
-    func fetchYears(then handler: (Result<[Date], Error>) -> ()) {
+    func fetchYears(then handler: (Result<[Date], Error>) -> Void) {
         let currentDate = Date()
         let lastYear = calendar.date(byAdding: .year, value: -1, to: currentDate)
         let nextYear = calendar.date(byAdding: .year, value: 1, to: currentDate)
@@ -20,7 +20,7 @@ final class YearsMemoryStore: YearsStoreProtocol {
         handler(.success(years))
     }
 
-    func fetchMonths(for year: Date, then handler: (Result<[Date], Error>) -> ()) {
+    func fetchMonths(for year: Date, then handler: (Result<[Date], Error>) -> Void) {
         var months: [Date] = []
 
         if let firstDayOfMonth = calendar.date(bySetting: .day, value: 1, of: year) {

@@ -144,16 +144,16 @@ private extension Selector {
 }
 
 private extension CollectionViewDataSource where Model == String {
-    static func make(for years: [Model]) -> CollectionViewDataSource<String,TitleCollectionViewCell> {
+    static func make(for years: [Model]) -> CollectionViewDataSource<String, TitleCollectionViewCell> {
         CollectionViewDataSource<String, TitleCollectionViewCell>(models: years) { (model, cell) in
             cell.set(title: model)
         }
     }
 }
 
-private extension SectionedCollectionViewDataSource where Section == String {
-    static func make(dataSources: [UICollectionViewDataSource]) -> SectionedCollectionViewDataSource<String, TitleCollectionReusableView> {
-        SectionedCollectionViewDataSource<String, TitleCollectionReusableView>(sections: dataSources, sectionTitles: []) { (model, cell) in
+private extension SectionedCollectionViewDataSource where Model == String, Cell == TitleCollectionReusableView {
+    static func make(dataSources: [UICollectionViewDataSource]) -> SectionedCollectionViewDataSource {
+        SectionedCollectionViewDataSource(sections: dataSources, sectionTitles: []) { (model, cell) in
             cell.set(title: model)
         }
     }
