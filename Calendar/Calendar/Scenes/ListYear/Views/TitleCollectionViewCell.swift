@@ -12,7 +12,7 @@ import UIKit
 public final class TitleCollectionViewCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: UIFont.buttonFontSize)
+        label.font = .preferredFont(forTextStyle: .title3)
         label.numberOfLines = 2
 
         return label
