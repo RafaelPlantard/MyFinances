@@ -23,4 +23,10 @@ final class MonthCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowL
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(
+            width: collectionView.frame.width, height: UIFont.preferredFont(forTextStyle: .largeTitle).lineHeight + 16
+        )
+    }
 }
