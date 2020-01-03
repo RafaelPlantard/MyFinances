@@ -10,6 +10,9 @@
 		53430E7C23BFD51000B88CC4 /* OperationSelector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53430E7223BFD50F00B88CC4 /* OperationSelector.framework */; };
 		53430E8123BFD51000B88CC4 /* OperationSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E8023BFD51000B88CC4 /* OperationSelectorTests.swift */; };
 		53430E8323BFD51000B88CC4 /* OperationSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 53430E7523BFD50F00B88CC4 /* OperationSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53430E9923BFD6EB00B88CC4 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 53430E9423BFD6CD00B88CC4 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53430E9D23BFD75700B88CC4 /* ListOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E9C23BFD75700B88CC4 /* ListOperationViewController.swift */; };
+		53430E9F23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E9E23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,7 +23,35 @@
 			remoteGlobalIDString = 53430E7123BFD50F00B88CC4;
 			remoteInfo = OperationSelector;
 		};
+		53430E9323BFD6CD00B88CC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53430E8E23BFD6CD00B88CC4 /* Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 538EE8C923A5F2A600C8CF89;
+			remoteInfo = Core;
+		};
+		53430E9523BFD6CD00B88CC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53430E8E23BFD6CD00B88CC4 /* Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 538EE8D223A5F2A600C8CF89;
+			remoteInfo = CoreTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		53430E9823BFD6DE00B88CC4 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				53430E9923BFD6EB00B88CC4 /* Core.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		53430E7223BFD50F00B88CC4 /* OperationSelector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OperationSelector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +60,9 @@
 		53430E7B23BFD51000B88CC4 /* OperationSelectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationSelectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53430E8023BFD51000B88CC4 /* OperationSelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationSelectorTests.swift; sourceTree = "<group>"; };
 		53430E8223BFD51000B88CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53430E8E23BFD6CD00B88CC4 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
+		53430E9C23BFD75700B88CC4 /* ListOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOperationViewController.swift; sourceTree = "<group>"; };
+		53430E9E23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationSelectorCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +87,7 @@
 		53430E6823BFD50F00B88CC4 = {
 			isa = PBXGroup;
 			children = (
+				53430E8D23BFD6C300B88CC4 /* Dependencies */,
 				53430E7423BFD50F00B88CC4 /* OperationSelector */,
 				53430E7F23BFD51000B88CC4 /* OperationSelectorTests */,
 				53430E7323BFD50F00B88CC4 /* Products */,
@@ -71,7 +106,9 @@
 		53430E7423BFD50F00B88CC4 /* OperationSelector */ = {
 			isa = PBXGroup;
 			children = (
+				53430E9A23BFD70C00B88CC4 /* Scenes */,
 				53430E8C23BFD5E200B88CC4 /* Resources */,
+				53430E9E23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift */,
 			);
 			path = OperationSelector;
 			sourceTree = "<group>";
@@ -92,6 +129,39 @@
 				53430E7623BFD50F00B88CC4 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		53430E8D23BFD6C300B88CC4 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				53430E8E23BFD6CD00B88CC4 /* Core.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		53430E8F23BFD6CD00B88CC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53430E9423BFD6CD00B88CC4 /* Core.framework */,
+				53430E9623BFD6CD00B88CC4 /* CoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53430E9A23BFD70C00B88CC4 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				53430E9B23BFD71800B88CC4 /* ListOperation */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		53430E9B23BFD71800B88CC4 /* ListOperation */ = {
+			isa = PBXGroup;
+			children = (
+				53430E9C23BFD75700B88CC4 /* ListOperationViewController.swift */,
+			);
+			path = ListOperation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +186,7 @@
 				53430E6E23BFD50F00B88CC4 /* Sources */,
 				53430E6F23BFD50F00B88CC4 /* Frameworks */,
 				53430E7023BFD50F00B88CC4 /* Resources */,
+				53430E9823BFD6DE00B88CC4 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,6 +227,7 @@
 				TargetAttributes = {
 					53430E7123BFD50F00B88CC4 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 					53430E7A23BFD51000B88CC4 = {
 						CreatedOnToolsVersion = 11.3;
@@ -173,6 +245,12 @@
 			mainGroup = 53430E6823BFD50F00B88CC4;
 			productRefGroup = 53430E7323BFD50F00B88CC4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 53430E8F23BFD6CD00B88CC4 /* Products */;
+					ProjectRef = 53430E8E23BFD6CD00B88CC4 /* Core.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				53430E7123BFD50F00B88CC4 /* OperationSelector */,
@@ -180,6 +258,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		53430E9423BFD6CD00B88CC4 /* Core.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Core.framework;
+			remoteRef = 53430E9323BFD6CD00B88CC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53430E9623BFD6CD00B88CC4 /* CoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoreTests.xctest;
+			remoteRef = 53430E9523BFD6CD00B88CC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		53430E7023BFD50F00B88CC4 /* Resources */ = {
@@ -203,6 +298,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53430E9D23BFD75700B88CC4 /* ListOperationViewController.swift in Sources */,
+				53430E9F23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +445,7 @@
 		53430E8723BFD51000B88CC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -363,6 +461,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.swift-yah.MyFinances.OperationSelector";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -371,6 +470,7 @@
 		53430E8823BFD51000B88CC4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -394,6 +494,7 @@
 		53430E8A23BFD51000B88CC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OperationSelectorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -411,6 +512,7 @@
 		53430E8B23BFD51000B88CC4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OperationSelectorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
