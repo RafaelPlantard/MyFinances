@@ -11,6 +11,9 @@
       location = "group:Calendar/Calendar.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:OperationSelector/OperationSelector.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Income/Income.xcodeproj">
    </FileRef>
 </Workspace>
