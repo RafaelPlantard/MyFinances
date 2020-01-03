@@ -9,8 +9,12 @@
 import Core
 import UIKit
 
-public final class CalendarCoordinator: Coordinator {
+public final class CalendarCoordinator: Coordinator, ListYearViewControllerDelegate {
     private let navigationController: UINavigationController
+
+    // MARK: Variables
+
+    public weak var delegate: CalendarCoordinatorDelegate?
 
     // MARK: Initializer
 
@@ -24,8 +28,15 @@ public final class CalendarCoordinator: Coordinator {
         let presenter = ListYearPresenter()
         let interactor = ListYearInteractor(store: YearsMemoryStore(), presenter: presenter)
         let listYearViewController = ListYearViewController(interactor: interactor)
+        listYearViewController.delegate = self
         presenter.viewController = listYearViewController
 
         navigationController.setViewControllers([listYearViewController], animated: true)
+    }
+
+    // MARK: ListYearViewControllerDelegate conforms
+
+    func listYearMonthTapped(date: Date, _ viewController: ListYearViewController) {
+        delegate?.calendarCoordinatorDidFinish(with: date, self)
     }
 }

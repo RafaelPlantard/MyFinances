@@ -117,6 +117,7 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
     }
 
     func displaySelectedMonth(viewModel: ListYear.SelectMonth.ViewModel) {
+        delegate?.listYearMonthTapped(date: viewModel.month, self)
     }
 
     // MARK: Private functions

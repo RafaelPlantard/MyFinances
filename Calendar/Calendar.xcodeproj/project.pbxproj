@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		53430E5723BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E5423BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift */; };
+		53430EA123BFDA8B00B88CC4 /* ListYearViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430EA023BFDA8B00B88CC4 /* ListYearViewControllerDelegate.swift */; };
+		53430EA323BFE91400B88CC4 /* CalendarCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430EA223BFE91400B88CC4 /* CalendarCoordinatorDelegate.swift */; };
 		53535D9523BB75B6007AD000 /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53535D8B23BB75B6007AD000 /* Calendar.framework */; };
 		53535D9A23BB75B6007AD000 /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53535D9923BB75B6007AD000 /* CalendarTests.swift */; };
 		53535D9C23BB75B6007AD000 /* Calendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 53535D8E23BB75B6007AD000 /* Calendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		53430E5423BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		53430EA023BFDA8B00B88CC4 /* ListYearViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListYearViewControllerDelegate.swift; sourceTree = "<group>"; };
+		53430EA223BFE91400B88CC4 /* CalendarCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		53535D8B23BB75B6007AD000 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53535D8E23BB75B6007AD000 /* Calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
 		53535D8F23BB75B6007AD000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			children = (
 				53BA575B23BBD25E002EFDDA /* Storage */,
 				53535DB623BB780B007AD000 /* CalendarCoordinator.swift */,
+				53430EA223BFE91400B88CC4 /* CalendarCoordinatorDelegate.swift */,
 				53535DB123BB7686007AD000 /* Resources */,
 				53535DB223BB777B007AD000 /* Scenes */,
 			);
@@ -190,6 +195,7 @@
 				53BA575723BBD13A002EFDDA /* ListYearModels.swift */,
 				53BA575923BBD20A002EFDDA /* ListYearWorker.swift */,
 				53BA576023BBD7E4002EFDDA /* ListYearPresenter.swift */,
+				53430EA023BFDA8B00B88CC4 /* ListYearViewControllerDelegate.swift */,
 			);
 			path = ListYear;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				53BA575423BBCE43002EFDDA /* YearCollectionViewDelegate.swift in Sources */,
 				53BA575D23BBD276002EFDDA /* YearsStoreProtocol.swift in Sources */,
 				53BA575223BBC07D002EFDDA /* TitleCollectionViewCell.swift in Sources */,
+				53430EA323BFE91400B88CC4 /* CalendarCoordinatorDelegate.swift in Sources */,
 				53BA575623BBD0EC002EFDDA /* ListYearInteractor.swift in Sources */,
 				53430E5723BE4AE800B88CC4 /* MonthCollectionViewDelegate.swift in Sources */,
 				53BA575F23BBD396002EFDDA /* YearsMemoryStore.swift in Sources */,
@@ -403,6 +410,7 @@
 				53BA574623BBB255002EFDDA /* Strings.swift in Sources */,
 				53BA575A23BBD20A002EFDDA /* ListYearWorker.swift in Sources */,
 				53535DB523BB77C8007AD000 /* ListYearViewController.swift in Sources */,
+				53430EA123BFDA8B00B88CC4 /* ListYearViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
