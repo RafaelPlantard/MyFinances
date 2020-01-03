@@ -9,4 +9,14 @@
 import UIKit
 
 final class ListOperationViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupView()
+    }
+
+    private func setupView() {
+        title = Localizable.List.title
+        view.backgroundColor = .white
+    }
 }

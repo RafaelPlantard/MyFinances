@@ -13,6 +13,8 @@
 		53430E9923BFD6EB00B88CC4 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 53430E9423BFD6CD00B88CC4 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53430E9D23BFD75700B88CC4 /* ListOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E9C23BFD75700B88CC4 /* ListOperationViewController.swift */; };
 		53430E9F23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E9E23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift */; };
+		53430EB123BFEF4700B88CC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53430EAF23BFEF4700B88CC4 /* Localizable.strings */; };
+		53430EB323BFEF6A00B88CC4 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430EB223BFEF6A00B88CC4 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		53430E8E23BFD6CD00B88CC4 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
 		53430E9C23BFD75700B88CC4 /* ListOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOperationViewController.swift; sourceTree = "<group>"; };
 		53430E9E23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationSelectorCoordinator.swift; sourceTree = "<group>"; };
+		53430EB023BFEF4700B88CC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		53430EB223BFEF6A00B88CC4 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 		53430E8C23BFD5E200B88CC4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				53430EB223BFEF6A00B88CC4 /* Strings.swift */,
+				53430EAF23BFEF4700B88CC4 /* Localizable.strings */,
 				53430E7523BFD50F00B88CC4 /* OperationSelector.h */,
 				53430E7623BFD50F00B88CC4 /* Info.plist */,
 			);
@@ -183,6 +189,7 @@
 			buildConfigurationList = 53430E8623BFD51000B88CC4 /* Build configuration list for PBXNativeTarget "OperationSelector" */;
 			buildPhases = (
 				53430E6D23BFD50F00B88CC4 /* Headers */,
+				53430EAE23BFEF1200B88CC4 /* SwiftGen */,
 				53430E6E23BFD50F00B88CC4 /* Sources */,
 				53430E6F23BFD50F00B88CC4 /* Frameworks */,
 				53430E7023BFD50F00B88CC4 /* Resources */,
@@ -281,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53430EB123BFEF4700B88CC4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,12 +301,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53430EAE23BFEF1200B88CC4 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Base.lproj/Localizable.strings",
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/$(PROJECT_NAME)/Resources/Strings.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen config run --config \"${SRCROOT}/${PROJECT_NAME}/Resources/swiftgen.yml\"\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		53430E6E23BFD50F00B88CC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				53430E9D23BFD75700B88CC4 /* ListOperationViewController.swift in Sources */,
+				53430EB323BFEF6A00B88CC4 /* Strings.swift in Sources */,
 				53430E9F23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +352,17 @@
 			targetProxy = 53430E7D23BFD51000B88CC4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		53430EAF23BFEF4700B88CC4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53430EB023BFEF4700B88CC4 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		53430E8423BFD51000B88CC4 /* Debug */ = {
