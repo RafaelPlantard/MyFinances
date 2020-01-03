@@ -39,7 +39,7 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
 
     // MARK: Private lazy variables
 
-    private lazy var yearDelegate: UICollectionViewDelegateFlowLayout = {
+    private lazy var yearLayout: UICollectionViewDelegateFlowLayout = {
         YearCollectionViewDelegate { [weak self] indexPath in
             let request = ListYear.FetchMonths.Request(indexPath: indexPath)
 
@@ -47,7 +47,7 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         }
     }()
 
-    private lazy var monthDelegate: UICollectionViewDelegateFlowLayout = MonthCollectionViewDelegate()
+    private lazy var monthLayout: UICollectionViewDelegateFlowLayout = MonthCollectionViewDelegate()
 
     // MARK: Private constants
 
@@ -94,14 +94,14 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
     func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel) {
         yearDataSource.set(models: viewModel.years)
         collectionView.dataSource = yearDataSource
-        collectionView.delegate = yearDelegate
+        collectionView.delegate = yearLayout
     }
 
     func displayFetchedMonths(viewModel: ListYear.FetchMonths.ViewModel) {
         sectionDataSource.set(models: [viewModel.year])
         monthDataSource.set(models: viewModel.months)
         collectionView.dataSource = sectionDataSource
-        collectionView.delegate = monthDelegate
+        collectionView.delegate = monthLayout
         segmentControl.selectedSegmentIndex = 1
     }
 
