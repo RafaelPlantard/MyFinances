@@ -21,7 +21,11 @@ public final class OperationSelectorCoordinator: Coordinator {
     // MARK: Coordinator conforms
 
     public func start() {
-        let listOperationViewController = ListOperationViewController()
+        let store: OperationsStoreProtocol = OperationsMemoryStore()
+        let presenter = ListOperationPresenter()
+        let interactor: ListOperationBusinessLogic = ListOperationInteractor(store: store, presenter: presenter)
+        let listOperationViewController = ListOperationViewController(interactor: interactor)
+        presenter.viewController = listOperationViewController
 
         navigationController.pushViewController(listOperationViewController, animated: true)
     }
