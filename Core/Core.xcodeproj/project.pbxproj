@@ -16,6 +16,7 @@
 		5316B0B823A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0B223A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift */; };
 		5316B0B923A67BF400D26E76 /* UIStackView+ArrangedSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0B323A67BF400D26E76 /* UIStackView+ArrangedSubview.swift */; };
 		5316B0BD23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316B0BC23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift */; };
+		531B516B23C2CD2F000E1A4F /* UITableView+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B516A23C2CD2F000E1A4F /* UITableView+ReuseIdentifier.swift */; };
 		533D5FB123B4345300F70E8E /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D5FB023B4345300F70E8E /* CurrencyTextField.swift */; };
 		533F93EA23AF107E000CE15A /* UIView+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93E923AF107E000CE15A /* UIView+UIColor.swift */; };
 		533F93F623B26110000CE15A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93F523B26110000CE15A /* String.swift */; };
@@ -51,6 +52,7 @@
 		5316B0B223A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+SafeArea.swift"; sourceTree = "<group>"; };
 		5316B0B323A67BF400D26E76 /* UIStackView+ArrangedSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+ArrangedSubview.swift"; sourceTree = "<group>"; };
 		5316B0BC23A67C9D00D26E76 /* UILayoutGuide+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutGuide+LayoutGuide.swift"; sourceTree = "<group>"; };
+		531B516A23C2CD2F000E1A4F /* UITableView+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		533D5FB023B4345300F70E8E /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		533F93E923AF107E000CE15A /* UIView+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UIColor.swift"; sourceTree = "<group>"; };
 		533F93F523B26110000CE15A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				533F93F523B26110000CE15A /* String.swift */,
 				533F93F723B26134000CE15A /* Optional+Or.swift */,
 				5371933323B468880066CDE5 /* NSObjectProtocol+ClassName.swift */,
+				531B516A23C2CD2F000E1A4F /* UITableView+ReuseIdentifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				5371933823B46F5F0066CDE5 /* TableViewDataSource.swift in Sources */,
 				5316B0B623A67BF400D26E76 /* UIView+Constraints.swift in Sources */,
 				5316B0B823A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift in Sources */,
+				531B516B23C2CD2F000E1A4F /* UITableView+ReuseIdentifier.swift in Sources */,
 				53430E5B23BEA5CF00B88CC4 /* TitleCollectionReusableView.swift in Sources */,
 				5309F08D23B91DEC003426CF /* EditingTableViewDataSource.swift in Sources */,
 			);
