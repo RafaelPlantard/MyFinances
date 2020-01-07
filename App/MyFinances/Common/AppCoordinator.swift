@@ -12,7 +12,7 @@ import Income
 import OperationSelector
 import UIKit
 
-final class AppCoordinator: Coordinator, CalendarCoordinatorDelegate {
+final class AppCoordinator: Coordinator, CalendarCoordinatorDelegate, OperationSelectorCoordinatorDelegate {
     private let navigationController: UINavigationController
     private let window: UIWindow
 
@@ -40,6 +40,12 @@ final class AppCoordinator: Coordinator, CalendarCoordinatorDelegate {
         showOperationSelector()
     }
 
+    // MARK: OperationSelectorCoordinatorDelegate conforms
+
+    func operationSelectorCoordinatorDidSelectIncomeFinish(_ coordinator: OperationSelectorCoordinator) {
+        showIncome()
+    }
+
     // MARK: Private functions
 
     private func setupWindow() {
@@ -63,6 +69,7 @@ final class AppCoordinator: Coordinator, CalendarCoordinatorDelegate {
 
     private func showOperationSelector() {
         let operationSelectorCoordinator = OperationSelectorCoordinator(navigationController: navigationController)
+        operationSelectorCoordinator.delegate = self
         childCoordinators.append(operationSelectorCoordinator)
         operationSelectorCoordinator.start()
     }

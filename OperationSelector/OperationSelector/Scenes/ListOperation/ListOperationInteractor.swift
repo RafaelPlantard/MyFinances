@@ -8,11 +8,16 @@
 
 protocol ListOperationBusinessLogic {
     func fetchOperations()
+    func selectOperation(request: ListOperation.SelectOperation.Request)
 }
 
 final class ListOperationInteractor: ListOperationBusinessLogic {
     private let worker: ListOperationWorker
     private let presenter: ListOperationPresentationLogic
+
+    // MARK: Private variables
+
+    private var operations: [Operation] = []
 
     // MARK: Initializer
 
@@ -35,7 +40,18 @@ final class ListOperationInteractor: ListOperationBusinessLogic {
 
             let response = ListOperation.FetchOperations.Response(operations: operations)
 
-            self?.presenter.presentFetchedOperations(response: response)
+            if let self = self {
+                self.operations = operations
+                self.presenter.presentFetchedOperations(response: response)
+            }
+        }
+    }
+
+    func selectOperation(request: ListOperation.SelectOperation.Request) {
+        let operation = operations[request.indexPath.row]
+
+        if operation == .income {
+            presenter.presentIncomeOperation()
         }
     }
 }

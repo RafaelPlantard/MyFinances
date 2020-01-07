@@ -9,8 +9,12 @@
 import Core
 import UIKit
 
-public final class OperationSelectorCoordinator: Coordinator {
+public final class OperationSelectorCoordinator: Coordinator, ListOperationViewControllerDelegate {
     private let navigationController: UINavigationController
+
+    // MARK: Variables
+
+    public weak var delegate: OperationSelectorCoordinatorDelegate?
 
     // MARK: Initializers
 
@@ -25,8 +29,15 @@ public final class OperationSelectorCoordinator: Coordinator {
         let presenter = ListOperationPresenter()
         let interactor: ListOperationBusinessLogic = ListOperationInteractor(store: store, presenter: presenter)
         let listOperationViewController = ListOperationViewController(interactor: interactor)
+        listOperationViewController.delegate = self
         presenter.viewController = listOperationViewController
 
         navigationController.pushViewController(listOperationViewController, animated: true)
+    }
+
+    // MARK: ListOperationViewControllerDelegate conforms
+
+    func listOperationDidSelectIncomeOperation(_ viewController: ListOperationViewController) {
+        delegate?.operationSelectorCoordinatorDidSelectIncomeFinish(self)
     }
 }

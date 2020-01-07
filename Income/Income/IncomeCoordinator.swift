@@ -55,7 +55,7 @@ public final class IncomeCoordinator: Coordinator, ListIncomeViewControllerDeleg
         listIncomeViewController.delegate = self
 
         rootViewControler = listIncomeViewController
-        navigationController.setViewControllers([listIncomeViewController], animated: true)
+        navigationController.pushViewController(listIncomeViewController, animated: true)
     }
 
     // MARK: ListIncomeViewControllerDelegate conforms

@@ -16,4 +16,10 @@ enum ListOperation {
             let operations: [String]
         }
     }
+
+    enum SelectOperation {
+        struct Request {
+            let indexPath: IndexPath
+        }
+    }
 }

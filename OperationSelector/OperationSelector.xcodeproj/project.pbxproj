@@ -14,6 +14,8 @@
 		531B516523C1A09D000E1A4F /* OperationsMemoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B516423C1A09D000E1A4F /* OperationsMemoryStore.swift */; };
 		531B516723C1A0AB000E1A4F /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B516623C1A0AB000E1A4F /* Operation.swift */; };
 		531B516923C2BE39000E1A4F /* ListOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B516823C2BE39000E1A4F /* ListOperationModels.swift */; };
+		531B516F23C39315000E1A4F /* ListOperationViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B516E23C39315000E1A4F /* ListOperationViewControllerDelegate.swift */; };
+		531B517123C435F5000E1A4F /* OperationSelectorCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B517023C435F5000E1A4F /* OperationSelectorCoordinatorDelegate.swift */; };
 		53430E7C23BFD51000B88CC4 /* OperationSelector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53430E7223BFD50F00B88CC4 /* OperationSelector.framework */; };
 		53430E8123BFD51000B88CC4 /* OperationSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E8023BFD51000B88CC4 /* OperationSelectorTests.swift */; };
 		53430E8323BFD51000B88CC4 /* OperationSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 53430E7523BFD50F00B88CC4 /* OperationSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,6 +72,8 @@
 		531B516423C1A09D000E1A4F /* OperationsMemoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsMemoryStore.swift; sourceTree = "<group>"; };
 		531B516623C1A0AB000E1A4F /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		531B516823C2BE39000E1A4F /* ListOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOperationModels.swift; sourceTree = "<group>"; };
+		531B516E23C39315000E1A4F /* ListOperationViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOperationViewControllerDelegate.swift; sourceTree = "<group>"; };
+		531B517023C435F5000E1A4F /* OperationSelectorCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationSelectorCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		53430E7223BFD50F00B88CC4 /* OperationSelector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OperationSelector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53430E7523BFD50F00B88CC4 /* OperationSelector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OperationSelector.h; sourceTree = "<group>"; };
 		53430E7623BFD50F00B88CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				53430E9A23BFD70C00B88CC4 /* Scenes */,
 				53430E8C23BFD5E200B88CC4 /* Resources */,
 				53430E9E23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift */,
+				531B517023C435F5000E1A4F /* OperationSelectorCoordinatorDelegate.swift */,
 			);
 			path = OperationSelector;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				531B515C23C1A04B000E1A4F /* ListOperationWorker.swift */,
 				531B515E23C1A055000E1A4F /* ListOperationPresenter.swift */,
 				531B516823C2BE39000E1A4F /* ListOperationModels.swift */,
+				531B516E23C39315000E1A4F /* ListOperationViewControllerDelegate.swift */,
 			);
 			path = ListOperation;
 			sourceTree = "<group>";
@@ -368,12 +374,14 @@
 			files = (
 				531B516523C1A09D000E1A4F /* OperationsMemoryStore.swift in Sources */,
 				531B516323C1A090000E1A4F /* OperationsStoreProtocol.swift in Sources */,
+				531B517123C435F5000E1A4F /* OperationSelectorCoordinatorDelegate.swift in Sources */,
 				531B515F23C1A055000E1A4F /* ListOperationPresenter.swift in Sources */,
 				531B516923C2BE39000E1A4F /* ListOperationModels.swift in Sources */,
 				531B515923C18082000E1A4F /* ListOperationInteractor.swift in Sources */,
 				53430E9D23BFD75700B88CC4 /* ListOperationViewController.swift in Sources */,
 				531B516723C1A0AB000E1A4F /* Operation.swift in Sources */,
 				53430EB323BFEF6A00B88CC4 /* Strings.swift in Sources */,
+				531B516F23C39315000E1A4F /* ListOperationViewControllerDelegate.swift in Sources */,
 				531B515D23C1A04B000E1A4F /* ListOperationWorker.swift in Sources */,
 				53430E9F23BFD7B600B88CC4 /* OperationSelectorCoordinator.swift in Sources */,
 			);

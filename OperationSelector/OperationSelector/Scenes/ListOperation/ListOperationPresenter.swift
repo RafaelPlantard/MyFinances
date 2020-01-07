@@ -8,6 +8,7 @@
 
 protocol ListOperationPresentationLogic {
     func presentFetchedOperations(response: ListOperation.FetchOperations.Response)
+    func presentIncomeOperation()
 }
 
 final class ListOperationPresenter: ListOperationPresentationLogic {
@@ -20,5 +21,9 @@ final class ListOperationPresenter: ListOperationPresentationLogic {
         let viewModel = ListOperation.FetchOperations.ViewModel(operations: operations)
 
         viewController?.displayFetchedOperations(viewModel: viewModel)
+    }
+
+    func presentIncomeOperation() {
+        viewController?.displayIncomeOperation()
     }
 }

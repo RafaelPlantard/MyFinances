@@ -11,6 +11,7 @@ import UIKit
 
 protocol ListOperationDisplayLogic: AnyObject {
     func displayFetchedOperations(viewModel: ListOperation.FetchOperations.ViewModel)
+    func displayIncomeOperation()
 }
 
 final class ListOperationViewController: UIViewController, ListOperationDisplayLogic {
@@ -18,15 +19,30 @@ final class ListOperationViewController: UIViewController, ListOperationDisplayL
         let tableView = UITableView()
         tableView.register(UITableViewCell.self)
         tableView.dataSource = dataSource
+        tableView.delegate = tableViewDelegate
 
         return tableView
     }()
+
+    // MARK: Private lazy variables
+
+    private lazy var tableViewDelegate: UITableViewDelegate = {
+        TableViewDelegate { [weak self] indexPath in
+            let request = ListOperation.SelectOperation.Request(indexPath: indexPath)
+
+            self?.interactor.selectOperation(request: request)
+        }
+    }()
+
+    // MARK: Variables
+
+    weak var delegate: ListOperationViewControllerDelegate?
 
     // MARK: Private constants
 
     private let interactor: ListOperationBusinessLogic
 
-    private let dataSource: DataSource & UITableViewDataSource  = {
+    private let dataSource: DataSource & UITableViewDataSource = {
         TableViewDataSource<String, UITableViewCell>(models: []) { (model, cell) in
             cell.textLabel?.text = model
         }
@@ -64,6 +80,10 @@ final class ListOperationViewController: UIViewController, ListOperationDisplayL
     func displayFetchedOperations(viewModel: ListOperation.FetchOperations.ViewModel) {
         dataSource.set(models: viewModel.operations)
         tableView.reloadData()
+    }
+
+    func displayIncomeOperation() {
+        delegate?.listOperationDidSelectIncomeOperation(self)
     }
 
     // MARK: Private functions
