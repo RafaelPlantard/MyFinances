@@ -6,6 +6,8 @@
 //  Copyright © 2020 Swift Yah. All rights reserved.
 //
 
-public protocol OperationSelectorCoordinatorDelegate: AnyObject {
+import Core
+
+public protocol OperationSelectorCoordinatorDelegate: CoordinatorDelegate {
     func operationSelectorCoordinatorDidSelectIncomeFinish(_ coordinator: OperationSelectorCoordinator)
 }

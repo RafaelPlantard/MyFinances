@@ -6,6 +6,8 @@
 //  Copyright © 2020 Swift Yah. All rights reserved.
 //
 
-public protocol CalendarCoordinatorDelegate: AnyObject {
+import Core
+
+public protocol CalendarCoordinatorDelegate: CoordinatorDelegate {
     func calendarCoordinatorDidFinish(with date: Date, _ coordinator: CalendarCoordinator)
 }

@@ -9,7 +9,9 @@
 import Core
 import UIKit
 
-public final class OperationSelectorCoordinator: Coordinator, ListOperationViewControllerDelegate {
+public final class OperationSelectorCoordinator: NSObject, Coordinator, ListOperationViewControllerDelegate,
+    UINavigationControllerDelegate {
+
     private let navigationController: UINavigationController
 
     // MARK: Variables
@@ -39,5 +41,14 @@ public final class OperationSelectorCoordinator: Coordinator, ListOperationViewC
 
     func listOperationDidSelectIncomeOperation(_ viewController: ListOperationViewController) {
         delegate?.operationSelectorCoordinatorDidSelectIncomeFinish(self)
+    }
+
+    // MARK: UINavigationControllerDelegate conforms
+
+    public func navigationController(_ navigationController: UINavigationController,
+                                     didShow viewController: UIViewController, animated: Bool) {
+        CheckLastControllerPoppedFrom(navigationController: navigationController).onPop(
+            of: ListOperationViewController.self, delegate: delegate, using: self
+        )
     }
 }

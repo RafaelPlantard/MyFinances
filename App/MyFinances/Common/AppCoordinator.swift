@@ -46,6 +46,11 @@ final class AppCoordinator: Coordinator, CalendarCoordinatorDelegate, OperationS
         showIncome()
     }
 
+    func finish(_ coordinator: Coordinator) {
+        childCoordinators.removeFirst(where: { item in item === coordinator })
+        navigationController.delegate = childCoordinators.last as? UINavigationControllerDelegate
+    }
+
     // MARK: Private functions
 
     private func setupWindow() {
@@ -56,6 +61,8 @@ final class AppCoordinator: Coordinator, CalendarCoordinatorDelegate, OperationS
 
     private func showIncome() {
         let incomeCoordinator = IncomeCoordinator(navigationController: navigationController)
+        incomeCoordinator.delegate = self
+        navigationController.delegate = incomeCoordinator
         childCoordinators.append(incomeCoordinator)
         incomeCoordinator.start()
     }
@@ -69,6 +76,7 @@ final class AppCoordinator: Coordinator, CalendarCoordinatorDelegate, OperationS
 
     private func showOperationSelector() {
         let operationSelectorCoordinator = OperationSelectorCoordinator(navigationController: navigationController)
+        navigationController.delegate = operationSelectorCoordinator
         operationSelectorCoordinator.delegate = self
         childCoordinators.append(operationSelectorCoordinator)
         operationSelectorCoordinator.start()

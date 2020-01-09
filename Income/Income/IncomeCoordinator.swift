@@ -10,7 +10,8 @@ import Core
 import CoreData
 import UIKit
 
-public final class IncomeCoordinator: Coordinator, ListIncomeViewControllerDelegate, AddIncomeViewControllerDelegate {
+public final class IncomeCoordinator: NSObject, Coordinator, ListIncomeViewControllerDelegate,
+    AddIncomeViewControllerDelegate, UINavigationControllerDelegate {
     private let navigationController: UINavigationController
 
     // MARK: Private variables
@@ -38,10 +39,15 @@ public final class IncomeCoordinator: Coordinator, ListIncomeViewControllerDeleg
         return container
     }()
 
+    // MARK: Variables
+
+    public weak var delegate: CoordinatorDelegate?
+
     // MARK: Initializer
 
     public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        super.init()
     }
 
     // MARK: Coordinator conforms
@@ -84,5 +90,14 @@ public final class IncomeCoordinator: Coordinator, ListIncomeViewControllerDeleg
         viewController.dismiss(animated: true) { [weak self] in
             self?.rootViewControler?.fetch()
         }
+    }
+
+    // MARK: UINavigationControllerDelegate conforms
+
+    public func navigationController(_ navigationController: UINavigationController,
+                                     didShow viewController: UIViewController, animated: Bool) {
+        CheckLastControllerPoppedFrom(navigationController: navigationController).onPop(
+            of: ListIncomeViewControler.self, delegate: delegate, using: self
+        )
     }
 }
