@@ -24,6 +24,8 @@
 		533F93F823B26134000CE15A /* Optional+Or.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F93F723B26134000CE15A /* Optional+Or.swift */; };
 		53430E5923BE882600B88CC4 /* SectionedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E5823BE882600B88CC4 /* SectionedCollectionViewDataSource.swift */; };
 		53430E5B23BEA5CF00B88CC4 /* TitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53430E5A23BEA5CF00B88CC4 /* TitleCollectionReusableView.swift */; };
+		534A3D3B23C58462006470B1 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A3D3A23C58462006470B1 /* CoordinatorDelegate.swift */; };
+		534A3D3D23C6CF25006470B1 /* CheckLastControllerPoppedFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A3D3C23C6CF25006470B1 /* CheckLastControllerPoppedFrom.swift */; };
 		534A3D3F23C6D6BE006470B1 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A3D3E23C6D6BE006470B1 /* Array.swift */; };
 		5371933423B468880066CDE5 /* NSObjectProtocol+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371933323B468880066CDE5 /* NSObjectProtocol+ClassName.swift */; };
 		5371933823B46F5F0066CDE5 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371933723B46F5F0066CDE5 /* TableViewDataSource.swift */; };
@@ -62,6 +64,8 @@
 		533F93F723B26134000CE15A /* Optional+Or.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Or.swift"; sourceTree = "<group>"; };
 		53430E5823BE882600B88CC4 /* SectionedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		53430E5A23BEA5CF00B88CC4 /* TitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionReusableView.swift; sourceTree = "<group>"; };
+		534A3D3A23C58462006470B1 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
+		534A3D3C23C6CF25006470B1 /* CheckLastControllerPoppedFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLastControllerPoppedFrom.swift; sourceTree = "<group>"; };
 		534A3D3E23C6D6BE006470B1 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		5371933323B468880066CDE5 /* NSObjectProtocol+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+ClassName.swift"; sourceTree = "<group>"; };
 		5371933723B46F5F0066CDE5 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				538EE8E323A5F31A00C8CF89 /* Coordinator.swift */,
+				534A3D3A23C58462006470B1 /* CoordinatorDelegate.swift */,
+				534A3D3C23C6CF25006470B1 /* CheckLastControllerPoppedFrom.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -319,12 +325,14 @@
 				5303CF1423B9B1FB0029E0AB /* DataSource.swift in Sources */,
 				533D5FB123B4345300F70E8E /* CurrencyTextField.swift in Sources */,
 				5371933423B468880066CDE5 /* NSObjectProtocol+ClassName.swift in Sources */,
+				534A3D3B23C58462006470B1 /* CoordinatorDelegate.swift in Sources */,
 				53430E5923BE882600B88CC4 /* SectionedCollectionViewDataSource.swift in Sources */,
 				538EE8E423A5F31A00C8CF89 /* Coordinator.swift in Sources */,
 				5316B0B723A67BF400D26E76 /* UIView+LayoutGuide.swift in Sources */,
 				5316B0B923A67BF400D26E76 /* UIStackView+ArrangedSubview.swift in Sources */,
 				5371933823B46F5F0066CDE5 /* TableViewDataSource.swift in Sources */,
 				5316B0B623A67BF400D26E76 /* UIView+Constraints.swift in Sources */,
+				534A3D3D23C6CF25006470B1 /* CheckLastControllerPoppedFrom.swift in Sources */,
 				5316B0B823A67BF400D26E76 /* NSLayoutConstraint+SafeArea.swift in Sources */,
 				531B516B23C2CD2F000E1A4F /* UITableView+ReuseIdentifier.swift in Sources */,
 				534A3D3F23C6D6BE006470B1 /* Array.swift in Sources */,

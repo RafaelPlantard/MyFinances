@@ -6,6 +6,6 @@
 //  Copyright © 2019 Swift Yah. All rights reserved.
 //
 
-public protocol Coordinator {
+public protocol Coordinator: AnyObject {
     func start()
 }
