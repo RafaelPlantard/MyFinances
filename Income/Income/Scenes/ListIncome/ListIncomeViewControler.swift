@@ -129,6 +129,7 @@ final class ListIncomeViewControler: UIViewController, ListIncomeDisplayLogic, U
 
     private func setupView() {
         title = Localizable.List.title
+        view.backgroundColor = .white
     }
 
     private func setupNavigationBar() {
