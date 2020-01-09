@@ -26,6 +26,5 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         app = appCoordinator
         window = newWindow
-        
     }
 }
