@@ -28,9 +28,7 @@ final class ListOperationViewController: UIViewController, ListOperationDisplayL
 
     private lazy var tableViewDelegate: UITableViewDelegate = {
         TableViewDelegate { [weak self] indexPath in
-            let request = ListOperation.SelectOperation.Request(indexPath: indexPath)
-
-            self?.interactor.selectOperation(request: request)
+            self?.onTapped(indexPath: indexPath)
         }
     }()
 
@@ -99,5 +97,12 @@ final class ListOperationViewController: UIViewController, ListOperationDisplayL
     private func setupView() {
         title = Localizable.List.title
         view.backgroundColor = .white
+    }
+
+    private func onTapped(indexPath: IndexPath) {
+        let request = ListOperation.SelectOperation.Request(indexPath: indexPath)
+
+        interactor.selectOperation(request: request)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
