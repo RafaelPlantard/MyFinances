@@ -100,6 +100,14 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         fetch()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        collectionView.contentInset = UIEdgeInsets(
+            top: 0, left: 0, bottom: segmentControl.frame.height + 16, right: 0
+        )
+    }
+
     // MARK: ListYearDisplayLogic conforms
 
     func displayFetchedYears(viewModel: ListYear.FetchYears.ViewModel) {
