@@ -8,4 +8,5 @@
 
 protocol ListYearViewControllerDelegate: AnyObject {
     func listYearMonthTapped(date: Date, _ viewController: ListYearViewController)
+    func listYearRightBarButtonItemTapped(date: Date, _ viewController: ListYearViewController)
 }

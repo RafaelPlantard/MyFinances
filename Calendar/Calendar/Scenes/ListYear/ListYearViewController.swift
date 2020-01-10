@@ -100,6 +100,12 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         fetch()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupNavigationBar()
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -144,6 +150,12 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         ])
     }
 
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .compose, target: self, action: .onAddTapped
+        )
+    }
+
     private func setupView() {
         title = Localizable.Calendar.title
     }
@@ -159,6 +171,11 @@ final class ListYearViewController: UIViewController, ListYearDisplayLogic {
         let request = ListYear.ChangeRange.Request(index: segmentControl.selectedSegmentIndex)
 
         interactor.changeRange(request: request)
+    }
+
+    @objc
+    fileprivate func onRightBarButtonTapped() {
+        delegate?.listYearRightBarButtonItemTapped(date: Date(), self)
     }
 }
 
@@ -180,4 +197,8 @@ private extension SectionedCollectionViewDataSource where Model == String, Cell 
             cell.set(title: model)
         }
     }
+}
+
+private extension Selector {
+    static let onAddTapped = #selector(ListYearViewController.onRightBarButtonTapped)
 }

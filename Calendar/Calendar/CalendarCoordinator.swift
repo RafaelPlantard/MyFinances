@@ -39,4 +39,8 @@ public final class CalendarCoordinator: Coordinator, ListYearViewControllerDeleg
     func listYearMonthTapped(date: Date, _ viewController: ListYearViewController) {
         delegate?.calendarCoordinatorDidFinish(with: date, self)
     }
+
+    func listYearRightBarButtonItemTapped(date: Date, _ viewController: ListYearViewController) {
+        delegate?.calendarCoordinatorDidFinish(with: date, self)
+    }
 }
