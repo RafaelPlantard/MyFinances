@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class CheckLastControllerPoppedFrom {
+public final class CheckLastControllerPoppedFrom<T: UIViewController> {
     private let navigationController: UINavigationController
 
     // MARK: Initializer
@@ -19,9 +19,8 @@ public final class CheckLastControllerPoppedFrom {
 
     // MARK: Functions
 
-    public func onPop<T: UIViewController>(of viewControllerType: T.Type, delegate: CoordinatorDelegate?,
-                                           using coordinator: Coordinator) {
-        if isPoppingFromStack(of: viewControllerType) {
+    public func onPop(delegate: CoordinatorDelegate?, using coordinator: Coordinator) {
+        if isPoppingFromStack(of: T.self) {
             delegate?.finish(coordinator)
         }
     }
@@ -35,6 +34,6 @@ public final class CheckLastControllerPoppedFrom {
             return false
         }
 
-        return fromViewController is T
+        return type(of: fromViewController) == viewControllerType
     }
 }

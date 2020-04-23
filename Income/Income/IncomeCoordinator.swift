@@ -96,8 +96,8 @@ public final class IncomeCoordinator: NSObject, Coordinator, ListIncomeViewContr
 
     public func navigationController(_ navigationController: UINavigationController,
                                      didShow viewController: UIViewController, animated: Bool) {
-        CheckLastControllerPoppedFrom(navigationController: navigationController).onPop(
-            of: ListIncomeViewControler.self, delegate: delegate, using: self
+        CheckLastControllerPoppedFrom<ListIncomeViewControler>(navigationController: navigationController).onPop(
+            delegate: delegate, using: self
         )
     }
 }

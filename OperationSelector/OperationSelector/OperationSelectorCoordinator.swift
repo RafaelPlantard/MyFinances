@@ -47,8 +47,8 @@ public final class OperationSelectorCoordinator: NSObject, Coordinator, ListOper
 
     public func navigationController(_ navigationController: UINavigationController,
                                      didShow viewController: UIViewController, animated: Bool) {
-        CheckLastControllerPoppedFrom(navigationController: navigationController).onPop(
-            of: ListOperationViewController.self, delegate: delegate, using: self
+        CheckLastControllerPoppedFrom<ListOperationViewController>(navigationController: navigationController).onPop(
+            delegate: delegate, using: self
         )
     }
 }
